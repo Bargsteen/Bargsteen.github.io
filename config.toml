@@ -1,0 +1,4 @@
+baseURL = "http://bargsteen,com/"
+languageCode = "en-us"
+title = "Bargsteen"
+theme = "Kaspero"

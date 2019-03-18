@@ -1,0 +1,20 @@
+header .logo{
+  font: 700 2.0rem/1.2 "Roboto"; color: $color-text-heading;
+}
+header {
+  padding: 1.5rem 0 1.5rem 0;
+  a {
+    box-shadow: none;
+  }
+}
+
+.header-background {
+  background-color: $color-background;
+  height: 100%;
+}
+
+@media (max-width: 8.5in) {
+  .header-background {
+    padding-bottom: 2rem;
+  }
+}
