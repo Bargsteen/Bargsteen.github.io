@@ -1,6 +1,9 @@
 footer {
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: grey;
+  padding: 1rem 0;
   justify-self: center;
+  p {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: $color-text-weak;
+  }
 }

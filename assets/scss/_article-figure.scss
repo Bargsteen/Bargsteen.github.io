@@ -13,4 +13,8 @@ article {
       display: flex;
       justify-content: center;
   }
+
+  figure {
+    margin: $margin-figure-code 0;
+  }
 }

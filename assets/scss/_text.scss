@@ -8,8 +8,7 @@ h1 {
 }
 
 
-
-h1           { font: 700 2.0rem/1.2 "Roboto"; color: $color-text-heading; }
+h1           { font: 700 1.9rem/1.2 "Roboto"; color: $color-text-heading; }
 h2           { font: 400 1.5rem/1.2 "Roboto"; color: $color-text-heading; }
 time         { font: 700 1.0rem/1.2 "Roboto"; color: $color-text-weak; }
 h3           { font: 700 1.0rem/1.2 "Roboto"; color: $color-text-strong; }
@@ -41,9 +40,7 @@ a {
 // Code blocks. Need to be this specific to override the default.
 .hljs {
   padding: 1.66rem 1.66rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-
+  margin: $margin-figure-code 0;
 }
 
 

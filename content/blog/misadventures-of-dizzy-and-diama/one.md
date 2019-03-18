@@ -32,9 +32,9 @@ So here we were, at a gas station just north of Hannover. Goodbyes were said to 
 
 The sun was setting, and we were quite pleased with our hitchhiking effort so far. We had our tent and used an old timey map to find our path to the nearest town (or Google Maps - whatever you'd like to believe). On our journey, we saw many things and tasted many treats.
 
-{{< figure src="/media/misadventures/one/cows.jpeg" title="Things&#58; Cows" class="size-4">}}
+{{< figure src="/media/misadventures/one/cows.jpeg" title="Things: Cows" class="size-4">}}
 
-{{< figure src="/media/misadventures/one/diama_snail.jpeg" title="Treats&#58; Snails" class="size-3">}}
+{{< figure src="/media/misadventures/one/diama_snail.jpeg" title="Treats: Snails" class="size-3">}}
 
 {{< figure src="/media/misadventures/one/diama_peace.jpeg" title="And we were, once again, pleased with our trip" class="size-3">}}
 
