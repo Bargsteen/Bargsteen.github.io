@@ -3,6 +3,7 @@ title: "Testing Gophercise 1"
 date: 2019-03-10T21:23:57+01:00
 draft: true
 categories: ["code"]
+tags: ["go", "testing"]
 ---
 # Testing Gophercise 1
 
