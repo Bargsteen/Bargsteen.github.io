@@ -1,6 +1,13 @@
-h2, p { 
-  margin-bottom: 2.4rem; 
+h2 { 
+  margin-bottom: 0.4rem; 
+  margin-top: 2rem;
 }
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+
 
 h1           { font: 700 2.0rem/1.2 "Roboto"; color: $color-text-heading; }
 h2           { font: 400 1.5rem/1.2 "Roboto"; color: $color-text-heading; }
@@ -16,6 +23,11 @@ pre {
   }
 } 
 
+code {
+  font: 400 Inconsolata;
+  background-color: #eee;
+}
+
 a { 
   color: $color-text-link;
   box-shadow: inset 0 -0.1rem $color-text-link, 0 0.1rem $color-text-link;
@@ -24,6 +36,14 @@ a {
     color: $color-text-link-hover;
     box-shadow: inset 0 -0.15rem $color-text-link-hover, 0 0.15rem $color-text-link-hover;
   }
+}
+
+// Code blocks. Need to be this specific to override the default.
+.hljs {
+  padding: 1.66rem 1.66rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
 }
 
 
