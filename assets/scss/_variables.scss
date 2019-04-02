@@ -12,7 +12,7 @@ $color-text-weak: hsl(283, 8%, 33%);
 $color-text-strong: darkgrey;
 $color-text-heading: hsl(279, 22%, 15%);
 $color-text-link: $color-primary;
-$color-text-link-hover: $color-accent;//darken($color-text-link, $darken-hover-amount);
+$color-text-link-hover: $color-accent;
 
 $color-border: lighten($color-text, 70%);
 

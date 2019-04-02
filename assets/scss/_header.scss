@@ -1,10 +1,15 @@
-header .logo{
-  font: 700 2.0rem/1.2 "Roboto"; color: $color-text-heading;
-}
 header {
   padding: 1.5rem 0 1.5rem 0;
+
+  .logo {
+    font: 700 2.0rem/1.2 "Roboto"; color: $color-text-heading;
+  }
+
   a {
     box-shadow: none;
+  }
+  span, span > a {
+    font: 500 1.4rem/1.2 "Roboto"; color: $color-text-weak;
   }
 }
 

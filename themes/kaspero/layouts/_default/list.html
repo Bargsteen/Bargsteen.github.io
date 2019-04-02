@@ -2,21 +2,14 @@
 {{ define "main" }}
   <div class="overview-container">  
     {{ .Content }}
-    {{ if ne .Title "Home" }}
-    <div class="category-container">
-      <h4 id="category-title">{{ .Title }}</h4>
-    </div>
-    {{ end }}
-
     <ul class="overview-items">
       {{ range .Pages }}
         <li class="overview-item">
           <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-          <span class="date-and-category">{{ .Date.Format "January 2, 2006" }} - 
+          <span class="date-and-category">{{ .Date.Format "January 2, 2006" }}&nbsp;
             {{ range .Params.categories }} 
-              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+              <a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/"><{{ . }}></a>
             {{ end }}
-
             {{ range .Params.tags }} 
               <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
             {{ end }}
