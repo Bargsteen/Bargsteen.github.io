@@ -34,7 +34,9 @@ footer {
 }
 
 @media (max-width: 8.5in) {
-  body { grid-template-columns: 1fr 5% [start] 15% 60% 15% [end] 5% 1fr; }
+  body { 
+    grid-template-columns: 1fr 5% [start] 15% 60% 15% [end] 5% 1fr;
+  }
   header {
     grid-row: 1;
     grid-column: start / end;

@@ -148,7 +148,6 @@ func parseLines(lines [][]string) ([]problem, error) {
   }
   return ret, nil
 }
-
 ```
 To handle the possibility of errors, the `main` function now checks whether the returned error from `parseLines` is nil.
 The final tests
@@ -328,11 +327,10 @@ func TestRunQuiz(t *testing.T) {
     }
   }
 }
-
 ```
 
 The final test coverage is on 53.8% which is due to the lack of tests on `main`, but given the nature of the code I deem it satisfying. Something else which is satisfying, is the /heat map/ you can generate of your code based on the test coverage.
-[image:DFAA5FBB-466F-40CF-8C11-9975A8AB4DB8-2998-00001C6F569F2D3C/A1D8B2B5-D636-478C-AB80-0975FAF64B35.png]
+::TODO INSERT IMAGE::
 It gives you clear insights into which lines are tested, and how thoroughly, which is very cool indeed.
 
 ## What did we learn?

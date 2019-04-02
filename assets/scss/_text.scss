@@ -16,16 +16,7 @@ p            { font: 400 0.95rem/1.5 "Roboto"; color: $color-text; }
 summary      { font: 400 0.95rem/1.5 "Roboto"; color: $color-text; }
 span         { font: 500 0.90rem/1.5 Inconsolata; color: $color-text-weak; }
 figcaption h4 { font: 400 0.9rem/1.5 "Roboto"; color: $color-text-weak; }
-pre {
-  * {
-    font: 400 0.8rem/1.5 Inconsolata;
-  }
-} 
 
-code {
-  font: 400 Inconsolata;
-  background-color: #eee;
-}
 
 a { 
   color: $color-text-link;
@@ -35,12 +26,6 @@ a {
     color: $color-text-link-hover;
     box-shadow: inset 0 -0.15rem $color-text-link-hover, 0 0.15rem $color-text-link-hover;
   }
-}
-
-// Code blocks. Need to be this specific to override the default.
-.hljs {
-  padding: 1.66rem 1.66rem;
-  margin: $margin-figure-code 0;
 }
 
 

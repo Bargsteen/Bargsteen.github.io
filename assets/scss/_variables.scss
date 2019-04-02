@@ -1,18 +1,18 @@
 
 $color-background: #eee;
 
-$color-shadow: darkgrey;
-$color-primary: hsl(285, 98%, 33%);
-$color-accent: hsl(250, 100%, 67%);
+$darken-hover-amount: 10%;
 
-$darken-hover-amount: 5%;
+$color-shadow: darkgrey;
+$color-primary: hsl(4, 87%, 59%);
+$color-accent: darken($color-primary, $darken-hover-amount);
 
 $color-text: hsl(283, 12%, 11%);
 $color-text-weak: hsl(283, 8%, 33%);
 $color-text-strong: darkgrey;
 $color-text-heading: hsl(279, 22%, 15%);
 $color-text-link: $color-primary;
-$color-text-link-hover: lighten($color-text-link, $darken-hover-amount);
+$color-text-link-hover: $color-accent;//darken($color-text-link, $darken-hover-amount);
 
 $color-border: lighten($color-text, 70%);
 
