@@ -7,5 +7,7 @@
             {{- block "main" . }}{{- end }}
         </div>  
         {{- partial "footer.html" . -}}
+        <script src="/instant-click/instant-click.min.js" data-no-instant></script>
+        <script data-no-instant>InstantClick.init();</script>
     </body>
 </html>
