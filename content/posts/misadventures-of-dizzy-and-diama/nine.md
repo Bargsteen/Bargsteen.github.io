@@ -1,11 +1,9 @@
 ---
 title: Misadventuring, hobo-style! // Bye Bye Dei
-slug: misadventures-chapter-nine
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2018-02-11T12:00:00+01:00'
 categories: ["travel"]
-tags: ["the-misadventures-of-dizzy-and-diama"]
-image: tent_dei.jpg
+tags: ["misadventures"]
 ---
 
 # Misadventuring, hobo-style! // Bye Bye Dei

@@ -1,11 +1,9 @@
 ---
 title: I can has wine!?
-slug: misadventures-chapter-four
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2017-09-18T12:00:00+01:00'
 categories: ["travel"]
-tags: ["the-misadventures-of-dizzy-and-diama"]
-image: brunch.jpg
+tags: ["misadventures"]
 ---
 # I can has wine!?
 ### 13/07 - Chapter Four

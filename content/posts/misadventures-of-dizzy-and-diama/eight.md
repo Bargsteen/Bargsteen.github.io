@@ -1,11 +1,9 @@
 ---
 title: It's Nice here
-slug: misadventures-chapter-eight
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2018-02-10T12:00:00+01:00'
 categories: ["travel"]
-tags: ["the-misadventures-of-dizzy-and-diama"]
-image: empty_street.jpg
+tags: ["misadventures"]
 ---
 
 # It's Nice here

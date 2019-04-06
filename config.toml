@@ -1,4 +1,4 @@
-baseURL = "http://bargsteen,com/"
+baseURL = "/"
 languageCode = "en-us"
 title = "Bargsteen"
 theme = "Kaspero"

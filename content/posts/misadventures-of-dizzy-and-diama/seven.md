@@ -1,11 +1,9 @@
 ---
 title: Buffets and Beaches
-slug: misadventures-chapter-seven
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2018-02-01T12:00:00+01:00'
 categories: ["travel"]
-tags: ["the-misadventures-of-dizzy-and-diama"]
-image: hand_signs.jpg
+tags: ["misadventures"]
 ---
 
 # Buffets and Beaches
