@@ -27,7 +27,7 @@ Woke up in Irene's rather humid house ready for a peachy beach adventure. Plenty
 </figure>
 <br />
 {{< figure src="/media/misadventures/seven/dei_stare.jpg" title="Diama staring into the glaring sun, as the sea settles" class="size-3">}}
-{{< figure src="/media/misadventures/seven/fiserman_far.jpg" title="A hopeful fisherman preparing for throw-out" class="size-3">}}
+{{< figure src="/media/misadventures/seven/fisherman_far.jpg" title="A hopeful fisherman preparing for throw-out" class="size-3">}}
 {{< figure src="/media/misadventures/seven/fish.jpg" title="Woh Ouh, this ain't good. Where's the water at?(In a shocked fish voice)" class="size-3">}}
 {{< figure src="/media/misadventures/seven/cliffs.jpg" title="Marseille is by all definitions a coastal city. A beautiful one at that." class="size-3">}}
 {{< figure src="/media/misadventures/seven/biker.jpg" title="Random biker dude #3" class="size-3">}}
