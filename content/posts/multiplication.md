@@ -51,7 +51,7 @@ What we need to know:
 # Why the Multiplication Algorithm Works
 
 Why does the standard multiplication algorithm work? You know the one, it goes like this:
-```
+```go
 12 x 3
 ------
      6
@@ -81,7 +81,7 @@ This brings us to our first law. The *commutative law*, which states that for an
 Multiplication is, as stated above, *repeated* addition and it therefore also relies on the counting principle! `3 x 4` means to count the objects in `3` groups of size `4` without resetting in between. `1, 2, 3, 4, | 5, 6, 7, 8, |  9, 10, 11, 12`, so `3 * 4 = 12`. In general, for `a x b`, where `a` and `b` are two arbitrary numbers, the result is what you get from counting the objects in `a` groups of size `b`.
 As it turns out, the commutative law also holds for multiplication: `a x b = b x a`. We can see the problem as counting `a` groups of size `b` OR `b` groups of size `a`. Let's see an example, to get this idea straight.
 Here we have `6` items. 
-```
+```go
 ***
 ***
 ```
@@ -89,14 +89,14 @@ It can be seen as `2` groups of `3`, if you look at them as rows. Or it can be `
 
 ### The Distributive Law
 It turns out that the process of multiplication, can be split up into smaller subtasks, which makes sense, because you can always count for a bit, take a breath, and then go on counting! This law seems a bit more complicated at first, because it uses both addition and multiplication at once, but stay with me! First, a numerical example: `2 x (3 + 2) = 2 x 3 + 2 x 2`. Hm, what is going on here? Let's see it graphically!
-```
+```go
 *****     *** **
        =
 *****     *** **
 ```
 On the left side, we see `2` groups of size `5`, where as on the right, we see `2` groups of size `3` and `2` groups of size `2`. There is also an equal sign in the middle, because the two sides are of the same size if you count them. As I said, we can split up the process of counting into smaller parts that are easier to handle. Which is a key ingredient to the multiplication algorithm! In general, the law states that `a x (b + c) = a x b + a x c`, where `a`, `b`, `c` are arbitrary numbers. From right to left, we can see it as merging the `b` and `c` groups before counting `a` of them. From left to right, it can be seen as splitting the `b + c` group in to `b` and `c`groups and counting `a` groups of each. In other words, `a` is *distributed* among `b` and `c` - which is why it's called the *distributive law*!
 In the previous example, I decided to split `5` in to `3` and `2`, but any split is equally valid!
-```
+```go
 *****   **** *   *** **
       =        =     
 *****   **** *   *** **
@@ -110,7 +110,7 @@ As you might have guessed by the section title and my talk of positions, our num
 
 ## Putting it all together
 Now for the big final. Let's put the pieces together via the original example `12 x 3`. The `1` is really a `10`, due to the positional number system, and graphically we can see it as the following.
-```
+```go
 ***********
 
 ***********
@@ -119,7 +119,7 @@ Now for the big final. Let's put the pieces together via the original example `1
 ```
 So `3` groups, or rows, of size `12`. It seems like an awful lot of counting.. Let's use the distributive law to at least split the task in to more manageable parts.
 
-```
+```go
 ***********   ** *********
 
 *********** = ** *********
@@ -128,7 +128,7 @@ So `3` groups, or rows, of size `12`. It seems like an awful lot of counting.. L
 ```
 Ok, so `3` groups of size `2` equaling `6` plus `3` groups of size `10` equaling `30`. Hold up, this sounds familiar!
 This is exactly, what the multiplication algorithm does! Here it is, once again.
-```
+```go
 12 x 3
 ------
      6
@@ -138,11 +138,11 @@ This is exactly, what the multiplication algorithm does! Here it is, once again.
 ```
 Split the task into reasonable chunks, and then add them all together, distributive law-style! We could have split each of the `3` groups in to `2` of size `6`, and nothing stops you for doing that. It is, however, common to split it up by ones, tens, hundreths, etc. when multiplying. Let us look at one final example. It should be something big, right? How about `123 x 12`? Here, we have several options. We could start with just the ones, i.e. `2 x 3` or go with the ones from the left, and all `12` from the right. The result does not change, as long as you remember the actual value of each number as per the positional number system, you can split the task any way you would like!
 
-```
+```go
 123 x 12         123 x 12
 --------         --------
       36                6
-     240    OR         40   OR ??
+     240    OR         40   OR  ??
     1200              200
 --------               30
     1476              200
