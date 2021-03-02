@@ -1,7 +1,3 @@
-# Hugo default output directory
-/public
-/resources
-
 ## OS Files
 # Windows
 Thumbs.db
@@ -15,3 +11,7 @@ $RECYCLE.BIN/
 # VS Code
 /.vscode
 
+# Eleventy
+_site/
+node_modules/
+package-lock.json
