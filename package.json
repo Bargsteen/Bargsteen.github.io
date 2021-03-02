@@ -1,0 +1,32 @@
+{
+  "name": "bargsteen.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve & postcss pcss/tailwind.pcss --o _site/css/style.css --watch --verbose",
+    "build": "ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss pcss/tailwind.pcss --o _site/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bargsteen/bargsteen.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bargsteen/bargsteen.com/issues"
+  },
+  "homepage": "https://github.com/Bargsteen/bargsteen.com#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "autoprefixer": "^10.2.4",
+    "nunjucks": "^3.2.2",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2"
+  },
+  "dependencies": {
+    "postcss-cli": "^8.3.1",
+    "postcss-nesting": "^7.0.1"
+  }
+}

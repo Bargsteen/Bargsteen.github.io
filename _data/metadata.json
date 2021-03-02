@@ -1,0 +1,20 @@
+{
+  "title": "Bargsteen",
+  "url": "https://bargsteen.com/",
+  "description": "I write about stuff.",
+  "feed": {
+    "subtitle": "I write about stuff.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://bargsteen.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://bargsteen.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Kasper Dissing Bargsteen",
+    "email": "kasper@bargsteen.com",
+    "url": "https://bargsteen.com/about-me/"
+  }
+}
