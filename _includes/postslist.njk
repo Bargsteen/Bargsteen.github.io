@@ -1,5 +1,5 @@
-<ol reversed class="postlist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
+<ul reversed class="postlist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
 {% for post in postslist | reverse %}
-  <h2>{{ post.title }}</h2>
+  <li><a href="{{ post.url | url }}">{{ post.data.title }}</a></li>
 {% endfor %}
-</ol>
+</ul>
