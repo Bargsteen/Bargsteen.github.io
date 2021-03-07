@@ -3,7 +3,7 @@ title: I can has wine!?
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2017-09-18T12:00:00+01:00'
 categories: ["travel"]
-tags: ["misadventures"]
+tags: ["post", "misadventures"]
 ---
 # I can has wine!?
 ### 13/07 - Chapter Four
@@ -16,28 +16,23 @@ Anyhow. Later we used [Couchsurfing (an app, which you should totally get!)](htt
 Isabelle turned out to be this lovely German girl, who studied as a pastry chef in Paris. She was fluent in German, French, and English btw. Impressive! The tapas was insanely good and so was the wine. We stayed there for several hours before going to another bar for beer and porto. Next to the bar was a huge line of people waiting to get into a fire station. Yes, a fire station. Bastille Day is a national holiday, where they do this. Look it up. There is lots of fireworks involved :D
 
 
-{{< figure src="/media/misadventures/four/brunch_3.jpg" title="This brunch was INSANE!" class="size-3">}}
-{{< figure src="/media/misadventures/four/brunch_1.jpg" title="Diama had some quiche" class="size-3">}}
-{{< figure src="/media/misadventures/four/brunch_2.jpg" title="And Dizzy had this quinoa-based this" class="size-3">}}
-{{< figure src="/media/misadventures/four/brunch_dei.jpg" title="Diama eating his quiche :D" class="size-3">}}
-{{< figure src="/media/misadventures/four/park_woman.jpg" title="Youngster, hipsters, and geezer where using the park alike" class="size-3">}}
-{{< figure src="/media/misadventures/four/petanque.jpg" title="Petanque-image with a witty nonsense title" class="size-3">}}
-<figure class="size-3">
-    {{< youtube 1ZePn-isUlc >}}
-    <figcaption>
-        <h4>Public drinking</h4>
-    </figcaption>
-</figure>
-{{< figure src="/media/misadventures/four/f_off.jpg" title="Diama sharing the love :D" class="size-3">}}
-{{< figure src="/media/misadventures/four/painter.jpg" title="After seeing this paiting we got interested and moved closer" class="size-3">}}
-{{< figure src="/media/misadventures/four/notre_dame.jpg" title="Much closer! (and took a couple of poser-images)" class="size-3">}}
-{{< figure src="/media/misadventures/four/church_bw.jpg" title="We found a church (they're everywhere)" class="size-3">}}
-{{< figure src="/media/misadventures/four/church_color.jpg" title="Much needed colorful picture to balance it out" class="size-3">}}
-{{< figure src="/media/misadventures/four/church_yellow.jpg" title="Mariah Carey, I think, idk" class="size-3">}}
-{{< figure src="/media/misadventures/four/candles.jpg" title="Candles, candles everywhere!" class="size-3">}}
-{{< figure src="/media/misadventures/four/bar_dei.jpg" title="Uh, the bar! Diama enjoys it fo sho!" class="size-3">}}
-{{< figure src="/media/misadventures/four/bar_isabelle.jpg" title="And this is Isabelle" class="size-3">}}
-{{< figure src="/media/misadventures/four/bar_food.jpg" title="Tapas and wine for the gods!" class="size-3">}}
+{% figure "/img/misadventures/four/brunch_3.jpg" "This brunch was INSANE!" %}
+{% figure "/img/misadventures/four/brunch_1.jpg" "Diama had some quiche" %}
+{% figure "/img/misadventures/four/brunch_2.jpg" "And Dizzy had this quinoa-based this" %}
+{% figure "/img/misadventures/four/brunch_dei.jpg" "Diama eating his quiche :D" %}
+{% figure "/img/misadventures/four/park_woman.jpg" "Youngster, hipsters, and geezer where using the park alike" %}
+{% figure "/img/misadventures/four/petanque.jpg" "Petanque-image with a witty nonsense title" %}
+{% youtube "1ZePn-isUlc" "Public drinking" %}
+{% figure "/img/misadventures/four/f_off.jpg" "Diama sharing the love :D"  %}
+{% figure "/img/misadventures/four/painter.jpg" "After seeing this paiting we got interested and moved closer"  %}
+{% figure "/img/misadventures/four/notre_dame.jpg" "Much closer! (and took a couple of poser-images)"  %}
+{% figure "/img/misadventures/four/church_bw.jpg" "We found a church (they're everywhere)"  %}
+{% figure "/img/misadventures/four/church_color.jpg" "Much needed colorful picture to balance it out"  %}
+{% figure "/img/misadventures/four/church_yellow.jpg" "Mariah Carey, I think, idk"  %}
+{% figure "/img/misadventures/four/candles.jpg" "Candles, candles everywhere!"  %}
+{% figure "/img/misadventures/four/bar_dei.jpg" "Uh, the bar! Diama enjoys it fo sho!"  %}
+{% figure "/img/misadventures/four/bar_isabelle.jpg" "And this is Isabelle"  %}
+{% figure "/img/misadventures/four/bar_food.jpg" "Tapas and wine for the gods!"  %}
 
 And thus ends the fourth chapter of The Misadventures of Dizzy and Diama. Sorry for the delay. I've been busy with starting my studies once again and moving to a new apartment (yay!) :D
 <br /><br />

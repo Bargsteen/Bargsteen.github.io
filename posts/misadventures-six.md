@@ -3,7 +3,7 @@ title: Hold on, Marseille! We're coming over
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2018-01-31T12:00:00+01:00'
 categories: ["travel"]
-tags: ["misadventures"]
+tags: ["post", "misadventures"]
 ---
 
 # Hold on, Marseille! We're coming over
@@ -15,28 +15,18 @@ We packed our gear and headed for a gas station on a highway. The route was quit
 A few hours later we were dropped off at another gas station, where we would soon find Irene, who not only gave us a ride - but also a roof.
 
 
-{{< figure src="/media/misadventures/six/hortense.jpg" title="Strong coffee in the making" class="size-3">}}
-{{< figure src="/media/misadventures/six/dei.jpg" title="Dei studying the wave patterns (on a belly full of jelly)" class="size-3">}}
-<figure class="size-3">
-    {{< youtube X26kkbAD3c4 >}}
-    <figcaption>
-        <h4>Break thy fast</h4>
-    </figcaption>
-</figure>
-{{< figure src="/media/misadventures/six/hortense2.jpg" title="And Hortense again!" class="size-3">}}
-{{< figure src="/media/misadventures/six/van.jpg" title="Le Volkswagen" class="size-3">}}
-{{< figure src="/media/misadventures/six/the_friends.jpg" title="The new friends" class="size-3">}}
-{{< figure src="/media/misadventures/six/gaetan2.jpg" title="Epic pose, dude" class="size-3">}}
-{{< figure src="/media/misadventures/six/gaetan.jpg" title="Whaeh? Oh hi!" class="size-3">}}
-<figure class="size-3">
-    {{< youtube _6_7VM-CGcQ >}}
-    <figcaption>
-        <h4>Beachy?</h4>
-    </figcaption>
-</figure>
-{{< figure src="/media/misadventures/six/gaetan_in_car.jpg" title="Driver's ready!" class="size-3">}}
-{{< figure src="/media/misadventures/six/silly_in_car.jpg" title="Ready to roll!" class="size-3">}}
-{{< figure src="/media/misadventures/six/map.jpg" title="Map of the Day!" class="size-3">}}
+{% figure "/img/misadventures/six/hortense.jpg" "Strong coffee in the making" %}
+{% figure "/img/misadventures/six/dei.jpg" "Dei studying the wave patterns (on a belly full of jelly)" %}
+{% youtube "X26kkbAD3c4" "Break thy fast" %}
+{% figure "/img/misadventures/six/hortense2.jpg" "And Hortense again!" %}
+{% figure "/img/misadventures/six/van.jpg" "Le Volkswagen" %}
+{% figure "/img/misadventures/six/the_friends.jpg" "The new friends" %}
+{% figure "/img/misadventures/six/gaetan2.jpg" "Epic pose, dude" %}
+{% figure "/img/misadventures/six/gaetan.jpg" "Whaeh? Oh hi!" %}
+{% youtube "_6_7VM-CGcQ" "Beachy?" %}
+{% figure "/img/misadventures/six/gaetan_in_car.jpg" "Driver's ready!" %}
+{% figure "/img/misadventures/six/silly_in_car.jpg" "Ready to roll!" %}
+{% figure "/img/misadventures/six/map.jpg" "Map of the Day!" %}
 
 
 And thus ends the sixth chapter of The Misadventures of Dizzy and Diama. 
