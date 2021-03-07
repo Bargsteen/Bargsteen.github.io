@@ -1,9 +1,0 @@
-<header>
-    <a href="/" class="logo">Bargsteen</a><span>:{{ if .IsHome }}<a href="/">home</a>{{ else }}{{ if .Params.categories }}{{ $categoryName := index (.Params.categories) 0 | lower }}<a href="/categories/{{ $categoryName }}">{{ $categoryName }}</a>{{ else }}<a href="">{{ .Title | lower }}</a>{{ end }}{{ end }}</span>
-    <!-- Sorry for the long line. Necessary to avoid spaces around the colon -->
-</header>
-<nav>
-  <a href="/">home</a>
-  <a href="/about">about</a>
-</nav>
-<div class="header-background"></div>
