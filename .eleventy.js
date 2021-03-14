@@ -34,4 +34,6 @@ module.exports = function(eleventyConfig) {
 
   // PostCSS outputs to generated_css. Compilation is slow, but page will update after 5 seconds or so.
   eleventyConfig.addPassthroughCopy({"generated_css": "css"});
+
+  eleventyConfig.setUseGitIgnore(false);
 }
