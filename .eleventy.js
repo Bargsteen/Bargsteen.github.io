@@ -1,7 +1,4 @@
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addWatchTarget("./pcss/tailwind.pcss");
-  // eleventyConfig.setWatchThrottleWaitTime(5000); // in milliseconds
-
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers);
   });
@@ -35,4 +32,6 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("img");
 
+  // PostCSS outputs to generated_css. Compilation is slow, but page will update after 5 seconds or so.
+  eleventyConfig.addPassthroughCopy({"generated_css": "css"});
 }
