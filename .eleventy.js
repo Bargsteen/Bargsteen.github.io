@@ -13,20 +13,20 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addShortcode("youtube", function(id, caption) {
-    return `<figure class="size-3">
+    return `<figure>
               <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                 <iframe src="https://www.youtube.com/embed/${id}"
                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen
                   title="${caption}"></iframe>
               </div>
-              <figcaption>${caption}</figcaption>
+              <figcaption class="text-center pt-1 text-sm italic">${caption}</figcaption>
             </figure>`;
   });
 
   eleventyConfig.addShortcode("figure", function(src, caption) {
     return `<figure>
               <img src="${src}" alt="${caption}">
-              <figcaption>${caption}</figcaption>
+              <figcaption class="text-center pt-1 text-sm italic">${caption}</figcaption>
             </figure>`
   });
 
