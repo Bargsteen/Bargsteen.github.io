@@ -1,0 +1,24 @@
+* TODO Syntax highlighting for code
+* TODO Proper darkmode switch
+* TODO Minimalistic header
+* TODO Dark-mode on frontpage
+* TODO Inline code in dark mode
+* TODO Header change color on hover in dark-mode
+* STRT Styling for figcaption
+* TODO Update ~_data/metadata.json~
+* TODO Add sitemap.xml and feed.xml
+* TODO Link to _all_ posts on frontpage
+* TODO Add footer
+* TODO Make images wider than the text
+* TODO Photo sizes and arrangement
+** Inspiration: https://maptia.com/jodymacdonald/stories/keepers-of-ganesh-the-vanishing-art-of-mahout
+** TODO Full-width
+*** TODO Single photo
+*** TODO Two (or more?)
+** TODO Wide (wider than text)
+*** TODO Single photo
+*** TODO Two (or more?)
+** TODO Text-width
+*** TODO Single photo
+** TODO Additional top/bottom padding
+* TODO Make ~dark:antialiased~ work.
