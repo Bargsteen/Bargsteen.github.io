@@ -18,25 +18,26 @@
     </script>
   </head>
   <body>
-    <div class="bg-white dark:bg-gray-800">
-    <header class="flex flex-col md:flex-row p-6 bg-gray-200 dark:bg-gray-900 justify-between">
-      <div class="w-64 my-auto">
-        <h1 class="text-5xl font-sans font-bold subpixel-antialiased dark:text-white  dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="{{ '/' | url }}">Bargsteen</a></h1>
-      </div>
-      <nav class="flex flex-col md:flex-row justify-end">
-        <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/' | url }}">Home</a></h1>
-        <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/about' | url }}">About</a></h1>
-        <button onclick="toggleDarkMode()">🌗</button>
-      </nav>
-    </header>
+    <div class="flex flex-col h-screen">
+      <header class="flex flex-col md:flex-row p-6 bg-gray-200 dark:bg-gray-900 justify-between">
+        <div class="w-64 my-auto">
+          <h1 class="text-5xl font-sans font-bold subpixel-antialiased dark:text-white  dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="{{ '/' | url }}">Bargsteen</a></h1>
+        </div>
+        <nav class="flex flex-col md:flex-row justify-end">
+          <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/' | url }}">Home</a></h1>
+          <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/about' | url }}">About</a></h1>
+          <button onclick="toggleDarkMode()">🌗</button>
+        </nav>
+      </header>
 
-    <main {%if templateClass %} class="{{ templateClass }}" {%endif%}>
-      <div class="pt-8 px-3 md:px-0 markdown">
-        {{ content | safe }}
-      </div>
-    </main>
+      <main class="flex-grow dark:bg-gray-800">
+        <div class="pt-8 px-3 md:px-0 markdown">
+          {{ content | safe }}
+        </div>
+      </main>
 
-    <footer></footer>
+      <footer class="py-3 mt-5 dark:bg-gray-800 dark:text-white text-center text-sm">Kasper Dissing Bargsteen © 2021</footer>
+    </div>
 
     <!-- Current page: {{ page.url | url }} -->
   </body>
