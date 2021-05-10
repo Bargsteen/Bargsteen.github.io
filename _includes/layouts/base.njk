@@ -9,16 +9,23 @@
     <link href="{{ '/css/style.css' | url }}" rel="stylesheet">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
   <body>
     <div class="bg-white dark:bg-gray-800">
-    <header class="flex flex-col md:flex-row p-6 bg-red-400 border-b-8 border-red-700 justify-between">
+    <header class="flex flex-col md:flex-row p-6 bg-gray-200 dark:bg-gray-900 justify-between">
       <div class="w-64 my-auto">
-        <h1 class="text-5xl font-sans font-bold subpixel-antialiased dark:text-white hover:text-white my-auto transition duration-100 ease-out"><a href="{{ '/' | url }}">Bargsteen</a></h1>
+        <h1 class="text-5xl font-sans font-bold subpixel-antialiased dark:text-white  dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="{{ '/' | url }}">Bargsteen</a></h1>
       </div>
       <nav class="flex flex-col md:flex-row justify-end">
-        <h1 class="underline hover:text-white subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/' | url }}">Home</a></h1>
-        <h1 class="underline hover:text-white subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/about' | url }}">About</a></h1>
+        <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/' | url }}">Home</a></h1>
+        <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/about' | url }}">About</a></h1>
         <button onclick="toggleDarkMode()">🌗</button>
       </nav>
     </header>
@@ -35,8 +42,13 @@
   </body>
   <script>
     function toggleDarkMode() {
-      var element = document.body;
-      element.classList.toggle("dark");
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark')
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark')
+      }
     }
   </script>
 </html>
