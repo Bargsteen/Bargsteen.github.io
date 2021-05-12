@@ -5,7 +5,7 @@
 ** TODO Proper darkmode switch
 ** TODO Link to _all_ posts on frontpage
 ** DONE Minimalistic header
-** TODO Fix text width in about page
+** DONE Fix text width in about page
 ** DONE Automatic and persistent dark mode
 * NICE TO HAVE
 ** TODO Inline code in dark mode
@@ -17,6 +17,7 @@
 ** TODO Add custom main color
 ** TODO Improve colors in header
 ** TODO Add :home / :code postfix to title
+** TODO Add drop shadow-type links
 ** DONE Make images wider than the text
 ** TODO Photo sizes and arrangement
 *** Inspiration: https://maptia.com/jodymacdonald/stories/keepers-of-ganesh-the-vanishing-art-of-mahout
