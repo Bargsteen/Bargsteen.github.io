@@ -4,11 +4,12 @@
 ** DONE Fix menu for small screens
 ** TODO Proper darkmode switch
 ** TODO Link to _all_ posts on frontpage
+** DONE Remove white gap above footer
+** TODO Fix inline code in dark mode
 ** DONE Minimalistic header
 ** DONE Fix text width in about page
 ** DONE Automatic and persistent dark mode
 * NICE TO HAVE
-** TODO Inline code in dark mode
 ** DONE Header change color on hover in dark-mode
 ** DONE Styling for figcaption
 ** TODO Update ~_data/metadata.json~
