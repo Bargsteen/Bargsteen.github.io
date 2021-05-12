@@ -19,11 +19,11 @@
   </head>
   <body>
     <div class="flex flex-col h-screen">
-      <header class="flex flex-col md:flex-row p-6 bg-gray-200 dark:bg-gray-900 justify-between">
-        <div class="w-64 my-auto">
-          <h1 class="text-5xl font-sans font-bold subpixel-antialiased dark:text-white  dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="{{ '/' | url }}">Bargsteen</a></h1>
+      <header class="flex flex-col sm:flex-row gap-y-3 p-6 bg-gray-200 dark:bg-gray-900 justify-between">
+        <div class="text-center">
+          <h1 class="text-4xl sm:text-5xl font-sans font-bold subpixel-antialiased dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="{{ '/' | url }}">Bargsteen</a></h1>
         </div>
-        <nav class="flex flex-col md:flex-row justify-end">
+        <nav class="flex flex-row justify-center">
           <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/' | url }}">Home</a></h1>
           <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 subpixel-antialiased mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="{{ '/about' | url }}">About</a></h1>
           <button onclick="toggleDarkMode()">🌗</button>
