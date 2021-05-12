@@ -1,7 +1,7 @@
 * MUST HAVE
 ** DONE Dark-mode on frontpage
 ** TODO Syntax highlighting for code
-** TODO Fix menu for small screens
+** DONE Fix menu for small screens
 ** TODO Proper darkmode switch
 ** TODO Link to _all_ posts on frontpage
 ** DONE Minimalistic header
