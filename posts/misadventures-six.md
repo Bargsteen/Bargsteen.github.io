@@ -3,7 +3,7 @@ title: Hold on, Marseille! We're coming over
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2018-01-31T12:00:00+01:00'
 categories: ["travel"]
-tags: ["post", "misadventures"]
+tags: ["posts", "misadventures"]
 ---
 
 # Hold on, Marseille! We're coming over

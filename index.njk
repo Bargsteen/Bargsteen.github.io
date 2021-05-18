@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.njk
+layout: layouts/base.njk
 ---
 
 {% set maxPosts = collections.posts.length | min(3) %}
@@ -8,3 +8,5 @@ layout: layouts/home.njk
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
 {% include "postslist.njk" %}
+
+<p>More posts can be found in <a href="{{ '/posts' | url }}">the archive</a>.</p>

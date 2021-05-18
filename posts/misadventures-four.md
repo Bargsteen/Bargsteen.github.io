@@ -3,7 +3,7 @@ title: I can has wine!?
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2017-09-18T12:00:00+01:00'
 categories: ["travel"]
-tags: ["post", "misadventures"]
+tags: ["posts", "misadventures"]
 ---
 # I can has wine!?
 ### 13/07 - Chapter Four
