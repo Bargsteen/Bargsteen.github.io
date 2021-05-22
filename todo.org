@@ -5,7 +5,8 @@
 ** TODO Proper darkmode switch
 ** TODO Link to _all_ posts on frontpage
 ** DONE Remove white gap above footer
-** TODO Fix inline code in dark mode
+** DONE Fix inline code in dark mode
+*** https://play.tailwindcss.com/RpfeDooXVs <- Similar CSS example where it works
 ** DONE Minimalistic header
 ** DONE Fix text width in about page
 ** DONE Automatic and persistent dark mode
