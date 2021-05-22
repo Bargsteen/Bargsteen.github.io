@@ -1,8 +1,16 @@
 @tailwind base;
 @tailwind components;
 
+html {
+  @apply subpixel-antialiased;
+
+  &.dark {
+    @apply antialiased;
+  }
+}
+
 .markdown {
-  @apply text-base text-gray-900 dark:text-white leading-normal subpixel-antialiased;
+  @apply text-base text-gray-900 dark:text-white leading-normal;
 
   & > * {
     @apply mt-8 max-w-xl mx-auto;
@@ -61,7 +69,7 @@
   }
 }
 
-/* Using the dark prefix in the code section above does not produce the correct selector. 
+/* Using the dark prefix in the code section above does not produce the correct selector.
  * It produces `.markdown code.dark`, so the dark class must be on the code. 
  * But this selector takes precedence over the rules for `pre code`, so I've added
  * a second rule for that special case. */
