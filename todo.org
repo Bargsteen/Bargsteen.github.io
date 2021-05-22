@@ -33,4 +33,4 @@
 *** TODO Text-width
 **** TODO Single photo
 *** TODO Additional top/bottom padding
-** TODO Make ~dark:antialiased~ work.
+** DONE Make ~dark:antialiased~ work.
