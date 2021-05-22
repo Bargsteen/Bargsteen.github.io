@@ -2,8 +2,8 @@
 ** DONE Dark-mode on frontpage
 ** TODO Syntax highlighting for code
 ** DONE Fix menu for small screens
-** TODO Proper darkmode switch
-** TODO Link to _all_ posts on frontpage
+** DONE Proper darkmode switch
+** DONE Link to _all_ posts on frontpage
 ** DONE Remove white gap above footer
 ** DONE Fix inline code in dark mode
 *** https://play.tailwindcss.com/RpfeDooXVs <- Similar CSS example where it works
