@@ -2,8 +2,9 @@
 ** DONE Fix half-hidden header in Safari
 ** DONE Dark-mode on frontpage
 ** TODO Use proper darkmode switch for all fonts. It is purple on iOS.
+*** https://heroicons.com/
 ** TODO Syntax highlighting for code
-** TODO Fix too-wide figcaption on narrow images
+** DONE Fix too-wide figcaption on narrow images
 ** DONE Make font in code smaller
 ** DONE Fix spacing between elements in general
 ** DONE Fix menu for small screens
@@ -21,11 +22,13 @@
 ** TODO Update ~_data/metadata.json~
 ** TODO Add sitemap.xml and feed.xml
 ** TODO Add footer
+** TODO Look into https://www.heropatterns.com/ for interesting designs
 ** TODO Add custom main color
 ** TODO Improve colors in header
 ** TODO Add :home / :code postfix to title
 ** TODO Add drop shadow-type links
 ** TODO Add dates and tags to list of posts.
+** TODO Add instant loading plugin
 ** DONE Make images wider than the text
 ** TODO Photo sizes and arrangement
 *** Inspiration: https://maptia.com/jodymacdonald/stories/keepers-of-ganesh-the-vanishing-art-of-mahout

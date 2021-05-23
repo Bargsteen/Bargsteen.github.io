@@ -1,5 +1,3 @@
-const iOSHeight = require('@rvxlab/tailwind-plugin-ios-full-height');
-
 module.exports = {
   purge: [],
   darkMode: 'class', // or 'media' or 'class'
@@ -24,6 +22,7 @@ module.exports = {
     },
   },
   plugins: [
-    iOSHeight,
+    require('@rvxlab/tailwind-plugin-ios-full-height'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 }
