@@ -21,6 +21,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.0.0",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
     "autoprefixer": "^10.2.4",
     "nunjucks": "^3.2.2",
     "postcss": "^8.2.4",
