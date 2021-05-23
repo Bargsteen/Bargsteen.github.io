@@ -3,8 +3,8 @@ module.exports = function (eleventyConfig) {
     return Math.min.apply(null, numbers);
   });
 
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
+  // Get `n` elements of a collection. Use negative `n` to take from the end.
+  eleventyConfig.addFilter("take", (array, n) => {
     if (n < 0) {
       return array.slice(n);
     }
