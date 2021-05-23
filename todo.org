@@ -1,7 +1,7 @@
 * MUST HAVE
 ** DONE Fix half-hidden header in Safari
 ** DONE Dark-mode on frontpage
-** TODO Use proper darkmode switch for all fonts. It is purple on iOS.
+** DONE Use proper darkmode switch for all fonts. It is purple on iOS.
 *** https://heroicons.com/
 ** DONE Syntax highlighting for code
 ** DONE Fix too-wide figcaption on narrow images
