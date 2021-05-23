@@ -19,6 +19,7 @@
 * NICE TO HAVE
 ** DONE Header change color on hover in dark-mode
 ** DONE Styling for figcaption
+** DONE Make header more centered horizontally
 ** TODO Update ~_data/metadata.json~
 ** TODO Add sitemap.xml and feed.xml
 ** TODO Add footer
@@ -28,7 +29,7 @@
 ** TODO Add :home / :code postfix to title
 ** TODO Add drop shadow-type links
 ** TODO Add dates and tags to list of posts.
-** TODO Add instant loading plugin
+** DONE Add instant loading plugin
 ** DONE Make images wider than the text
 ** TODO Photo sizes and arrangement
 *** Inspiration: https://maptia.com/jodymacdonald/stories/keepers-of-ganesh-the-vanishing-art-of-mahout
