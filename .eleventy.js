@@ -35,12 +35,11 @@ module.exports = function (eleventyConfig) {
     return figureWithCaption(img, caption, "table");
   });
 
-  eleventyConfig.addPassthroughCopy("img");
-
-  // PostCSS outputs to generated_css. Compilation is slow, but page will update after 5 seconds or so.
-  eleventyConfig.addPassthroughCopy({ "generated_css": "css" });
-
-  eleventyConfig.addPassthroughCopy({ "prism_css": "css" });
+  eleventyConfig.addPassthroughCopy({"img": "img",
+                                     "prims_css": "css",
+                                     // PostCSS outputs to generated_css.
+                                     // Compilation is slow, but page will update after 5 seconds or so.
+                                     "generated_css": "css"});
 
   eleventyConfig.setUseGitIgnore(false);
 }
