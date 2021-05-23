@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or metadata.title }} | Bargsteen</title>
     <meta name="description" content="{{ description or metadata.description }}">
-    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
     <link href="{{ '/css/style.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/prism-nord.css' | url }}" rel="stylesheet">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
     <script>

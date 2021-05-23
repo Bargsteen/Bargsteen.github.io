@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Bargsteen/bargsteen.com#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.0",
     "@rvxlab/tailwind-plugin-ios-full-height": "^1.0.0",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "autoprefixer": "^10.2.4",

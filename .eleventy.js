@@ -1,4 +1,9 @@
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+
 module.exports = function (eleventyConfig) {
+
+  eleventyConfig.addPlugin(syntaxHighlight);
+
   eleventyConfig.addFilter("min", (...numbers) => {
     return Math.min.apply(null, numbers);
   });
@@ -34,6 +39,8 @@ module.exports = function (eleventyConfig) {
 
   // PostCSS outputs to generated_css. Compilation is slow, but page will update after 5 seconds or so.
   eleventyConfig.addPassthroughCopy({ "generated_css": "css" });
+
+  eleventyConfig.addPassthroughCopy({ "prism_css": "css" });
 
   eleventyConfig.setUseGitIgnore(false);
 }
