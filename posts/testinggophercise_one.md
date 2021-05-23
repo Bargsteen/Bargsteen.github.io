@@ -335,15 +335,13 @@ It gives you clear insights into which lines are tested, and how thoroughly, whi
 ## What did we learn?
 To round this post of, let’s reflect a bit on what we learned. 
 
-<br />
 <ul>
 <li> How to create and execute basic tests in Go</li>
 <li> How to use test tables in tests</li>
 <li> How to test goroutines</li>
 <li> How to refactor code reliant on `stdin` / `stdout` into testable code reliant on the `Reader` / `Writer` interfaces</li>
 <li> How to test time-dependent code</li>
-<ul>
-<br />
+</ul>
 
 I definitely learned something from testing this gophercise and explaining it in this post, and I hope you learned something as well!
 

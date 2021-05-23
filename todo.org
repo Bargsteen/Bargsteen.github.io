@@ -1,6 +1,10 @@
 * MUST HAVE
+** TODO Fix half-hidden header in Safari
 ** DONE Dark-mode on frontpage
 ** TODO Syntax highlighting for code
+** TODO Fix too-wide figcaption on narrow images
+** DONE Make font in code smaller
+** DONE Fix spacing between elements in general
 ** DONE Fix menu for small screens
 ** DONE Proper darkmode switch
 ** DONE Link to _all_ posts on frontpage
