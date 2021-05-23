@@ -94,6 +94,11 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@rvxlab/tailwind-plugin-ios-full-height@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rvxlab/tailwind-plugin-ios-full-height/-/tailwind-plugin-ios-full-height-1.0.0.tgz#4bd2243454c5e35943b049a6ef435a7a0626731d"
+  integrity sha512-zy9TRxkLev8nwmD9pUDtxNXi3f+C6Q9sAA+/4mq8CPGZue+lEYV7wzJHRnV9vsE4Z0MwzP/wXiQ0DKj8b1/Axg==
+
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.9"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.9.tgz#01d7b86949f455402a94c788883fe4ba574cad41"

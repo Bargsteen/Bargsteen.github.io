@@ -1,6 +1,7 @@
 * MUST HAVE
-** TODO Fix half-hidden header in Safari
+** DONE Fix half-hidden header in Safari
 ** DONE Dark-mode on frontpage
+** TODO Use proper darkmode switch for all fonts. It is purple on iOS.
 ** TODO Syntax highlighting for code
 ** TODO Fix too-wide figcaption on narrow images
 ** DONE Make font in code smaller
