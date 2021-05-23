@@ -3,7 +3,7 @@
 ** DONE Dark-mode on frontpage
 ** TODO Use proper darkmode switch for all fonts. It is purple on iOS.
 *** https://heroicons.com/
-** TODO Syntax highlighting for code
+** DONE Syntax highlighting for code
 ** DONE Fix too-wide figcaption on narrow images
 ** DONE Make font in code smaller
 ** DONE Fix spacing between elements in general

@@ -14,7 +14,7 @@ To make it easier for others to follow, we will base the tests upon the [officia
 
 Once a test file is created, which needs the suffix `_text` i.e. the tests for `main.go` are expected to be in the file `main_test.go`, you can check the test coverage. This is done by running the command `go test -cover`.
 
-```go
+``` go
 package main
 
 import (
@@ -95,7 +95,7 @@ func exit(msg string) {
 ## First Unittest
 Let’s get our feet wet with the `parseLines` function. It should be relatively simple, as it is a pure function (i.e. it has no side-effects). Okay, so first of all we need to import the `testing` library, and all of our testing functions will take `*testing.T` as the sole input. If you have experience with testing in something like Python or Java, you’ll notice the lack of the `assert` keyword. This is done purposefully by the creators of Go to make writing testcode more similar to regular code. Instead of asserts you use regular if-statements together with some of the functions from the testing library. Here is the first version of the test for the `parseLines` function:
 
-```go
+``` go
 package main
 
 import "testing"
@@ -131,7 +131,7 @@ func TestParseLines(t *testing.T) {
 ```
 
 I used test tables to allow for easily adding more test cases in the future, similar to how  [theories work in something like xUnit](https://xunit.github.io/docs/getting-started/netcore/cmdline#write-first-theory). As with the lack of assertions, this approach relies only on regular language constructs such as lists and structs. It brings our test-coverage up to 12.5%, but I see a possibility of runtime-errors; what happens if you pass in the following input? `[][]string{{“4 / 2”}}`. It causes a panic, because `parseLines` assumes the inner lists to have a length of two. `parseLines` should therefore return an `([]problem, error)` tuple instead, and we will have to alter the code and the tests.
-```go 
+``` go
 var errProblemFormat = errors.New(“invalid problem format”)
 
 func parseLines(lines [][]string) ([]problem, error) {
@@ -151,7 +151,7 @@ func parseLines(lines [][]string) ([]problem, error) {
 To handle the possibility of errors, the `main` function now checks whether the returned error from `parseLines` is nil.
 The final tests
 
-```
+``` go
 func TestParseLines(t *testing.T) {
   tables := []struct {
     input         [][]string
@@ -253,7 +253,7 @@ func getAndSendAnswer(answerCh chan string, r io.Reader) {
 Aside from extracting some of the functionality, I removed the direct use of standard in and out, which `fmt.Printf` and friends rely on. Instead we use the related `fmt.Fprintf` and `fmt.Fscanf` functions which take in an `io.Writer` and `io.Reader`, respectively. When used in the program, we can pass in `os.stdout` and `os.stdin`, and during tests we can choose to give it something completely different. The use of interfaces in Go is common because they are very flexible. The key difference between interfaces in Go and fx C# is that you don’t have to specify which interfaces you implement when creating the data structures (would be classes in C#). Instead, if functions exist for a given data structure, which adheres to an interface—even one you /just/ created—then the data structure implements that interface!
 
 Okay, back to testing; how do we proceed? `parseLines` was rather trivial, as it was a pure function without concurrency. `getAndSendAnswer` is the exact opposite, but it turns out to be easy to test due to its reliance on its inputs. We can fake the userinput using `strings.NewReader` and listen on the channel, just like the caller in actual code would.
-```go
+``` go
 func TestGetAndSendAnswer(t *testing.T) {
   answerCh := make(chan string)
   go getAndSendAnswer(answerCh, strings.NewReader(“42\n43\n”))
@@ -265,7 +265,7 @@ func TestGetAndSendAnswer(t *testing.T) {
 The newline characters (`\n`) are important, as the `fmt.Fscanf` call in `runQuiz` expects it between each answer. Notice the `go` keyword before `getAndSendAnswer`; I forgot it the first time around which caused a deadlock. The lesson learned: when testing functions used a goroutines, remember to also use the `go` keyword in your tests, as the results might be completely different.
 
 And now for the final part that I decided to test. The `runQuiz` function. Since it deals with a `Timer`, I had to create my own `Reader` type, which sleeps in between reads. It could definitely have been achieved in a different and more elegant fashion, which wouldn’t delay the execution of the tests, but this will serve for now. It is basically a wrapper around the `strings.NewReader`:
-```
+``` go
 type slowReader struct {
   r     io.Reader
   delay int
@@ -283,7 +283,7 @@ func makeSlowReader(text string, delay int) slowReader {
 ```
 
 Once again, I use test tables to check multiple cases. Oh, and `io.Discard` is an implementation of `io.Writer` which throws everything written to it, as we don’t need it for the tests.
-```
+``` go
 func TestRunQuiz(t *testing.T) {
   tables := []struct {
     readerText      string

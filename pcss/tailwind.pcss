@@ -40,12 +40,8 @@ html {
     @apply leading-tight text-xl sm:text-2xl font-bold mt-6;
   }
 
-  & code {
-    @apply font-mono text-sm inline bg-gray-300 px-1;
-  }
-
-  & pre code {
-    @apply block text-gray-200 font-mono overflow-auto p-4 rounded;
+  & pre {
+    @apply max-w-2xl my-8 mx-auto !important;
   }
 
   & blockquote {
@@ -70,15 +66,14 @@ html {
 }
 
 /* Using the dark prefix in the code section above does not produce the correct selector.
- * It produces `.markdown code.dark`, so the dark class must be on the code. 
- * But this selector takes precedence over the rules for `pre code`, so I've added
- * a second rule for that special case. */
-.dark .markdown code {
+ * It produces `.markdown code.dark`, so the dark class must be on the code.
+ */
+.dark .markdown p code {
   @apply bg-gray-900;
 }
 
-.markdown pre code {
-  @apply bg-gray-900 dark:bg-gray-900;
+.markdown p code {
+  @apply bg-gray-300;
 }
 
 @tailwind utilities;
