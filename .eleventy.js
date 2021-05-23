@@ -35,7 +35,7 @@ module.exports = function (eleventyConfig) {
 }
 
 function figureWithCaption(child, caption) {
-    return `<figure class="max-w-4xl mx-auto center mt-20 mb-20">
+    return `<figure class="max-w-4xl mx-auto center mt-8 mb-8">
               ${child}
               <figcaption class="mx-auto text-center text-white p-2 text-sm italic bg-gray-800 dark:bg-gray-900 border-solid rounded-b">${caption}</figcaption>
             </figure>`
