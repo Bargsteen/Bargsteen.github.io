@@ -10,6 +10,7 @@
 ** DONE Fix menu for small screens
 ** DONE Proper darkmode switch
 ** DONE Link to _all_ posts on frontpage
+** DONE Add draft option
 ** DONE Remove white gap above footer
 ** DONE Fix inline code in dark mode
 *** https://play.tailwindcss.com/RpfeDooXVs <- Similar CSS example where it works
