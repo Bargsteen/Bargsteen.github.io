@@ -42,6 +42,15 @@ module.exports = function (eleventyConfig) {
                                      "generated_css": "css"});
 
   eleventyConfig.setUseGitIgnore(false);
+
+  // Toggle inclusion of drafts
+  const includeDrafts = true;
+  const postsToShow = (post) => includeDrafts || !post.data.draft;
+
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("posts/*.md")
+                        .filter(postsToShow);
+  });
 }
 
 function figureWithCaption(child, caption, extraFigureClasses) {
