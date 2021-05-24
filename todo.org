@@ -45,3 +45,8 @@
 *** TODO Additional top/bottom padding
 ** DONE Make ~dark:antialiased~ work.
 ** TODO Next/prev post links
+** TODO Minify CSS automatically
+*** https://statickit.com/guides/eleventy-tailwind
+** TODO Purge unused CSS
+*** https://benborgers.com/eleventy-tailwind
+*** https://tailwindcss.com/docs/optimizing-for-production
