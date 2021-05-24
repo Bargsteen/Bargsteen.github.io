@@ -6,7 +6,6 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-# Oh hey doggie!
 ### 11/07 - Chapter Two
 Boy, did we have an interesting night!? Dogs running into the side of the tent, drunk Germans, and bright and early runners. It had it all, to say the least, but we slept none the less.</br>
 I, Dizzy, woke up before Diama and took a little video explaining my thoughts and actions to come. So here it comes. Video content, as promised. (Dizzys and Diamas always pay their debts (and keep their promises). That is unless dragons get in our way).

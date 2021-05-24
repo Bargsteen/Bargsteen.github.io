@@ -44,3 +44,4 @@
 **** TODO Single photo
 *** TODO Additional top/bottom padding
 ** DONE Make ~dark:antialiased~ work.
+** TODO Next/prev post links

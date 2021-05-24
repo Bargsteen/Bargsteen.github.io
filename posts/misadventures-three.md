@@ -6,7 +6,6 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-# Paris, my Paris!
 ### 12/07 - Chapter Three
 Today was a wild day. We slept in a park, went to Paris, drank, ate, saw, and photographed! The videoes and photos explain it quite well, so I'll let them do most of the talking this time around. As they say: "A picture is worth a thousand words", and those videos are 2:05 minutes long in total. Which means 125 seconds &#42; 30 frames per sec &#42; 1000 words per pic = 3.750.000 words. So I think we are covered. Anyway, we saw the Eiffel Tower, Louvre, the Latino Area and plenty more. We even Frenched it up by walking around in the streets with a bottle of wine. Good times! Oh, and we got a super nice room in a hostel with two beds. We were set! Aaand, I'll hand it off to the videoes and witty comments underneath the photos:
 

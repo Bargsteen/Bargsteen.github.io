@@ -6,7 +6,6 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-# It's Nice here
 ### 17/07 - Chapter Eight
 It was melting hot day to hitchhike in, and maybe that's why we failed. Wait what!? Yes, our semi-boiling brains gave in to the temptation of BlaBlaCar. Sorry to disappoint, but we had good a reason - Herbie Hancock was playing in Nice! We had bought tickets a few days before and were ready to end our trip with a jazzy explosion of augmented chords, improvisation and a Nice atmosphere (sorry for the pun :b). Videos taketh away.
 
