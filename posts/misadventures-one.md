@@ -7,7 +7,6 @@ tags: ["posts", "misadventures"]
 ---
 
 
-# Aalborg to Hannover in One Ride!
 ### 10/07 - Chapter One
 
 This is the story, or misadventure if you will, of two unlikely comrades and their travels from the cold and rainy land of Denmark to the far warmer and sunny land of France.

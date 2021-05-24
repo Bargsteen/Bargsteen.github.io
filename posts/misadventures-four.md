@@ -5,7 +5,6 @@ date: '2017-09-18T12:00:00+01:00'
 categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
-# I can has wine!?
 ### 13/07 - Chapter Four
 Slighty hungover, we managed to get out of our lovely private hotel room and down to one of the best-rated cafés for brunch. Plane tickets were bought (yes we are cheating on our way back, but more about that later), food digested and coffee drunk. Then we moved onto discovering the city. We found the Luxembourg Park, which was quite nice and relaxing. 
 Our throats began to become dry and we were in desperate need of the liquid France is most known for. Luckily good wine is cheap and ubiquitous, and we even managed to get it opened by the cashier! 

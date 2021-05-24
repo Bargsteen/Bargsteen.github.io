@@ -4,7 +4,6 @@ date: 2019-03-10T21:23:57+01:00
 draft: true
 categories: ["code"]
 ---
-# Testing Gophercise 1
 
 I recently started programming in Go via [The Tour of Go](http://tour.golang.org/) and I was delighted to find it fun and easy to get in to. Go is a perfect example of how powerful simplicity can be.
 After learning the basics, including the very interesting concurrency primitives, I decided to look for projects to build and luckily stumbled upon [Gophercises](http://gophercises.com), which is a free set of tutorials based on Go, where you build small, but realistic and useful, projects and thereafter can watch a professional Go-programmer code the same project. After completing [the first exercise, where you build a quiz game](https://gophercises.com/exercises/quiz), I decided to try and test the code as a way of learning testing in Go. It should be stated that I do not have a great deal of experience in testing code (and none in Go so far), but am currently taking a course on testing and verification. The goal of this post will therefore be to further my knowledge of testing in Go, and in general, whilst explaining it to whomever might read this.

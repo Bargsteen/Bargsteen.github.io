@@ -6,7 +6,6 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-# Hold on, Marseille! We're coming over
 ### 15/07 - Chapter Six
 Sleeping with your friends by the lake, doesn't that just sound idyllic? Like something out of a fairy tale about two guys hitchhiking to France.<br />
 I woke up with a mild hangover and sneaked out of the tent. The others were still asleep, and I went for a morning swim in the lovely water. <br />
