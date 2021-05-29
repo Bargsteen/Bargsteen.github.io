@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebuilding my blog with Eleventy and TailwindCSS | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen min-h-screen-ios">
+      <header class="bg-gray-200 dark:bg-gray-900">
+        <div class="flex flex-col sm:flex-row gap-y-3 mx-auto p-6 justify-between max-w-4xl">
+          <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl font-sans font-bold dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="/">Bargsteen</a></h1>
+          </div>
+          <nav class="flex flex-row justify-center">
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/">Home</a></h1>
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/about">About</a></h1>
+            <button onclick="toggleDarkMode()" class="focus:outline-none dark:text-white w-6 hover:text-indigo-600 dark:hover:text-indigo-600 mx-4 my-auto">
+              <div class="dark:hidden">
+                <!-- Moon -->
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </div>
+              <div class="hidden dark:inline">
+                <!-- Sun -->
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow dark:bg-gray-800 pt-8 px-3 md:px-0 markdown">
+          <h1>Rebuilding my blog with Eleventy and TailwindCSS</h1>
+<!-- ## Outline -->
+<!-- Why Eleventy -->
+<!--   - For fun -->
+<!--   - Wanted to change things more easily -->
+<!--   - Love the simplicity: tweetable setup -->
+<!--   - Later: experiences -->
+<!-- Why TailwindCSS -->
+<!--   - Tachyons but more developed -->
+<!--   - Functional/utility -->
+<!--   - Better building blocks -->
+<!--   - No need for double collections (especially true for component-based, e.g. react) -->
+<!--   - Fewer context switches -->
+<!-- Hacks: -->
+<!--   - start script and watching generated CSS -->
+<!--     - Context: automatic classes added to markdown -->
+<!--     - gitignore fix -->
+<!--   - drafts -->
+<!-- ## Post -->
+<p>I've been wanting to get back into writing for some time now.
+But I was not satisfied with my existing blog built using <a href="https://gohugo.io/">Hugo</a> and basic CSS.
+So I decided to rebuild my blog using <a href="https://11ty.dev/">Eleventy</a> and
+<a href="https://tailwindcss.com/">TailwindCSS</a> and write about it.</p>
+<p>There were three primary problems I wanted to address:</p>
+<ol>
+<li>I wanted a simpler setup than I had with Hugo in terms of configuration and
+folder structure.</li>
+<li>I wanted a setup that I could easily extend to eventually show off my
+photos and music in a nice way. While Hugo has a decent ecosystem, I found
+it lacking for my needs.</li>
+<li>I wanted to change parts of the design but dreaded using CSS, especially
+extending my old CSS.</li>
+</ol>
+<p>Let's look at the tools I decided to use to solve these problems.</p>
+<h2>Eleventy</h2>
+<p>Let's start with the first problem.
+I stumbled upon Eleventy and was immediately intrigued by its simplicity.
+One of my favourite design principles is that simple things should be simple, and
+complex things should only be as complex as they are themselves.
+In other words, we want to <a href="https://en.wikipedia.org/wiki/No_Silver_Bullet">avoid accidental complexity</a>.</p>
+<p>Eleventy hits the mark by its tweetable setup:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> -g @11ty/eleventy<br><span class="token builtin class-name">echo</span> <span class="token string">'# Page header'</span> <span class="token operator">></span> README.md<br>eleventy</code></pre>
+<p>In comparison, the basic setup for Hugo involves multiple folders and files which
+confused me every time I would come back after a long hiatus.
+With Eleventy, the structure is only as complex as you need it to be.</p>
+<p>Let's address the second problem.
+Eleventy is built in Javascript and thereby comes with a large ecosystem
+targeted for the web.
+While I haven't started experimenting with the relevant plugins, it seems like
+there are ample options to choose from.</p>
+<h2>Tailwind CSS</h2>
+<p>The third and final problem relates to CSS.
+I had written the CSS for the previous iteration of my blog myself, but I did
+not particularly like the process.
+The traditional approach to CSS quickly becomes an intertangled mess unless you
+really know what you are doing.
+With the reuse of complex classes and cascading effects, it reminds of writing
+effectful object-oriented code with inheritance hierarchies.
+Something which I've left behind a long time ago (and for good reason) now that
+I mostly work in Haskell and Rust.</p>
+<p>Since creating the last iteration of my blog, I've been introduced to
+utility-first CSS &quot;frameworks&quot; such as <a href="https://tachyons.io/">Tachyons</a> and
+<a href="https://tailwindcss.com/">TailwindCSS</a>, and I found them to be quite intriguing (I
+decided to go with Tailwind as it is more polished, but Tachyons has some unique
+ideas on its own).
+The basic idea with these frameworks is that each class has a <em>single</em> function or
+utility, which you combine to get the desired styling by adding them to an HTML element.
+The way I see it is that you move the composition of design elements from CSS to
+HTML.
+So instead of:</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.btn</span> <span class="token punctuation">{</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> black<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span><br>  <span class="token property">padding</span><span class="token punctuation">:</span> 0.5rem<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><span class="token comment">/* &lt;button class="btn">Click me!&lt;/button> */</span></code></pre>
+<p>You do:</p>
+<pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- Tailwind CSS --></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-black text-white p-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Click me!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+<p>So why is this preferable?</p>
+<h3>Context switching</h3>
+<p>Since you only work in HTML, you have fewer <em>context switches</em>, each of which is
+detrimental to your productivity.
+Every time you switch from HTML to CSS or back your brain has to adjust, which
+uses up its scarce resources.</p>
+<h3>Double compositioning / composition confusion</h3>
+<p>With traditional CSS I often find myself thinking:</p>
+<ul>
+<li>&quot;Should this element have multiple classes on it, or should I create a new
+class that encompasses all the parts I need?&quot;</li>
+<li>&quot;Will I reuse this new class elsewhere?&quot;</li>
+<li>&quot;What should I name this new class?&quot;</li>
+</ul>
+<p>The primary problem is that there are <em>two</em> places in which design elements can be
+composed: in CSS <em>and</em> HTML.</p>
+<p>With utility-based CSS frameworks, the decision between composing in CSS and
+HTML disappears and so does the naming problem.
+Again, this helps with your productivity by reducing the noise of unnecessary
+decisions.</p>
+<h3>Sane defaults and plugins</h3>
+<p>There are a lot of different ways to achieve the same things in CSS.
+Choosing the &quot;best&quot; approach requires some research.
+For example, should I use <code>px</code>, <code>em</code>, <code>rem</code>?
+Tailwind comes with sane defaults to most of these questions.
+This frees up your mind to simply think about how it looks.</p>
+<p>And if Tailwind doesn't offer a solution, there are <a href="https://www.telerik.com/blogs/top-15-tailwind-css-plugins-resources/">lots of
+plugins</a>
+you can reach for, which might.</p>
+<h3>Dark mode</h3>
+<p>With Tailwind, having a dark and light mode of your website is a breeze.
+You simply add a <code>dark:</code> prefix to classes you want to be applied in dark mode.
+For example, this button is black with white text in light mode, and white with
+black text in dark mode. Easy.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>bg-black dark:bg-white<br>               text-white dark:text-black<br>               p-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>  Click me!<br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+<h2>Workflow improvements with Eleventy</h2>
+<p>What follows is a bag of tips and tricks that I found or created for this website.
+Feel free to be inspired (or tell me why my solution sucks ;D).</p>
+<h3>Reloading page on PostCSS compilations</h3>
+<p>Tailwind recommends the use of <a href="https://postcss.org">PostCSS</a>.
+I added default classes for the HTML elements generated from the post files
+written in markdown.
+While developing the design, I wanted changes to the PostCSS file to cause the page in
+the browser to reload, so that I could see the effect.
+You can get Eleventy to watch for file changes and automatically rebuild your
+site, but watching the PostCSS file did not work.
+The reason was that Eleventy would reload the site <em>before</em> the PostCSS compiler
+could finish generating the new CSS.</p>
+<p>My solution was to make Eleventy watch for changes in generated CSS:</p>
+<p><strong>Step 1:</strong> To run PostCSS along with Eleventy, with both of them watching and
+rebuilding your site automatically, add this start script to your <code>package.json</code>:</p>
+<pre class="language-json"><code class="language-json">...<br><span class="token property">"scripts"</span><span class="token operator">:</span> <span class="token punctuation">{</span><br>  <span class="token property">"start"</span><span class="token operator">:</span> <span class="token string">"eleventy --serve &amp; postcss pcss/tailwind.pcss --o generated_css/style.css --watch --verbose"</span><br><span class="token punctuation">}</span><br>...</code></pre>
+<p>This puts the generated CSS into <code>generated_css/style.css</code>.</p>
+<p><strong>Step 2:</strong> We don't want to include generated content in our git repository, so
+add the folder to your <code>.gitignore</code>:</p>
+<pre class="language-gitignore"><code class="language-gitignore"><span class="token comment"># PostCSS output</span><br><span class="token entry string">generated_css<span class="token punctuation">/</span></span></code></pre>
+<p><strong>Step 3:</strong> By default, Eleventy does not watch files listed in your
+<code>.gitignore</code>, but we can disable that behavior in <code>.eleventy.js</code>.
+While we're at it, we will also tell Eleventy to copy the generated CSS folder
+into our site:</p>
+<pre class="language-javascript"><code class="language-javascript">module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">eleventyConfig</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  eleventyConfig<span class="token punctuation">.</span><span class="token function">setUseGitIgnore</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  eleventyConfig<span class="token punctuation">.</span><span class="token function">addPassThroughCopy</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token string">"generated_css"</span><span class="token operator">:</span> <span class="token string">"css"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Step 4:</strong> With the change in the ignore behaviour, Eleventy will suddenly start
+compiling <em>any</em> markdown files it finds. Including the ones from
+<code>node_modules/</code>.
+Luckily, Eleventy also ignores files listed in <code>.eleventyignore</code>.
+Create the file and add the following:</p>
+<pre class="language-gitignore"><code class="language-gitignore"><span class="token entry string">README.md</span><br><span class="token entry string">node_modules<span class="token punctuation">/</span></span><br><span class="token entry string">_site<span class="token punctuation">/</span></span></code></pre>
+<p>And that's it!</p>
+<h3>Drafts</h3>
+<p>I wanted to have a draft feature similar to the one in Hugo, where you can add
+<code>draft: true</code> to the front matter of posts to mark them as drafts.
+Drafts are then excluded when building the site unless you add a special flag.
+Inspired by <a href="https://giustino.blog/how-to-drafts-eleventy/">this blog post</a>, I created my solution, but with one extra feature: a toggle for
+including/excluding the drafts.</p>
+<p>In your <code>.eleventy.js</code> file add the following (assuming your posts are located
+in <code>posts/</code>):</p>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> includeDrafts <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Toggle this to include/exclude drafts.</span><br><span class="token keyword">const</span> <span class="token function-variable function">postsToShow</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token operator">=></span> includeDrafts <span class="token operator">||</span> <span class="token operator">!</span>post<span class="token punctuation">.</span>data<span class="token punctuation">.</span>draft<span class="token punctuation">;</span><br><br>eleventyConfig<span class="token punctuation">.</span><span class="token function">addCollection</span><span class="token punctuation">(</span><span class="token string">"posts"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">collectionApi</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> collectionApi<span class="token punctuation">.</span><span class="token function">getFilteredByGlob</span><span class="token punctuation">(</span><span class="token string">"posts/*.md"</span><span class="token punctuation">)</span><br>                      <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>postsToShow<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
+<p>By toggling the <code>includeDrafts</code> variable, you decide whether drafts, i.e. posts
+with <code>draft: true</code>, should be included in the build.</p>
+<h2>Outro</h2>
+<p>I've been quite satisfied with my choice of stack and I am looking forward to
+making tweaks and improvements as I go.</p>
+<p>Feel free to <a href="https://github.com/bargsteen/bargsteen.com">take a look at the source code for my website on GitHub.</a></p>
+<p>Or look at the resources I used:</p>
+<ul>
+<li><a href="https://www.filamentgroup.com/lab/build-a-blog/">Build your own Blog from Scratch using Eleventy</a></li>
+<li><a href="https://github.com/11ty/eleventy-base-blog">A basic blog template in Eleventy</a></li>
+<li><a href="https://stubborncode.com/posts/build-a-blog-with-eleventy-and-tailwindcss-part-1/">Build a blog with Eleventy and TailwindCSS</a></li>
+</ul>
+<p>Until next time,</p>
+<p>— Kasper</p>
+
+
+      </main>
+
+      <footer class="pb-4 pt-7 dark:bg-gray-800 dark:text-white text-center text-sm">Kasper Dissing Bargsteen © 2021</footer>
+    </div>
+
+    <!-- Current page: /posts/eleventy-and-tailwind/ -->
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark')
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark')
+      }
+    }
+  </script>
+</html>

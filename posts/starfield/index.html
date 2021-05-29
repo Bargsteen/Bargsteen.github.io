@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starfield | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  </head>
+  <body>
+    <div class="flex flex-col min-h-screen min-h-screen-ios">
+      <header class="bg-gray-200 dark:bg-gray-900">
+        <div class="flex flex-col sm:flex-row gap-y-3 mx-auto p-6 justify-between max-w-4xl">
+          <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl font-sans font-bold dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="/">Bargsteen</a></h1>
+          </div>
+          <nav class="flex flex-row justify-center">
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/">Home</a></h1>
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/about">About</a></h1>
+            <button onclick="toggleDarkMode()" class="focus:outline-none dark:text-white w-6 hover:text-indigo-600 dark:hover:text-indigo-600 mx-4 my-auto">
+              <div class="dark:hidden">
+                <!-- Moon -->
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </div>
+              <div class="hidden dark:inline">
+                <!-- Sun -->
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow dark:bg-gray-800 pt-8 px-3 md:px-0 markdown">
+          <h1>Starfield</h1>
+<h2>H2 dolor sit amet</h2>
+<p>Consectetur adipiscing elit. Quisque in nisi sit amet odio semper faucibus. Suspendisse sit amet rhoncus ipsum. Duis eget dictum odio. Aenean ut nunc sit amet dui lobortis finibus et ut enim. Etiam id arcu tempus, elementum dolor volutpat, posuere turpis. Suspendisse at sapien et ligula lobortis euismod. Etiam auctor ut augue at laoreet. Ut imperdiet elit eget varius aliquam. Curabitur scelerisque accumsan lorem vel vehicula. Aliquam erat volutpat. Donec placerat bibendum quam, ut ultricies augue consequat non. Sed et ligula quam. Etiam nec egestas enim, nec dapibus nisl. Pellentesque venenatis lacinia arcu, non consectetur dolor tempor vel. Nam sit amet rhoncus tellus. Cras augue felis, porttitor non nunc ac, condimentum faucibus ipsum.</p>
+<h3>Some H3 that is quite long</h3>
+<p>sollicitudin hendrerit elit ut mattis. Duis rutrum vel quam eget ultrices. Donec vel orci lorem. Duis a odio ut augue commodo gravida. Donec sed ligula nulla. Fusce imperdiet ipsum sed molestie molestie. Quisque vehicula augue velit. Quisque sit amet erat scelerisque, scelerisque eros eget, finibus nibh. Maecenas pulvinar a massa id vulputate.</p>
+<p>Nulla porta viverra arcu, sit amet bibendum justo efficitur eget. Donec sit amet volutpat enim. Morbi ac hendrerit lacus. Phasellus sodales sapien maximus, egestas ex ut, molestie dui. In ultricies, velit quis eleifend facilisis, lorem nisl dignissim ipsum, nec dictum tellus est ac nibh. Nunc vestibulum purus at dui semper, nec aliquam tortor imperdiet. Phasellus in venenatis libero. Proin ligula nulla, placerat a est ut, commodo eleifend lectus.</p>
+<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In lobortis enim pretium, volutpat est quis, maximus magna. Ut bibendum congue faucibus. Sed eu elit et lorem condimentum semper vitae eu lacus. Pellentesque dui tellus, semper a turpis et, ultrices condimentum ipsum. Vivamus aliquam quam in massa bibendum, eget fermentum ipsum ullamcorper. Suspendisse at semper est.</p>
+<h1>Some H1</h1>
+<p>Aenean suscipit ultricies enim quis sodales. Nunc dignissim ex justo, ac accumsan velit sodales et. Morbi a consequat nisl, eu pharetra sem. Nam imperdiet mollis volutpat. Aliquam erat volutpat. Maecenas sagittis id lorem sit amet vestibulum. Maecenas libero ligula, sodales vitae velit ut, consequat blandit tellus. Vestibulum congue vitae nunc sed luctus. Fusce in sapien pulvinar, fringilla eros nec, accumsan quam. Sed vel sem a quam malesuada sodales ac eleifend ex. Ut eget accumsan libero.s</p>
+<h2>Another h2</h2>
+<p>Aenean suscipit ultricies enim quis sodales. Nunc dignissim ex justo, ac accumsan velit sodales et. Morbi a consequat nisl, eu pharetra sem. Nam imperdiet mollis volutpat. Aliquam erat volutpat. Maecenas sagittis id lorem sit amet vestibulum. Maecenas libero ligula, sodales vitae velit ut, consequat blandit tellus. Vestibulum congue vitae nunc sed luctus. Fusce in sapien pulvinar, fringilla eros nec, accumsan quam. Sed vel sem a quam malesuada sodales ac eleifend ex. Ut eget accumsan libero.s</p>
+
+
+      </main>
+
+      <footer class="pb-4 pt-7 dark:bg-gray-800 dark:text-white text-center text-sm">Kasper Dissing Bargsteen © 2021</footer>
+    </div>
+
+    <!-- Current page: /posts/starfield/ -->
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark')
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark')
+      }
+    }
+  </script>
+</html>
