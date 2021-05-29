@@ -50,3 +50,4 @@
 ** TODO Purge unused CSS
 *** https://benborgers.com/eleventy-tailwind
 *** https://tailwindcss.com/docs/optimizing-for-production
+** TODO Add Copy button for code blocks
