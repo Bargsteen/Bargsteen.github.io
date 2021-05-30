@@ -6,7 +6,7 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-### 18/07 - Chapter Nine
+### 18/07-17 - Chapter Nine
 We looked up the rules for sleeping in parks in Nice. It was illegal. We did it anyway. Desperate times calls for tents in parks! A weird sound woke us up, sort of a 'clunk clunk'. What the hell is that?! Turned out that our park was filled with petanque fields, and the sound came from an early bird training his skills. 
 We hurriedly packed our tent and went down the hill for the finalization of our misadventures. Diama was leaving for home, and I was going to stay in and around Nice for another week.
 
