@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve & postcss pcss/tailwind.pcss --o generated_css/style.css --watch --verbose",
-    "build": "rm -rf _site && ELEVENTY_PRODUCTION=true eleventy & NODE_ENV=production postcss pcss/tailwind.pcss --o _site/css/style.css"
+    "build": "rm -rf _site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss pcss/tailwind.pcss --o _site/css/style.css"
   },
   "repository": {
     "type": "git",
