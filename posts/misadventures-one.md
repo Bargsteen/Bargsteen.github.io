@@ -7,7 +7,7 @@ tags: ["posts", "misadventures"]
 ---
 
 
-### 10/07 - Chapter One
+### 10/07-17 - Chapter One
 
 This is the story, or misadventure if you will, of two unlikely comrades and their travels from the cold and rainy land of Denmark to the far warmer and sunny land of France.
 The heroes of this story are Kasper 'Dizzy' Dissing Bargsteen and Deimantas 'Diama' Jurevičius.

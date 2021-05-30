@@ -6,7 +6,7 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-### 16/07 - Chapter Seven
+### 16/07-17 - Chapter Seven
 Woke up in Irene's rather humid house ready for a peachy beach adventure. Plenty of videos to go along, so I'll keep my rambling ramblings short. Enjoy!
 
 

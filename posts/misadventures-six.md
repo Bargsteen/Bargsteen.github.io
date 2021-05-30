@@ -6,7 +6,7 @@ categories: ["travel"]
 tags: ["posts", "misadventures"]
 ---
 
-### 15/07 - Chapter Six
+### 15/07-17 - Chapter Six
 Sleeping with your friends by the lake, doesn't that just sound idyllic? Like something out of a fairy tale about two guys hitchhiking to France.<br />
 I woke up with a mild hangover and sneaked out of the tent. The others were still asleep, and I went for a morning swim in the lovely water. <br />
 A little later, our friends, the strangers, cooked us a nice breakfast and brewed some extremely strong coffee. If you aren't awake after such a cup, then something is surely wrong with you!<br /> 
