@@ -47,24 +47,6 @@
 
       <main class="flex-grow dark:bg-gray-800 pt-8 px-3 md:px-0 markdown">
           <h1>Rebuilding my blog with Eleventy and TailwindCSS</h1>
-<!-- ## Outline -->
-<!-- Why Eleventy -->
-<!--   - For fun -->
-<!--   - Wanted to change things more easily -->
-<!--   - Love the simplicity: tweetable setup -->
-<!--   - Later: experiences -->
-<!-- Why TailwindCSS -->
-<!--   - Tachyons but more developed -->
-<!--   - Functional/utility -->
-<!--   - Better building blocks -->
-<!--   - No need for double collections (especially true for component-based, e.g. react) -->
-<!--   - Fewer context switches -->
-<!-- Hacks: -->
-<!--   - start script and watching generated CSS -->
-<!--     - Context: automatic classes added to markdown -->
-<!--     - gitignore fix -->
-<!--   - drafts -->
-<!-- ## Post -->
 <p>I've been wanting to get back into writing for some time now.
 But I was not satisfied with my existing blog built using <a href="https://gohugo.io/">Hugo</a> and basic CSS.
 So I decided to rebuild my blog using <a href="https://11ty.dev/">Eleventy</a> and
@@ -195,9 +177,9 @@ Inspired by <a href="https://giustino.blog/how-to-drafts-eleventy/">this blog po
 including/excluding the drafts.</p>
 <p>In your <code>.eleventy.js</code> file add the following (assuming your posts are located
 in <code>posts/</code>):</p>
-<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> includeDrafts <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Toggle this to include/exclude drafts.</span><br><span class="token keyword">const</span> <span class="token function-variable function">postsToShow</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token operator">=></span> includeDrafts <span class="token operator">||</span> <span class="token operator">!</span>post<span class="token punctuation">.</span>data<span class="token punctuation">.</span>draft<span class="token punctuation">;</span><br><br>eleventyConfig<span class="token punctuation">.</span><span class="token function">addCollection</span><span class="token punctuation">(</span><span class="token string">"posts"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">collectionApi</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> collectionApi<span class="token punctuation">.</span><span class="token function">getFilteredByGlob</span><span class="token punctuation">(</span><span class="token string">"posts/*.md"</span><span class="token punctuation">)</span><br>                      <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>postsToShow<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> includeDrafts <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Toggle this to include/exclude drafts in development mode.</span><br><span class="token keyword">const</span> isDevelopment <span class="token operator">=</span> <span class="token operator">!</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">ELEVENTY_PRODUCTION</span><span class="token punctuation">;</span><br><span class="token keyword">const</span> <span class="token function-variable function">postsToShow</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token operator">=></span> isDevelopment <span class="token operator">&amp;&amp;</span> includeDrafts <span class="token operator">||</span> <span class="token operator">!</span>post<span class="token punctuation">.</span>data<span class="token punctuation">.</span>draft<span class="token punctuation">;</span><br><br>eleventyConfig<span class="token punctuation">.</span><span class="token function">addCollection</span><span class="token punctuation">(</span><span class="token string">"posts"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">collectionApi</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">return</span> collectionApi<span class="token punctuation">.</span><span class="token function">getFilteredByGlob</span><span class="token punctuation">(</span><span class="token string">"posts/*.md"</span><span class="token punctuation">)</span><br>                      <span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>postsToShow<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br></code></pre>
 <p>By toggling the <code>includeDrafts</code> variable, you decide whether drafts, i.e. posts
-with <code>draft: true</code>, should be included in the build.</p>
+with <code>draft: true</code>, should be included when in development mode.</p>
 <h2>Outro</h2>
 <p>I've been quite satisfied with my choice of stack and I am looking forward to
 making tweaks and improvements as I go.</p>
