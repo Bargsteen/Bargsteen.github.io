@@ -1,31 +1,6 @@
 ---
 title: Rebuilding my blog with Eleventy and TailwindCSS
-draft: true
 ---
-
-<!-- ## Outline -->
-<!-- Why Eleventy -->
-<!--   - For fun -->
-<!--   - Wanted to change things more easily -->
-<!--   - Love the simplicity: tweetable setup -->
-<!--   - Later: experiences -->
-
-<!-- Why TailwindCSS -->
-<!--   - Tachyons but more developed -->
-<!--   - Functional/utility -->
-<!--   - Better building blocks -->
-<!--   - No need for double collections (especially true for component-based, e.g. react) -->
-<!--   - Fewer context switches -->
-
-<!-- Hacks: -->
-<!--   - start script and watching generated CSS -->
-<!--     - Context: automatic classes added to markdown -->
-<!--     - gitignore fix -->
-<!--   - drafts -->
-
-
-
-<!-- ## Post -->
 
 I've been wanting to get back into writing for some time now.
 But I was not satisfied with my existing blog built using [Hugo](https://gohugo.io/) and basic CSS.
@@ -227,8 +202,9 @@ In your `.eleventy.js` file add the following (assuming your posts are located
 in `posts/`):
 
 ```javascript
-const includeDrafts = true; // Toggle this to include/exclude drafts.
-const postsToShow = (post) => includeDrafts || !post.data.draft;
+const includeDrafts = true; // Toggle this to include/exclude drafts in development mode.
+const isDevelopment = !process.env.ELEVENTY_PRODUCTION;
+const postsToShow = (post) => isDevelopment && includeDrafts || !post.data.draft;
 
 eleventyConfig.addCollection("posts", function(collectionApi) {
   return collectionApi.getFilteredByGlob("posts/*.md")
@@ -238,7 +214,7 @@ eleventyConfig.addCollection("posts", function(collectionApi) {
 ```
 
 By toggling the `includeDrafts` variable, you decide whether drafts, i.e. posts
-with `draft: true`, should be included in the build.
+with `draft: true`, should be included when in development mode.
 
 ## Outro
 
