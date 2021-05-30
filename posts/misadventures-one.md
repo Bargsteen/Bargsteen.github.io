@@ -50,6 +50,4 @@ We set up our camp in a small park in the city of ~~*&#91;insert extremely Germa
 
 And so the dinner was served, eaten, enjoyed, and accompanied by several proper German beers! Thus ends the first chapter of *The Misadventures of Dizzy and Diama*. Stay tuned for more! 
 
-<br />
-Best regards,<br />
-**Dizzy and Diama**
+Best regards,<br />**Dizzy and Diama**
