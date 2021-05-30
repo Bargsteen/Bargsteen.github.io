@@ -37,6 +37,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({"img": "img",
                                      "prims_css": "css",
+                                     // Files related to my project with University of Southern Denmark.
+                                     "sdu": "sdu",
                                      // PostCSS outputs to generated_css.
                                      // Compilation is slow, but page will update after 5 seconds or so.
                                      "generated_css": "css"});
