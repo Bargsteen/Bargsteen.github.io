@@ -45,7 +45,8 @@ module.exports = function (eleventyConfig) {
 
   // Toggle inclusion of drafts
   const includeDrafts = true;
-  const postsToShow = (post) => includeDrafts || !post.data.draft;
+  const isDevelopment = !process.env.ELEVENTY_PRODUCTION;
+  const postsToShow = (post) => isDevelopment && includeDrafts || !post.data.draft;
 
   eleventyConfig.addCollection("posts", function(collectionApi) {
     return collectionApi.getFilteredByGlob("posts/*.md")
