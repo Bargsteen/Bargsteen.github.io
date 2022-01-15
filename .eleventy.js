@@ -41,7 +41,9 @@ module.exports = function (eleventyConfig) {
                                      "sdu": "sdu",
                                      // PostCSS outputs to generated_css.
                                      // Compilation is slow, but page will update after 5 seconds or so.
-                                     "generated_css": "css"});
+                                     "generated_css": "css",
+                                     "CNAME": "CNAME" // CNAME file used by github pages.
+                                     });
 
   eleventyConfig.setUseGitIgnore(false);
 
