@@ -76,4 +76,12 @@ html {
   @apply bg-gray-300;
 }
 
+/* Needed because the postslist is inside .markdown blocks,
+ * where the above rules take precedence. */
+ul.postslist {
+  @apply list-none;
+  @apply list-outside;
+  @apply pl-0;
+}
+
 @tailwind utilities;
