@@ -1,6 +1,6 @@
 <ul reversed class="postslist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
 {% for post in postslist | reverse %}
-  <li class="flex items-center">
+  <li class="flex items-center py-1">
     <time class="flex-shrink-0 w-28 text-base text-gray-600 dark:text-gray-300" datetime="{{ post.date }}">{{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}</time>
     <a href="{{ post.url | url }}">{{ post.data.title }}</a>
   </li>
