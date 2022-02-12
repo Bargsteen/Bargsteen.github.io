@@ -45,7 +45,8 @@ Then I looped the section and I had the basis of my track!
 Next up, I added a drum loop, found some choir vocals on
 [freesound.org](https://www.freesound.org), recorded a guitar solo, and then called it a day!
 
-And that's it. Let me know what you think of the tune.
+And that's it. Let me know what you think of the track.
 
 Until next time,
-- Kasper
+
+— Kasper
