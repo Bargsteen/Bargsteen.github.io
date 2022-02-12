@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bargsteen | Bargsteen</title>
+    <title>Track release: Sporadic Contemplation | Bargsteen</title>
     <meta name="description" content="I write about stuff.">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/prism-nord.css" rel="stylesheet">
@@ -58,40 +58,55 @@
       </header>
 
       <main class="flex-grow dark:bg-gray-800 pt-8 px-3 md:px-0 markdown">
-          
-
-<h1>Latest 3 Posts</h1>
-
-
-
-<ul reversed class="postslist" style="counter-reset: start-from 13">
-
-  <li class="flex items-center py-1">
-    <time class="flex-shrink-0 w-28 text-base text-gray-600 dark:text-gray-300" datetime="Fri Feb 12 2021 00:00:00 GMT+0000 (Coordinated Universal Time)">2021, Feb 12</time>
-    <a href="/posts/sporadic-contemplation/">Track release: Sporadic Contemplation</a>
-  </li>
-
-  <li class="flex items-center py-1">
-    <time class="flex-shrink-0 w-28 text-base text-gray-600 dark:text-gray-300" datetime="Fri Jan 15 2021 00:00:00 GMT+0000 (Coordinated Universal Time)">2021, Jan 15</time>
-    <a href="/posts/a-plan-for-writing/">A plan for writing</a>
-  </li>
-
-  <li class="flex items-center py-1">
-    <time class="flex-shrink-0 w-28 text-base text-gray-600 dark:text-gray-300" datetime="Fri May 29 2020 00:00:00 GMT+0000 (Coordinated Universal Time)">2020, May 29</time>
-    <a href="/posts/eleventy-and-tailwind/">Rebuilding my blog with Eleventy and TailwindCSS</a>
-  </li>
-
+          <h1>Track release: Sporadic Contemplation</h1>
+<p>I released a new track called Sporadic Contemplation!
+And you can listen to right here:</p>
+<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3842209562/size=large/bgcol=ffffff/linkcol=7137dc/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://kadiba.bandcamp.com/track/sporadic-contemplation">Sporadic Contemplation by Kadiba</a></iframe>
+<p>As something new, I experimented with using randomness for generating part of
+the song.
+In particular, I generated the chord sequences for the synth that you hear
+throughout the track.
+If you're interested in how that works, continue reading!</p>
+<p>What I wanted was to generate random chords in the key of the song, F major.
+The first thing I added was the <strong>arpeggiator</strong> plugin, which I configured so it
+creates a single random MIDI node at a set interval.
+This note is then sent through the <strong>chord</strong> plugin, which adds additional MIDI
+notes in <em>fixed</em> intervals. That is, for any note it receives, it adds notes four,
+seven, and 14 semitones above it. This corresponds to adding a major third, fifth,
+and ninth notes on top.
+With these two plugins configured, I got random major-add9 chords in <em>any</em> key.</p>
+<p>Next, I added some variation in the <em>types</em> of chords, because I did not just
+want major-add9 chords every time.
+I used the <strong>random</strong> plugin to transform each of the four notes from the
+chord plugin into a random note (with a 50% chance of keeping the original note).
+And finally, I used the <strong>scale</strong> plugin to force all four notes into the F
+major scale (by moving them to adjacent notes that fit the key).</p>
+<p>And voila! I had a random sequence of interesting chords in F major.</p>
+<p>The figure below shows the generative part of the plugin chain along with
+settings for each plugin.</p>
+<figure class="max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/sporadic-contemplation/ableton_live_plugins.png" alt="Generating random chords in the key of F major">
+              <figcaption class="mx-auto text-center text-white p-2 text-sm italic bg-gray-800 dark:bg-gray-900 border-solid rounded-b">Generating random chords in the key of F major</figcaption>
+            </figure>
+<p>With this setup, I then recorded a long sequence of random chords, listened
+through them and found a good section.
+I edited the section slightly, which was easy to do, as it was MIDI.
+Then I looped the section and I had the basis of my track!</p>
+<p>Next up, I added a drum loop, found some choir vocals on
+<a href="https://www.freesound.org">freesound.org</a>, recorded a guitar solo, and then called it a day!</p>
+<p>And that's it. Let me know what you think of the tune.</p>
+<p>Until next time,</p>
+<ul>
+<li>Kasper</li>
 </ul>
 
-
-<p class="pt-2">More posts can be found in <a href="/posts">the archive</a>.</p>
 
       </main>
 
       <footer class="pb-4 pt-7 dark:bg-gray-800 dark:text-white text-center text-sm">Kasper Dissing Bargsteen © 2021</footer>
     </div>
 
-    <!-- Current page: / -->
+    <!-- Current page: /posts/sporadic-contemplation/ -->
     <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
   </body>
   <script>
