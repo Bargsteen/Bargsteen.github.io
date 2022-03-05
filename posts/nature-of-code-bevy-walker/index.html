@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature of Code in Bevy: Random Walker | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      (function(window, document, dataLayerName, id) {
+        window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+        function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
+        var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+        var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+        tags.async=!0,tags.src="https://bargsteen.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+        !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+      })(window, document, 'dataLayer', '88433787-bc55-4177-8521-e4b4a01020a8');
+    </script><noscript><iframe src="https://bargsteen.containers.piwik.pro/88433787-bc55-4177-8521-e4b4a01020a8/noscript.html" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="flex flex-col min-h-screen min-h-screen-ios">
+      <header class="bg-gray-200 dark:bg-gray-900">
+        <div class="flex flex-col sm:flex-row gap-y-3 mx-auto p-6 justify-between max-w-4xl">
+          <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl font-sans font-bold dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="/">Bargsteen</a></h1>
+          </div>
+          <nav class="flex flex-row justify-center">
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/">Home</a></h1>
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/about">About</a></h1>
+            <button onclick="toggleDarkMode()" class="focus:outline-none dark:text-white w-6 hover:text-indigo-600 dark:hover:text-indigo-600 mx-4 my-auto">
+              <div class="dark:hidden">
+                <!-- Moon -->
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </div>
+              <div class="hidden dark:inline">
+                <!-- Sun -->
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow dark:bg-gray-800 pt-8 px-3 md:px-0 markdown">
+          <h1>Nature of Code in Bevy: Random Walker</h1>
+<p>Today, I'll start reading and exploring the <a href="https://natureofcode.com/">Nature of
+Code</a> book and the <a href="https://bevyengine.org/">Bevy Game Engine</a>!
+I've been interested in the book for a couple of years and I also completed some of
+the first chapters in both <a href="https://processing.org/">Processing</a> (the Java framework used in the book) and
+Haskell.
+In my early days at University, I was also a semi-regular follower of <a href="https://www.youtube.com/c/TheCodingTrain">The Coding
+Train</a> YouTube channel, which the
+author of the book Daniel Shiffman runs.
+As for Bevy, I've looked at it now and again since it came into my awareness a
+year ago. I think it is a refreshing new engine and I love the principles they
+adhere to.</p>
+<p>With the motivation explained, let's move on to the first example from the
+introduction chapter: a random walker, which simply is a dot on the screen that
+moves around randomly.</p>
+<h2>Random Walker</h2>
+<p>Let us first create a new project and import the most recent version of <code>bevy</code> along with
+the <code>rand</code> crate, which we'll also need.</p>
+<pre class="language-toml"><code class="language-toml"><span class="token comment"># Cargo.toml</span><br><span class="token punctuation">[</span><span class="token table class-name">dependencies</span><span class="token punctuation">]</span><br><span class="token key property">bevy</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token key property">version</span> <span class="token punctuation">=</span> <span class="token string">"0.6"</span> <span class="token punctuation">}</span><br><span class="token key property">rand</span> <span class="token punctuation">=</span> <span class="token string">"0.8.5"</span></code></pre>
+<p>Next, we create a new bevy <code>App</code> with the <code>DefaultPlugins</code> and run it.
+And voila, an empty gray window shows up.
+The <code>DefaultPlugins</code> add a game loop, a window system, audio and all
+sort of things you expect from a game engine.</p>
+<pre class="language-rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">bevy<span class="token punctuation">::</span>prelude<span class="token punctuation">::</span></span><span class="token operator">*</span><span class="token punctuation">;</span><br><br><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token class-name">App</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">add_plugins</span><span class="token punctuation">(</span><span class="token class-name">DefaultPlugins</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Then we need a black dot that can function as our random walker.
+At first, I looked at the
+<a href="https://github.com/Nilirad/bevy_prototype_lyon">bevy_prototype_lyon</a> crate, but
+I opted for a simpler option: using a sprite.</p>
+<p>Let's add the black dot with our first system.
+We'll specify the system to run once at startup and
+we'll make it spawn an orthographic camera and a sprite with a black circle texture.
+The <code>AssetServer</code> will look for files in an <code>/assets</code> folder by default, so
+that's where we'll put the image file <code>./assets/black-circle.png</code>.</p>
+<pre class="language-rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">bevy<span class="token punctuation">::</span>prelude<span class="token punctuation">::</span></span><span class="token operator">*</span><span class="token punctuation">;</span><br><br><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token class-name">App</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">add_plugins</span><span class="token punctuation">(</span><span class="token class-name">DefaultPlugins</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">add_startup_system</span><span class="token punctuation">(</span>startup_system<span class="token punctuation">)</span> <span class="token comment">// &lt;- Also added this line.</span><br>        <span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">fn</span> <span class="token function-definition function">startup_system</span><span class="token punctuation">(</span><span class="token keyword">mut</span> commands<span class="token punctuation">:</span> <span class="token class-name">Commands</span><span class="token punctuation">,</span> asset_server<span class="token punctuation">:</span> <span class="token class-name">Res</span><span class="token operator">&lt;</span><span class="token class-name">AssetServer</span><span class="token operator">></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    commands<span class="token punctuation">.</span><span class="token function">spawn_bundle</span><span class="token punctuation">(</span><span class="token class-name">OrthographicCameraBundle</span><span class="token punctuation">::</span><span class="token function">new_2d</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    commands<br>        <span class="token punctuation">.</span><span class="token function">spawn_bundle</span><span class="token punctuation">(</span><span class="token class-name">SpriteBundle</span> <span class="token punctuation">{</span><br>            texture<span class="token punctuation">:</span> asset_server<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">"black-circle.png"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>            <span class="token punctuation">..</span><span class="token class-name">Default</span><span class="token punctuation">::</span><span class="token function">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Okay, so far so good. But a little boring.
+Let's add some random movement.
+For this, we'll create our first component, a <code>Walker</code> struct, and derive
+<code>Component</code> for it.
+It doesn't need any fields, because it only serves as a marker for the entity.</p>
+<pre class="language-rust"><code class="language-rust"><span class="token attribute attr-name">#[derive(Component)]</span><br><span class="token keyword">struct</span> <span class="token type-definition class-name">Walker</span><span class="token punctuation">;</span></code></pre>
+<p>We'll use the <code>rand</code> crate and create a <code>walk</code> system, which generates two random
+numbers and moves the black circle by the random amount.
+Take note of the query type <code>Query&lt;&amp;mut Transform, With&lt;Walker&gt;&gt;</code>, which
+specifies that we want all <code>Transform</code> components on entities that also has a
+<code>Walker</code> component.</p>
+<pre class="language-rust"><code class="language-rust"><span class="token keyword">use</span> <span class="token namespace">bevy<span class="token punctuation">::</span>prelude<span class="token punctuation">::</span></span><span class="token operator">*</span><span class="token punctuation">;</span><br><span class="token keyword">use</span> <span class="token namespace">rand<span class="token punctuation">::</span>prelude<span class="token punctuation">::</span></span><span class="token operator">*</span><span class="token punctuation">;</span><br><br><span class="token keyword">fn</span> <span class="token function-definition function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token class-name">App</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">add_plugins</span><span class="token punctuation">(</span><span class="token class-name">DefaultPlugins</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">add_startup_system</span><span class="token punctuation">(</span>startup_system<span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">add_system</span><span class="token punctuation">(</span>walk<span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">// fn startup_system(...){...}</span><br><br><span class="token keyword">fn</span> <span class="token function-definition function">walk</span><span class="token punctuation">(</span><span class="token keyword">mut</span> query<span class="token punctuation">:</span> <span class="token class-name">Query</span><span class="token operator">&lt;</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> <span class="token class-name">Transform</span><span class="token punctuation">,</span> <span class="token class-name">With</span><span class="token operator">&lt;</span><span class="token class-name">Walker</span><span class="token operator">>></span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> speed <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">.</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> <span class="token keyword">mut</span> rng <span class="token operator">=</span> <span class="token namespace">rand<span class="token punctuation">::</span></span><span class="token function">thread_rng</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> <span class="token keyword">mut</span> walker_transform <span class="token operator">=</span> query<span class="token punctuation">.</span><span class="token function">single_mut</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    walker_transform<span class="token punctuation">.</span>translation<span class="token punctuation">.</span>x <span class="token operator">+=</span> rng<span class="token punctuation">.</span><span class="token function">gen_range</span><span class="token punctuation">(</span><span class="token operator">-</span>speed<span class="token punctuation">..</span>speed<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    walker_transform<span class="token punctuation">.</span>translation<span class="token punctuation">.</span>y <span class="token operator">+=</span> rng<span class="token punctuation">.</span><span class="token function">gen_range</span><span class="token punctuation">(</span><span class="token operator">-</span>speed<span class="token punctuation">..</span>speed<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>If you run this, it will crash immediately, because we use <code>single_mut()</code> on the
+query, which will crash if there is anything other than a single entity that
+matches the given query.
+At present, our little game has two entities with a <code>Transform</code> component.
+The camera and the sprite.
+But no entities have the <code>Walker</code> component yet.
+Let's address that.</p>
+<pre class="language-rust"><code class="language-rust"><span class="token punctuation">...</span><br>commands<span class="token punctuation">.</span><span class="token function">spawn_bundle</span><span class="token punctuation">(</span><span class="token class-name">SpriteBundle</span> <span class="token punctuation">{</span><br>    texture<span class="token punctuation">:</span> asset_server<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token string">"black-circle.png"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><br>    <span class="token punctuation">..</span><span class="token class-name">Default</span><span class="token punctuation">::</span><span class="token function">default</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token class-name">Walker</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &lt;- Add a Walker component to the SpriteBundle.</span><br><span class="token punctuation">...</span></code></pre>
+<p>And.. It works!</p>
+<figure class="max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/nature-of-bevy/random-walker.gif" alt="The random walker">
+              <figcaption class="mx-auto text-center text-white p-2 text-sm italic bg-gray-800 dark:bg-gray-900 border-solid rounded-b">The random walker</figcaption>
+            </figure>
+<h2>Final thoughts</h2>
+<p>I tried to trace the path of the walker by <em>not</em> drawing the background at every
+frame, similar to what as Daniel Shiffman does in his
+example, but I couldn't figure out how to do it in Bevy.
+I'll skip it for now, as this is just a warmup exercise to get our feet wet.
+Perhaps I'll figure out how to do it once I get deeper into Bevy.</p>
+<p>You can see the full example on <a href="https://github.com/Bargsteen/nature-of-code-bevy">GitHub</a>.</p>
+<p>I guess that's it for now.
+Stay tuned for more Nature of Code in Bevy posts ;)</p>
+<p>– Kasper</p>
+
+
+      </main>
+
+      <footer class="pb-4 pt-7 dark:bg-gray-800 dark:text-white text-center text-sm">Kasper Dissing Bargsteen © 2021</footer>
+    </div>
+
+    <!-- Current page: /posts/nature-of-code-bevy-walker/ -->
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark')
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark')
+      }
+    }
+  </script>
+</html>
