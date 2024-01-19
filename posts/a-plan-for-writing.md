@@ -1,6 +1,7 @@
 ---
 title: A plan for writing
 date: '2021-01-15'
+draft: true
 ---
 
 I've decided to write more blog posts in the first quarter of 2022.
