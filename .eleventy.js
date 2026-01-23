@@ -46,6 +46,8 @@ module.exports = function (eleventyConfig) {
     return figureWithCaption(video, caption, "");
   });
 
+  eleventyConfig.addShortcode("currentYear", () => `${new Date().getFullYear()}`);
+
   eleventyConfig.addShortcode("figure", function (src, caption) {
     const img = `<img class="mx-auto" src="${src}" alt="${caption}">`;
 
