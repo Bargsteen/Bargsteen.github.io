@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing private functions in .NET | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      (function(window, document, dataLayerName, id) {
+        window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+        function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
+        var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+        var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+        tags.async=!0,tags.src="https://bargsteen.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+        !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+      })(window, document, 'dataLayer', '88433787-bc55-4177-8521-e4b4a01020a8');
+    </script><noscript><iframe src="https://bargsteen.containers.piwik.pro/88433787-bc55-4177-8521-e4b4a01020a8/noscript.html" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="flex flex-col min-h-screen min-h-screen-ios">
+      <header class="bg-gray-200 dark:bg-gray-900">
+        <div class="flex flex-col sm:flex-row gap-y-3 mx-auto p-6 justify-between max-w-4xl">
+          <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl font-sans font-bold dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 my-auto transition duration-100 ease-out"><a href="/">Bargsteen</a></h1>
+          </div>
+          <nav class="flex flex-row justify-center">
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/">Home</a></h1>
+            <h1 class="underline dark:text-white dark:hover:text-indigo-600 hover:text-indigo-600 mx-4 my-auto text-xl font-semibold transition duration-100 ease-out"><a href="/about">About</a></h1>
+            <button onclick="toggleDarkMode()" class="focus:outline-none dark:text-white w-6 hover:text-indigo-600 dark:hover:text-indigo-600 mx-4 my-auto">
+              <div class="dark:hidden">
+                <!-- Moon -->
+                <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </div>
+              <div class="hidden dark:inline">
+                <!-- Sun -->
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+                </svg>
+              </div>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow dark:bg-gray-800 pt-8 px-3 md:px-0 markdown">
+          <h1>Testing private functions in .NET</h1>
+<p>At University we were told to always test our code but also to hide complexity using the <code>private</code> keyword.
+I found these two dogmas incongruent as it forced me to either make a function <code>public</code> just to test it,
+or write a complex test of the <code>public</code> function that used the inner <code>private</code> one.
+Neither option pleased me.</p>
+<p>After University I got a job where I was lucky enough to work primarily in Rust.
+In Rust, it is not only easy to test <code>private</code> functions but also encouraged by the community.
+The tests live inside the same module as the <code>private</code> functions.
+Some find this invasive, but I quite like that things that belong together stay together.
+When I later switched to .NET, I wanted the same thing.
+The typical .NET answer is to mark functions <code>internal</code> and use <code>[InternalsVisibleTo]</code> to expose them to a test project.
+I find this unsatisfying: <code>internal</code> functions are discoverable by everything in the same project, which increases the surface area of each module and invites unnecessary coupling.</p>
+<p>After a few attempts, I found a way to test truly <code>private</code> functions.
+The technique is surprisingly simple and even uses a pattern very similar to how you do it in Rust.</p>
+<h2>Test private functions in F#</h2>
+<p>In the same project where your code lives, add the following to your <code>.fsproj</code> file:</p>
+<pre class="language-xml"><code class="language-xml">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span> <span class="token attr-name">Condition</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>$(Configuration)'=='Debug'<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Your.Preferred.Test.Lib<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.2.3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span></code></pre>
+<p>This adds a conditional set of dependencies that are only included in <code>Debug</code> builds.
+If you're testing <code>private</code> functions in a library, it is important to add the <code>&lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;</code>, such that consumers of the library don't get the testing libraries as transient dependencies.</p>
+<p>We use <a href="https://github.com/haf/expecto">Expecto</a>, so for us the following set of packages are required:</p>
+<pre class="language-xml"><code class="language-xml">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span> <span class="token attr-name">Condition</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>$(Configuration)'=='Debug'<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Expecto<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>10.2.3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>YoloDev.Expecto.TestSdk<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>0.14.3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Microsoft.NET.Test.Sdk<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>17.13.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span></code></pre>
+<p><code>Microsoft.NET.Test.SDK</code> is needed for any .NET test project, <code>Expecto</code> is our preferred testing library, and <code>YoloDev.Expecto.TestSdk</code> glues those two together so we can use <code>dotnet test</code> to run the tests.</p>
+<p>Then write tests for your <code>private</code> functions:</p>
+<pre class="language-fsharp"><code class="language-fsharp"><span class="token keyword">module</span> MyModule<br><br><span class="token keyword">let</span> <span class="token keyword">private</span> add <span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token class-name">int</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>y<span class="token punctuation">:</span> <span class="token class-name">int</span><span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">+</span> y<br><br><span class="token preprocessor property">#<span class="token directive keyword">if</span> DEBUG</span><br><br><span class="token keyword">open</span> Expecto<br><br><span class="token annotation"><span class="token punctuation">[&lt;</span><span class="token class-name">Tests</span><span class="token punctuation">>]</span></span><br><span class="token keyword">let</span> test <span class="token operator">=</span><br>    testList <span class="token string">"MyModule"</span> <span class="token punctuation">[</span><br>        test <span class="token string">"add 2 2 = 4"</span> <span class="token punctuation">{</span><br>            <span class="token keyword">let</span> result <span class="token operator">=</span> add <span class="token number">2</span> <span class="token number">2</span><br>            Expect<span class="token punctuation">.</span>equal result <span class="token number">4</span> <span class="token string">"Should have been 4"</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">]</span><br><span class="token preprocessor property">#<span class="token directive keyword">endif</span></span></code></pre>
+<p>Notice that the <code>test</code> variable itself unfortunately has to be <code>public</code> if using Expecto, due to how it discovers tests.
+With xUnit in C#, the test method itself can also be <code>private</code>.</p>
+<p>Finally, you run the tests directly in your library or executable project with <code>dotnet test</code>.</p>
+<h3>Fable</h3>
+<p>If you are using <a href="fable.io">Fable</a> to compile to JavaScript, then you'll have to ensure that it won't try to compile the
+tests and testing libraries with Fable, as that will fail.</p>
+<p>You thus have to extend the conditional in the <code>.fsproj</code> to:</p>
+<pre class="language-xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span> <span class="token attr-name">Condition</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>$(Configuration)'=='Debug' and '$(FABLE_COMPILER)'!='true'<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+<p>And extend the compiler directive above your tests to:</p>
+<pre class="language-fsharp"><code class="language-fsharp"><span class="token preprocessor property">#<span class="token directive keyword">if</span> DEBUG &amp;&amp; !FABLE_COMPILER</span></code></pre>
+<h2>Testing private functions in C#</h2>
+<p>It is nearly the same story in C#, except that the test functions exist inside the class it is testing, instead of at the module level.
+Start by conditionally adding the test libraries to your <code>.csproj</code> file:</p>
+<pre class="language-xml"><code class="language-xml">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span> <span class="token attr-name">Condition</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">'</span>$(Configuration)'=='Debug'<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xunit<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>2.9.*<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xunit.runner.visualstudio<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3.0.*<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Microsoft.NET.Test.Sdk<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>17.*<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br>      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PrivateAssets</span><span class="token punctuation">></span></span>all<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PrivateAssets</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PackageReference</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span></code></pre>
+<p>Then add the tests inside the same class as the <code>private</code> functions:</p>
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyModule</span><br><span class="token punctuation">{</span><br>    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> x<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">int</span></span> y<span class="token punctuation">)</span> <span class="token operator">=></span> x <span class="token operator">+</span> y<span class="token punctuation">;</span><br><br><span class="token preprocessor property">#<span class="token directive keyword">if</span> DEBUG</span><br>    <span class="token punctuation">[</span>Xunit<span class="token punctuation">.</span>Fact<span class="token punctuation">]</span><br>    <span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Add_returns_correct_sum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">{</span><br>        <span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        Xunit<span class="token punctuation">.</span>Assert<span class="token punctuation">.</span><span class="token function">Equal</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> result<span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token punctuation">}</span><br><span class="token preprocessor property">#<span class="token directive keyword">endif</span></span><br><span class="token punctuation">}</span></code></pre>
+<p>And that's really all there is to it.
+No <code>[InternalsVisibleTo]</code>, no extra test projects mirroring your source tree, and no compromises on encapsulation.
+Things that belong together stay together.</p>
+
+
+      </main>
+
+      <footer class="pb-4 pt-7 dark:bg-gray-800 dark:text-white text-center text-sm">Kasper Dissing Bargsteen © 2026</footer>
+    </div>
+
+    <!-- Current page: /posts/testing-private-functions-in-dotnet/ -->
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark')
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark')
+      }
+    }
+  </script>
+</html>
