@@ -1,8 +1,12 @@
-<ul reversed class="postslist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
+<ul class="space-y-2">
 {% for post in postslist | reverse %}
-  <li class="flex items-center py-1">
-    <time class="flex-shrink-0 w-28 text-base text-gray-600 dark:text-gray-300" datetime="{{ post.date }}">{{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}</time>
-    <a href="{{ post.url | url }}">{{ post.data.title }}</a>
+  <li class="flex items-baseline gap-4 py-1.5 border-b border-base-200 last:border-0">
+    <time class="flex-shrink-0 w-36 text-sm font-mono opacity-50" datetime="{{ post.date }}">
+      {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
+    </time>
+    <a href="{{ post.url | url }}" class="hover:text-primary transition-colors duration-150">
+      {{ post.data.title }}
+    </a>
   </li>
 {% endfor %}
 </ul>

@@ -27,6 +27,13 @@ module.exports = function (eleventyConfig) {
   });
 
   // Get `n` elements of a collection. Use negative `n` to take from the end.
+  eleventyConfig.addFilter("excerpt", (content) => {
+    if (!content) return "";
+    const text = content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const limit = 200;
+    return text.length > limit ? text.slice(0, limit).trim() + '…' : text;
+  });
+
   eleventyConfig.addFilter("take", (array, n) => {
     if (n < 0) {
       return array.slice(n);

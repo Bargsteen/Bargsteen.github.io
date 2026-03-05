@@ -1,8 +1,8 @@
 module.exports = {
-  purge: [
+  content: [
     '_site/**/*.html',
   ],
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['"Helvetica Neue"', 'Helvetica', 'ui-sans-serif', 'system-ui'],
@@ -19,13 +19,47 @@ module.exports = {
     },
     extend: {},
   },
-  variants: {
-    extend: {
-      display: ['dark']
-    },
-  },
   plugins: [
     require('@rvxlab/tailwind-plugin-ios-full-height'),
     require('@tailwindcss/aspect-ratio'),
+    require('daisyui'),
   ],
+  daisyui: {
+    themes: [
+      {
+        light: {
+          "primary": "#4f46e5",
+          "primary-content": "#ffffff",
+          "secondary": "#6366f1",
+          "accent": "#4f46e5",
+          "neutral": "#374151",
+          "base-100": "#ffffff",
+          "base-200": "#f9fafb",
+          "base-300": "#e5e7eb",
+          "base-content": "#111827",
+          "info": "#3b82f6",
+          "success": "#10b981",
+          "warning": "#f59e0b",
+          "error": "#ef4444",
+        },
+        dark: {
+          "primary": "#818cf8",
+          "primary-content": "#ffffff",
+          "secondary": "#6366f1",
+          "accent": "#818cf8",
+          "neutral": "#4b5563",
+          "base-100": "#1f2937",
+          "base-200": "#111827",
+          "base-300": "#0f172a",
+          "base-content": "#f9fafb",
+          "info": "#60a5fa",
+          "success": "#34d399",
+          "warning": "#fbbf24",
+          "error": "#f87171",
+        },
+      },
+    ],
+    darkTheme: "dark",
+    logs: false,
+  },
 }

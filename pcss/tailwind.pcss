@@ -9,23 +9,25 @@ html {
   }
 }
 
+/* Prose styles for blog post content and markdown pages */
 .markdown {
-  @apply text-base sm:text-lg text-gray-900 dark:text-white leading-normal;
+  @apply text-base sm:text-lg leading-normal;
 
   & > * {
     @apply mt-4 max-w-xl mx-auto;
   }
 
-  & strong, & strong a {
+  & strong,
+  & strong a {
     @apply font-bold;
   }
 
   & a {
-    @apply border-b-4 border-indigo-600;
+    @apply border-b-4 border-primary;
   }
 
   & a:hover {
-    @apply text-indigo-600 border-indigo-600;
+    @apply text-primary;
   }
 
   & h1 {
@@ -37,7 +39,7 @@ html {
   }
 
   & h3 {
-    @apply leading-tight text-xl sm:text-xl font-bold mt-6;
+    @apply leading-tight text-xl font-bold mt-6;
   }
 
   & pre {
@@ -45,15 +47,12 @@ html {
   }
 
   & blockquote {
-    @apply border-l-4 border-gray-400 pl-4 italic;
+    @apply border-l-4 border-base-300 pl-4 italic opacity-80;
   }
 
   & ul,
   & ol {
-    @apply pl-5;
-    @screen sm {
-      @apply pl-10;
-    }
+    @apply pl-5 sm:pl-10;
   }
 
   & ul {
@@ -65,23 +64,13 @@ html {
   }
 }
 
-/* Using the dark prefix in the code section above does not produce the correct selector.
- * It produces `.markdown code.dark`, so the dark class must be on the code.
- */
-.dark .markdown p code {
-  @apply bg-gray-900;
-}
-
 .markdown p code {
-  @apply bg-gray-300;
+  @apply bg-base-200 px-1 rounded text-sm;
 }
 
-/* Needed because the postslist is inside .markdown blocks,
- * where the above rules take precedence. */
+/* Needed because postslist can appear inside markdown-styled contexts */
 ul.postslist {
-  @apply list-none;
-  @apply list-outside;
-  @apply pl-0;
+  @apply list-none list-outside pl-0;
 }
 
 @tailwind utilities;

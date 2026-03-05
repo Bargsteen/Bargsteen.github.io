@@ -3,7 +3,10 @@ layout: layouts/base.njk
 permalink: /posts/
 ---
 
-<h1>Archive</h1>
+<div class="max-w-3xl mx-auto px-4 py-12">
+  <h1 class="text-3xl font-bold mb-8">Archive</h1>
 
-{% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+  {% set postslist = collections.posts %}
+  {% set postslistCounter = collections.posts.length %}
+  {% include "postslist.njk" %}
+</div>
