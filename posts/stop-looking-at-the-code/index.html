@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop looking at the code? | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      (function() {
+        var isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      (function(window, document, dataLayerName, id) {
+        window[dataLayerName]=window[dataLayerName]||[],window[dataLayerName].push({start:(new Date).getTime(),event:"stg.start"});var scripts=document.getElementsByTagName('script')[0],tags=document.createElement('script');
+        function stgCreateCookie(a,b,c){var d="";if(c){var e=new Date;e.setTime(e.getTime()+24*c*60*60*1e3),d="; expires="+e.toUTCString()}document.cookie=a+"="+b+d+"; path=/"}
+        var isStgDebug=(window.location.href.match("stg_debug")||document.cookie.match("stg_debug"))&&!window.location.href.match("stg_disable_debug");stgCreateCookie("stg_debug",isStgDebug?1:"",isStgDebug?14:-1);
+        var qP=[];dataLayerName!=="dataLayer"&&qP.push("data_layer_name="+dataLayerName),isStgDebug&&qP.push("stg_debug");var qPString=qP.length>0?("?"+qP.join("&")):"";
+        tags.async=!0,tags.src="https://bargsteen.containers.piwik.pro/"+id+".js"+qPString,scripts.parentNode.insertBefore(tags,scripts);
+        !function(a,n,i){a[n]=a[n]||{};for(var c=0;c<i.length;c++)!function(i){a[n][i]=a[n][i]||{},a[n][i].api=a[n][i].api||function(){var a=[].slice.call(arguments,0);"string"==typeof a[0]&&window[dataLayerName].push({event:n+"."+i+":"+a[0],parameters:[].slice.call(arguments,1)})}}(i[c])}(window,"ppms",["tm","cm"]);
+      })(window, document, 'dataLayer', '88433787-bc55-4177-8521-e4b4a01020a8');
+    </script><noscript><iframe src="https://bargsteen.containers.piwik.pro/88433787-bc55-4177-8521-e4b4a01020a8/noscript.html" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="flex flex-col min-h-screen min-h-screen-ios bg-base-100 text-base-content">
+
+      <header class="border-b border-base-300">
+        <div class="navbar max-w-4xl mx-auto px-4 py-2">
+          <div class="navbar-start">
+            <a href="/" class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-150">
+              Bargsteen
+            </a>
+          </div>
+          <nav class="navbar-end gap-1">
+            <a href="/" class="btn btn-ghost btn-sm">Home</a>
+            <a href="/about" class="btn btn-ghost btn-sm">About</a>
+            <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="btn btn-ghost btn-sm btn-circle">
+              <span class="dark:hidden">
+                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </span>
+              <span class="hidden dark:inline">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow">
+        <article class="max-w-3xl mx-auto px-4 py-12">
+  <header class="mb-10">
+    <h1 class="text-4xl font-bold leading-tight mb-3">Stop looking at the code?</h1>
+    
+    <time class="text-sm font-mono opacity-60" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      2026, Mar 13
+    </time>
+    
+  </header>
+  <div class="markdown">
+    <p>&quot;Code doesn't matter anymore. Just ship.&quot;
+I keep hearing this from tech leads and CTOs.
+I think they are wrong in most cases. Here are several arguments you can use, especially if it is your boss telling you to look away!</p>
+<p><strong>High quality code is cheaper than ever!</strong></p>
+<p>Code that works is ideal context for an agent to come up with a better and cleaner design.
+Why is your production code not as elegant and clean as you would like?
+My guess is that you didn't have the time to refactor it once it worked.
+But now you do!
+If you know what high quality code looks like, or can ask your agent about it, you can get the agent to refactor it.
+So spend the extra couple of dollars on tokens and get the code of your dreams!</p>
+<p><strong>High code quality means testability</strong></p>
+<p>And that clean code pays for itself. High quality code isn't just about style.
+It's very much about structure.
+If the structure is good, you can easily test your code.
+With more and better tests you go faster as a company because things don't break under your feet.
+For example, put your own interfaces in front of external dependencies.
+That gives you full control and lets you mock them.
+You can then turn most of your slow integration tests into fast unit tests, at least for your business code.</p>
+<p><strong>Good code is easy to understand and change</strong></p>
+<p>Testability is just the start. Sloppy code is hard to understand and change.
+For both agents and humans.
+Imagine this: it's 3 AM, your phone buzzes, and a critical system is down.
+You open your laptop, fire up your agent, and start digging through the code.
+But nothing makes sense. Functions do five things at once. Names are meaningless. There are no tests to guide you.
+Your agent hallucinates a fix that makes it worse.
+You don't want to be in that situation.</p>
+<p><strong>Agents follow established patterns in the codebase</strong></p>
+<p>Here's what makes this even more important in the age of AI. Unless you are very explicit about it, agents will often try to follow the structural patterns already established in the codebase.
+They will do that much faster than your human interns or junior engineers could in the past.
+It is therefore crucial that you establish good patterns from the start.
+Then you can really fly fast with agents.</p>
+<p><strong>Business requirements should live in code</strong></p>
+<p>Beyond structure, there's another reason to care about code. Business requirements can be complex and they have to be precise.
+English is rarely precise enough.
+It has built-in ambiguity.
+Code on the other hand, is designed to represent even the most complex domains.
+If you use languages with a low degree of syntactical noise, such as F#, your domain experts can even read the code.
+At Aleta, we were building a benchmark system for our clients' assets.
+We defined records, discriminated unions, and function signatures for all the core business logic.
+Then we had our colleague with a finance background review and correct it directly in the code.
+That would not have been possible if we had stopped caring about code quality.</p>
+<p><strong>Code is sometimes the only way to verify correctness</strong></p>
+<p>If you vibe-code an app with a GUI it is often quite easy to verify that clicking the button does what you expect.
+But how does a change to the core business logic affect your financial software system with 50+ microservices that unfortunately aren't cleanly separated and all communicate with a mix of HTTP and message queues?
+In those situations, the code is often the best place to look when verifying the correctness.
+Of course you can try to add more integration tests or add more interfaces to improve testability, but even so, you will likely want to look at the code.</p>
+<p><strong>But not all code is equal</strong></p>
+<p>Now, to be fair. Notice the &quot;sometimes&quot; in the reason above.
+It indicates that <em>sometimes</em> there <em>are</em> other ways to verify the correctness.
+Most companies have a mixture of domain-heavy services but also lighter frontends that use these services.
+They also have boilerplate code dealing with database queries, HTTP calls etc.
+So not all code must be of equal quality.
+Code that lives in a leaf, i.e. where no other code depends on it, can often be of lower quality.
+But establishing good patterns in those areas still pays off, I believe.
+Once the patterns are in place, though, perhaps it is sufficient to have other agents review it.</p>
+<p><strong>Not all pull requests are equal</strong></p>
+<p>A direct consequence of the above is that not all PRs are equal.
+If you make changes to code that is not at the core of your business and you have a good structure, tests, and observability in place, then perhaps you don't need another person to review it.
+Just get it into production and verify it yourself.
+Can you set up specific rules about what code needs human eyes and how thorough a review it must be?</p>
+<p>Do you agree or disagree?
+Next time someone tells you to stop reading the code, send them this post.</p>
+
+  </div>
+</article>
+
+      </main>
+
+      <footer class="border-t border-base-300 py-6 text-center text-sm text-base-content opacity-60">
+        Kasper Dissing Bargsteen &copy; 2026
+      </footer>
+
+    </div>
+
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      var isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (isDark) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+  </script>
+</html>
