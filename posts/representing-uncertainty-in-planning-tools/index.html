@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bargsteen | Bargsteen</title>
+    <title>The lie of the progress bar | Bargsteen</title>
     <meta name="description" content="I write about stuff.">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/prism-nord.css" rel="stylesheet">
@@ -63,77 +63,69 @@
       </header>
 
       <main class="flex-grow">
-        
-<section class="border-b border-base-300 bg-base-200 py-16 px-4">
-  <div class="max-w-3xl mx-auto">
-    <h1 class="text-4xl font-bold mb-3">Hi, I'm Kasper</h1>
-    <p class="text-lg opacity-70 max-w-xl leading-relaxed">
-      Software engineer writing about F#, .NET, Rust, and other topics that catch my interest.
-    </p>
-  </div>
-</section>
-
-<section class="max-w-3xl mx-auto px-4 py-12">
-  <h2 class="text-xs font-semibold uppercase tracking-widest opacity-50 mb-8">Recent Posts</h2>
-
-  
-  
-  <article class="mb-10 pb-10 border-b border-base-200 last:border-0">
-    <time class="text-sm font-mono opacity-50" datetime="Wed Mar 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        <article class="max-w-3xl mx-auto px-4 py-12">
+  <header class="mb-10">
+    <h1 class="text-4xl font-bold leading-tight mb-3">The lie of the progress bar</h1>
+    
+    <time class="text-sm font-mono opacity-60" datetime="Wed Mar 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
       2026, Mar 18
     </time>
-    <h3 class="text-2xl font-bold mt-1 mb-3">
-      <a href="/posts/representing-uncertainty-in-planning-tools/" class="hover:text-primary transition-colors duration-150">
-        The lie of the progress bar
-      </a>
-    </h3>
-    <p class="opacity-70 leading-relaxed mb-4 text-base">
-      Most planning tools tell you lies every day. They tell you that a project is 38% completed because that&#39;s the percentage of completed tasks out of estimated ones. But the next time you look, it says 2…
-    </p>
-    <a href="/posts/representing-uncertainty-in-planning-tools/" class="text-primary text-sm font-medium hover:underline">
-      Read more &rarr;
-    </a>
-  </article>
-  
-  <article class="mb-10 pb-10 border-b border-base-200 last:border-0">
-    <time class="text-sm font-mono opacity-50" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
-      2026, Mar 13
-    </time>
-    <h3 class="text-2xl font-bold mt-1 mb-3">
-      <a href="/posts/stop-looking-at-the-code/" class="hover:text-primary transition-colors duration-150">
-        Stop looking at the code?
-      </a>
-    </h3>
-    <p class="opacity-70 leading-relaxed mb-4 text-base">
-      &amp;quot;Code doesn&#39;t matter anymore. Just ship.&amp;quot; I keep hearing this from tech leads and CTOs. I think they are wrong in most cases. Here are several arguments you can use, especially if it is your…
-    </p>
-    <a href="/posts/stop-looking-at-the-code/" class="text-primary text-sm font-medium hover:underline">
-      Read more &rarr;
-    </a>
-  </article>
-  
-  <article class="mb-10 pb-10 border-b border-base-200 last:border-0">
-    <time class="text-sm font-mono opacity-50" datetime="Tue Mar 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
-      2026, Mar 3
-    </time>
-    <h3 class="text-2xl font-bold mt-1 mb-3">
-      <a href="/posts/simple-database-migrations/" class="hover:text-primary transition-colors duration-150">
-        A simple database migration system in F#
-      </a>
-    </h3>
-    <p class="opacity-70 leading-relaxed mb-4 text-base">
-      At work we needed a simple system for handling database migrations. Something that was trivial to understand and see that it was correct. While FluentMigrator could have been a viable option, it seeme…
-    </p>
-    <a href="/posts/simple-database-migrations/" class="text-primary text-sm font-medium hover:underline">
-      Read more &rarr;
-    </a>
-  </article>
-  
+    
+  </header>
+  <div class="markdown">
+    <p>Most planning tools tell you lies every day.
+They tell you that a project is 38% completed because that's the percentage of completed tasks out of estimated ones.
+But the next time you look, it says 21% complete, because new issues were added.
+This is extremely annoying but also common.
+Estimates are guesses, scopes change, and unknown unknowns are the norm.
+The problem had annoyed me for a long time but became even more clear when I saw <a href="https://basecamp.com">Basecamp</a>'s the needle and hill charts, which both are set by humans, not metrics.</p>
+<h2>The needle</h2>
+<p>Let's start with the needle.
+It is a simple gauge that you can drag from zero to done and add both text description as well as one of three status indicators &quot;On track&quot;, &quot;Some risk&quot;, &quot;Concerned&quot;.
+Each update is saved and you can see the full history.
+You get a lot of value from just reading this history.</p>
+<ul>
+<li>10% |On track| - &quot;Spiked the difficult parts of the project and made a rough plan&quot;</li>
+<li>..</li>
+<li>25% |Some risk| - &quot;Found a potential blocker in how service X is supposed to work together with the new integration&quot;</li>
+<li>78% |On track| - &quot;Full speed ahead on the last leg of the project&quot;</li>
+<li>65% |Concerned| - &quot;Found major blocker..&quot;</li>
+</ul>
+<figure class="max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/lie-of-the-progress-bar/the-needle.png" alt="The needle in Basecamp">
+              <figcaption class="mx-auto text-center text-white p-2 text-sm italic bg-gray-800 dark:bg-gray-900 border-solid rounded-b">The needle in Basecamp</figcaption>
+            </figure>
+<p>The progress bar can also go back and forth here, but it is not defined by the number of tasks or their estimates, but by human intuition about the project.
+If you need even more information about a particular project, you can dive into the hill chart of it.</p>
+<h2>Hill charts</h2>
+<p>With hill charts you can represent the different end-to-end parts of the project as dots on a chart that looks like a hill.
+The path up the hill is labelled &quot;Figuring things out&quot; and the path down is &quot;Making things happen&quot;.</p>
+<figure class="max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/lie-of-the-progress-bar/hill-chart.gif" alt="A hill chart in Basecamp">
+              <figcaption class="mx-auto text-center text-white p-2 text-sm italic bg-gray-800 dark:bg-gray-900 border-solid rounded-b">A hill chart in Basecamp</figcaption>
+            </figure>
+<p>Project members manually drag the dots over the hill and, as with the needle, add an optional text description with each update.
+You can naturally view the whole history of updates to see how the different parts of a project has progressed.
+I think it fits well with how the reality works.
+In the beginning you don't know very much about what e.g. &quot;push notifications&quot; even entails.
+Perhaps you've never implemented it.
+Does the API differ on Android and iOS?
+Which notifications should we even send to hit the right balance between information and spam?
+When you start working on it, you gain knowledge about it.
+Reduce the know/unknown unknowns and turn them into knowns.
+At some point you can see all the way to the finish line.
+That is when you reach the top of the hill and you hopefully have a good time rolling down the hill.
+If you hit a large bump, you simply drag it back up the hill, perhaps even back to before the top.</p>
+<p>The hill chart also gives you a good insight into whether the project is split into the correct number of sub-projects or goals.
+If a particular dot is being actively worked on but is stuck at the same location for a week or more, it might indicate that the dot is too large or the scope is unclear.
+Should it perhaps be broken down into three separate dots which can be implemented end-to-end independently?</p>
+<h2>Bring these insights into your tools</h2>
+<p>No matter which tool you use, try to see if you can incorporate human intuition into the progress indicators instead of merely metrics.
+Perhaps you can draw your own hill chart and add it as screenshots in the project overview?
+Or make each project lead give a weekly status similar to the needle, with an intuition-based completion percentage, one of the three risk indicators, and a short description.</p>
 
-  <p class="opacity-60 text-sm">
-    More posts in <a href="/posts" class="text-primary hover:underline">the archive</a>.
-  </p>
-</section>
+  </div>
+</article>
 
       </main>
 
