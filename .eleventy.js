@@ -29,7 +29,16 @@ module.exports = function (eleventyConfig) {
   // Get `n` elements of a collection. Use negative `n` to take from the end.
   eleventyConfig.addFilter("excerpt", (content) => {
     if (!content) return "";
-    const text = content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const text = content
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, '&')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&#39;/g, "'")
+      .replace(/&nbsp;/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
     const limit = 200;
     return text.length > limit ? text.slice(0, limit).trim() + '…' : text;
   });
@@ -42,8 +51,67 @@ module.exports = function (eleventyConfig) {
     return array.slice(0, n);
   });
 
+  // Filter to get content tags (excluding structural ones)
+  const structuralTags = new Set(["posts", "misadventures", "all", "nav", "post", "tagList"]);
+  eleventyConfig.addFilter("contentTags", (tags) => {
+    if (!tags) return [];
+    return tags.filter(tag => !structuralTags.has(tag));
+  });
+
+  // Pretty tag name filter
+  eleventyConfig.addFilter("tagDisplay", (tag) => {
+    const map = {
+      "ai": "AI",
+      "software-engineering": "Software Engineering",
+      "fsharp": "F#",
+      "dotnet": ".NET",
+      "rust": "Rust",
+      "gamedev": "Game Dev",
+      "web-dev": "Web Dev",
+      "travel": "Travel",
+      "music": "Music",
+      "testing": "Testing",
+      "leadership": "Leadership",
+      "writing": "Writing",
+      "go": "Go",
+    };
+    return map[tag] || tag;
+  });
+
+  // Related posts filter: finds posts sharing tags with the current post
+  // Usage: collections.posts | relatedPosts(page.url, tags)
+  eleventyConfig.addFilter("relatedPosts", (collection, pageUrl, pageTags) => {
+    const postTags = (pageTags || []).filter(t => !structuralTags.has(t));
+    if (postTags.length === 0) return [];
+
+    const scored = collection
+      .filter(p => p.url !== pageUrl)
+      .map(p => {
+        const pTags = (p.data.tags || []).filter(t => !structuralTags.has(t));
+        const shared = postTags.filter(t => pTags.includes(t)).length;
+        return { post: p, shared };
+      })
+      .filter(s => s.shared > 0)
+      .sort((a, b) => b.shared - a.shared || b.post.date - a.post.date);
+
+    return scored.slice(0, 3).map(s => s.post);
+  });
+
+  // Collect all unique content tags across posts
+  eleventyConfig.addCollection("tagList", function(collectionApi) {
+    const tagSet = new Set();
+    collectionApi.getFilteredByGlob("posts/*.md").forEach(post => {
+      (post.data.tags || []).forEach(tag => {
+        if (!structuralTags.has(tag)) {
+          tagSet.add(tag);
+        }
+      });
+    });
+    return [...tagSet].sort();
+  });
+
   eleventyConfig.addShortcode("youtube", function (id, caption) {
-    const video = `<div class="aspect-w-16 aspect-h-9">
+    const video = `<div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-md border border-base-300">
                    <iframe src="https://www.youtube.com/embed/${id}"
                      frameborder="0"
                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -86,8 +154,8 @@ module.exports = function (eleventyConfig) {
 }
 
 function figureWithCaption(child, caption, extraFigureClasses) {
-    return `<figure class="max-w-4xl mx-auto center mt-8 mb-8 ${extraFigureClasses}">
+    return `<figure class="figure-styled max-w-4xl mx-auto center mt-8 mb-8 ${extraFigureClasses}">
               ${child}
-              <figcaption class="mx-auto text-center text-white p-2 text-sm italic bg-gray-800 dark:bg-gray-900 border-solid rounded-b">${caption}</figcaption>
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">${caption}</figcaption>
             </figure>`
 }

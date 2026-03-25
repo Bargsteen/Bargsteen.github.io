@@ -1,6 +1,7 @@
 ---
 title: The lie of the progress bar
 date: '2026-03-18'
+tags: ["software-engineering", "leadership"]
 ---
 
 Most planning tools tell you lies every day.

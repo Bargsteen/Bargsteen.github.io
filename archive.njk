@@ -3,10 +3,77 @@ layout: layouts/base.njk
 permalink: /posts/
 ---
 
-<div class="max-w-3xl mx-auto px-4 py-12">
-  <h1 class="text-3xl font-bold mb-8">Archive</h1>
+<div class="max-w-3xl mx-auto px-4 py-16">
+  <h1 class="text-3xl sm:text-4xl font-display font-bold mb-4 animate-fade-in-up">Archive</h1>
+  <p class="text-base-content/50 text-base mb-10 animate-fade-in-up" style="animation-delay: 0.05s">All posts, newest first.</p>
 
-  {% set postslist = collections.posts %}
-  {% set postslistCounter = collections.posts.length %}
-  {% include "postslist.njk" %}
+  <div class="flex flex-wrap gap-2 mb-10 animate-fade-in-up" style="animation-delay: 0.1s" id="archive-tag-filters">
+    <button class="tag-filter-btn active" data-tag="all" onclick="filterArchivePosts('all', this)">All</button>
+    {% for tag in collections.tagList %}
+    <button class="tag-filter-btn" data-tag="{{ tag }}" onclick="filterArchivePosts('{{ tag }}', this)">{{ tag | tagDisplay }}</button>
+    {% endfor %}
+  </div>
+
+  <ul class="space-y-1">
+  {% for post in collections.posts | reverse %}
+    {% set postTags = post.data.tags | contentTags %}
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: {{ 0.12 + loop.index0 * 0.03 }}s" data-tags="{{ postTags | join(',') }}">
+      <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="{{ post.date }}">
+        {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
+      </time>
+      <div class="flex-grow min-w-0">
+        <a href="{{ post.url | url }}" class="text-lg hover:text-primary transition-colors duration-150">
+          {{ post.data.title }}
+        </a>
+        {% if postTags.length %}
+        <span class="hidden sm:inline ml-2">
+          {% for tag in postTags %}
+          <span class="text-xs font-mono text-base-content/30">{{ tag | tagDisplay }}{% if not loop.last %} &middot; {% endif %}</span>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
 </div>
+
+<script>
+(function() {
+  // Check for ?tag= query param and activate that filter
+  var params = new URLSearchParams(window.location.search);
+  var activeTag = params.get('tag');
+  if (activeTag) {
+    var btn = document.querySelector('#archive-tag-filters [data-tag="' + activeTag + '"]');
+    if (btn) {
+      filterArchivePosts(activeTag, btn);
+    }
+  }
+})();
+
+function filterArchivePosts(tag, btn) {
+  var posts = document.querySelectorAll('.archive-post');
+  var buttons = document.querySelectorAll('#archive-tag-filters .tag-filter-btn');
+
+  buttons.forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+
+  posts.forEach(function(post) {
+    if (tag === 'all') {
+      post.style.display = '';
+    } else {
+      var tags = post.getAttribute('data-tags').split(',');
+      post.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
+    }
+  });
+
+  // Update URL without reload
+  var url = new URL(window.location);
+  if (tag === 'all') {
+    url.searchParams.delete('tag');
+  } else {
+    url.searchParams.set('tag', tag);
+  }
+  history.replaceState({}, '', url);
+}
+</script>

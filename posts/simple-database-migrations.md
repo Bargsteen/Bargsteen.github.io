@@ -1,6 +1,7 @@
 ---
 title: A simple database migration system in F#
 date: '2026-03-03'
+tags: ["fsharp", "dotnet"]
 ---
 
 At work we needed a simple system for handling database migrations.

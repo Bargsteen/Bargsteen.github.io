@@ -3,7 +3,7 @@ title: "Oh hey doggie!"
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: "2017-08-04T15:07:57+01:00"
 categories: ["travel"]
-tags: ["posts", "misadventures"]
+tags: ["travel"]
 ---
 
 ### 11/07-17 - Chapter Two

@@ -3,7 +3,7 @@ title: Our friends, the Strangers
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2017-11-11T12:00:00+01:00'
 categories: ["travel"]
-tags: ["posts", "misadventures"]
+tags: ["travel"]
 ---
 
 ### 14/07-17 - Chapter Five

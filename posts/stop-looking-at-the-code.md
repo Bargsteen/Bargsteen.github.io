@@ -1,6 +1,7 @@
 ---
 title: Stop looking at the code?
 date: '2026-03-13'
+tags: ["ai", "software-engineering"]
 ---
 
 "Code doesn't matter anymore. Just ship."

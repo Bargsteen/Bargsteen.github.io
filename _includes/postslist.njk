@@ -1,7 +1,7 @@
-<ul class="space-y-2">
+<ul class="space-y-1">
 {% for post in postslist | reverse %}
-  <li class="flex items-baseline gap-4 py-1.5 border-b border-base-200 last:border-0">
-    <time class="flex-shrink-0 w-36 text-sm font-mono opacity-50" datetime="{{ post.date }}">
+  <li class="flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0">
+    <time class="flex-shrink-0 w-32 text-xs font-mono text-base-content/40" datetime="{{ post.date }}">
       {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
     </time>
     <a href="{{ post.url | url }}" class="hover:text-primary transition-colors duration-150">

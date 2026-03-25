@@ -1,6 +1,7 @@
 ---
 title: AI agents and battling system complexity
 date: '2026-01-28'
+tags: ["ai", "software-engineering"]
 ---
 
 The biggest limiting factor to developing large software systems is the complexity of the system, as noted by John Ousterhout in A Philosophy of Software Design.

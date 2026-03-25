@@ -3,6 +3,7 @@ title: "Testing Gophercise 1"
 date: 2019-03-10T21:23:57+01:00
 draft: true
 categories: ["code"]
+tags: ["go", "testing"]
 ---
 
 I recently started programming in Go via [The Tour of Go](http://tour.golang.org/) and I was delighted to find it fun and easy to get in to. Go is a perfect example of how powerful simplicity can be.

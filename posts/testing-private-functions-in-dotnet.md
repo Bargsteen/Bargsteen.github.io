@@ -1,6 +1,7 @@
 ---
 title: Testing private functions in .NET
 date: '2026-02-20'
+tags: ["fsharp", "dotnet", "testing"]
 ---
 
 At University we were told to always test our code but also to hide complexity using the `private` keyword.

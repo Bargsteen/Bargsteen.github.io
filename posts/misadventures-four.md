@@ -3,7 +3,7 @@ title: I can has wine!?
 description: "Is hitchhiking across Europe possible in 2017? Follow us, and find out!"
 date: '2017-09-18T12:00:00+01:00'
 categories: ["travel"]
-tags: ["posts", "misadventures"]
+tags: ["travel"]
 ---
 ### 13/07-17 - Chapter Four
 Slighty hungover, we managed to get out of our lovely private hotel room and down to one of the best-rated cafés for brunch. Plane tickets were bought (yes we are cheating on our way back, but more about that later), food digested and coffee drunk. Then we moved onto discovering the city. We found the Luxembourg Park, which was quite nice and relaxing. 

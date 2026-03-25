@@ -1,6 +1,7 @@
 ---
 title: "Track release: Sporadic Contemplation"
 date: '2021-02-12'
+tags: ["music"]
 ---
 
 I released a new track called Sporadic Contemplation!

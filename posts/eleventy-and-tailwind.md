@@ -1,6 +1,7 @@
 ---
 title: Rebuilding my blog with Eleventy and TailwindCSS
 date: '2020-05-29'
+tags: ["web-dev"]
 ---
 
 I've been wanting to get back into writing for some time now.

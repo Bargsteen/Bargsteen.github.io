@@ -2,39 +2,86 @@
 layout: layouts/base.njk
 ---
 
-<section class="border-b border-base-300 bg-base-200 py-16 px-4">
-  <div class="max-w-3xl mx-auto">
-    <h1 class="text-4xl font-bold mb-3">Hi, I'm Kasper</h1>
-    <p class="text-lg opacity-70 max-w-xl leading-relaxed">
-      Software engineer writing about F#, .NET, Rust, and other topics that catch my interest.
-    </p>
+<section class="border-b border-base-300 py-12 sm:py-16 px-4">
+  <div class="max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
+    <div class="sm:order-2 flex-shrink-0 animate-fade-in-up" style="animation-delay: 0.1s">
+      <div class="profile-frame">
+        <img
+          src="/img/profile/Kasper.jpg"
+          alt="Kasper Dissing Bargsteen"
+          class="w-40 sm:w-44 rounded-md"
+          loading="eager"
+        />
+      </div>
+    </div>
+    <div class="sm:order-1 flex-grow text-center sm:text-left animate-fade-in-up">
+      <p class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40 mb-3">Delivery Lead & Software Engineer</p>
+      <h1 class="text-4xl sm:text-5xl font-display font-bold leading-tight mb-3">
+        Hi, I'm <span class="text-primary">Kasper</span>
+      </h1>
+      <p class="text-lg text-base-content/60 max-w-md leading-relaxed">
+        I let the compiler catch the bugs, AI agents do the grunt work, and make sure the right things get shipped.
+      </p>
+    </div>
   </div>
 </section>
 
 <section class="max-w-3xl mx-auto px-4 py-12">
-  <h2 class="text-xs font-semibold uppercase tracking-widest opacity-50 mb-8">Recent Posts</h2>
+  <div class="flex items-baseline justify-between mb-8">
+    <h2 class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40">Recent Posts</h2>
+    <a href="{{ '/posts' | url }}" class="text-xs font-mono tracking-wide text-primary hover:underline">View all</a>
+  </div>
 
-  {% set postslist = collections.posts | take(-3) %}
+  <div class="flex flex-wrap gap-2 mb-8" id="index-tag-filters">
+    <button class="tag-filter-btn active" data-tag="all" onclick="filterIndexPosts('all', this)">All</button>
+    {% for tag in collections.tagList %}
+    <button class="tag-filter-btn" data-tag="{{ tag }}" onclick="filterIndexPosts('{{ tag }}', this)">{{ tag | tagDisplay }}</button>
+    {% endfor %}
+  </div>
+
+  {% set postslist = collections.posts | take(-6) %}
   {% for post in postslist | reverse %}
-  <article class="mb-10 pb-10 border-b border-base-200 last:border-0">
-    <time class="text-sm font-mono opacity-50" datetime="{{ post.date }}">
-      {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
-    </time>
-    <h3 class="text-2xl font-bold mt-1 mb-3">
+  {% set postTags = post.data.tags | contentTags %}
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="{{ postTags | join(',') }}" style="animation-delay: {{ loop.index0 * 0.06 }}s">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="{{ post.date }}">
+        {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
+      </time>
+      {% for tag in postTags %}
+      <span class="tag-pill text-2xs">{{ tag | tagDisplay }}</span>
+      {% endfor %}
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
       <a href="{{ post.url | url }}" class="hover:text-primary transition-colors duration-150">
         {{ post.data.title }}
       </a>
     </h3>
-    <p class="opacity-70 leading-relaxed mb-4 text-base">
-      {{ post.templateContent | excerpt }}
+    <p class="text-base text-base-content/60 leading-relaxed">
+      {{ post.templateContent | excerpt | safe }}
     </p>
-    <a href="{{ post.url | url }}" class="text-primary text-sm font-medium hover:underline">
-      Read more &rarr;
-    </a>
   </article>
   {% endfor %}
 
-  <p class="opacity-60 text-sm">
-    More posts in <a href="{{ '/posts' | url }}" class="text-primary hover:underline">the archive</a>.
+  <p class="text-sm font-mono text-base-content/40 mt-6">
+    <a href="{{ '/posts' | url }}" class="text-primary hover:underline">Browse the full archive &rarr;</a>
   </p>
 </section>
+
+<script>
+function filterIndexPosts(tag, btn) {
+  var posts = document.querySelectorAll('.index-post');
+  var buttons = document.querySelectorAll('#index-tag-filters .tag-filter-btn');
+
+  buttons.forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+
+  posts.forEach(function(post) {
+    if (tag === 'all') {
+      post.style.display = '';
+    } else {
+      var tags = post.getAttribute('data-tags').split(',');
+      post.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
+    }
+  });
+}
+</script>

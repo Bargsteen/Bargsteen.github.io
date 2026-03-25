@@ -1,16 +1,53 @@
 ---
 layout: layouts/base.njk
 ---
-<article class="max-w-3xl mx-auto px-4 py-12">
-  <header class="mb-10">
-    <h1 class="text-4xl font-bold leading-tight mb-3">{{ title }}</h1>
+<article class="max-w-3xl mx-auto px-4 pt-12 pb-12">
+  <header class="mb-8">
     {% if page.date %}
-    <time class="text-sm font-mono opacity-60" datetime="{{ page.date }}">
+    <time class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40" datetime="{{ page.date }}">
       {{ page.date.getFullYear() }}, {{ page.date.getMonth() | toThreeLetterMonth }} {{ page.date.getDate() }}
     </time>
+    {% endif %}
+    <h1 class="text-3xl sm:text-4xl font-display font-bold leading-tight mt-2 mb-4">{{ title }}</h1>
+    {% set postTags = tags | contentTags %}
+    {% if postTags.length %}
+    <div class="flex flex-wrap gap-2">
+      {% for tag in postTags %}
+      <a href="/posts/?tag={{ tag }}" class="tag-pill">{{ tag | tagDisplay }}</a>
+      {% endfor %}
+    </div>
     {% endif %}
   </header>
   <div class="markdown">
     {{ content | safe }}
   </div>
 </article>
+
+{% set related = collections.posts | relatedPosts(page.url, tags) %}
+{% if related.length %}
+<aside class="border-t border-base-300 bg-base-200/50">
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40 mb-8">Continue Reading</h2>
+    <div class="grid gap-6 sm:grid-cols-{{ related.length | min(3) }}">
+      {% for post in related %}
+      <a href="{{ post.url | url }}" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="{{ post.date }}">
+          {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
+        </time>
+        <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
+          {{ post.data.title }}
+        </h3>
+        {% set relTags = post.data.tags | contentTags %}
+        {% if relTags.length %}
+        <div class="flex flex-wrap gap-1.5">
+          {% for tag in relTags %}
+          <span class="text-2xs font-mono text-base-content/40">{{ tag | tagDisplay }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</aside>
+{% endif %}

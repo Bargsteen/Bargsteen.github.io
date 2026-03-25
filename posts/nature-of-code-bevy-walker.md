@@ -1,7 +1,7 @@
 ---
 title: "Nature of Code in Bevy: Random Walker"
 date: '2022-03-05'
-tags: ["nature-of-code-bevy"]
+tags: ["rust", "gamedev"]
 ---
 
 Today, I'll start reading and exploring the [Nature of
