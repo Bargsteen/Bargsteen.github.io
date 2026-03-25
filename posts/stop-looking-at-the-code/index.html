@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stop looking at the code? | Bargsteen</title>
     <meta name="description" content="I write about stuff.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/prism-nord.css" rel="stylesheet">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
@@ -36,24 +39,25 @@
 
     <div class="flex flex-col min-h-screen min-h-screen-ios bg-base-100 text-base-content">
 
+      <div class="h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
       <header class="border-b border-base-300">
-        <div class="navbar max-w-4xl mx-auto px-4 py-2">
-          <div class="navbar-start">
-            <a href="/" class="text-xl font-bold tracking-tight hover:text-primary transition-colors duration-150">
-              Bargsteen
-            </a>
-          </div>
-          <nav class="navbar-end gap-1">
-            <a href="/" class="btn btn-ghost btn-sm">Home</a>
-            <a href="/about" class="btn btn-ghost btn-sm">About</a>
-            <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="btn btn-ghost btn-sm btn-circle">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="/" class="group font-display text-2xl font-bold tracking-tight hover:text-primary transition-colors duration-200">
+            <span class="inline-block group-hover:-rotate-1 transition-transform duration-200">Bargsteen</span>
+          </a>
+          <nav class="flex items-center gap-1">
+            <a href="/" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">Home</a>
+            <a href="/posts" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">Archive</a>
+            <a href="/about" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">About</a>
+            <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="ml-1 p-2 rounded-md hover:bg-base-200 transition-colors duration-150">
               <span class="dark:hidden">
-                <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                 </svg>
               </span>
               <span class="hidden dark:inline">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                   <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
                 </svg>
               </span>
@@ -63,13 +67,23 @@
       </header>
 
       <main class="flex-grow">
-        <article class="max-w-3xl mx-auto px-4 py-12">
-  <header class="mb-10">
-    <h1 class="text-4xl font-bold leading-tight mb-3">Stop looking at the code?</h1>
+        <article class="max-w-3xl mx-auto px-4 pt-12 pb-12">
+  <header class="mb-8">
     
-    <time class="text-sm font-mono opacity-60" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+    <time class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
       2026, Mar 13
     </time>
+    
+    <h1 class="text-3xl sm:text-4xl font-display font-bold leading-tight mt-2 mb-4">Stop looking at the code?</h1>
+    
+    
+    <div class="flex flex-wrap gap-2">
+      
+      <a href="/posts/?tag=ai" class="tag-pill">AI</a>
+      
+      <a href="/posts/?tag=software-engineering" class="tag-pill">Software Engineering</a>
+      
+    </div>
     
   </header>
   <div class="markdown">
@@ -139,10 +153,77 @@ Next time someone tells you to stop reading the code, send them this post.</p>
   </div>
 </article>
 
+
+
+<aside class="border-t border-base-300 bg-base-200/50">
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40 mb-8">Continue Reading</h2>
+    <div class="grid gap-6 sm:grid-cols-2">
+      
+      <a href="/posts/ai-agents-and-system-complexity/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="Wed Jan 28 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+          2026, Jan 28
+        </time>
+        <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
+          AI agents and battling system complexity
+        </h3>
+        
+        
+        <div class="flex flex-wrap gap-1.5">
+          
+          <span class="text-2xs font-mono text-base-content/40">AI</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">Software Engineering</span>
+          
+        </div>
+        
+      </a>
+      
+      <a href="/posts/representing-uncertainty-in-planning-tools/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="Wed Mar 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+          2026, Mar 18
+        </time>
+        <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
+          The lie of the progress bar
+        </h3>
+        
+        
+        <div class="flex flex-wrap gap-1.5">
+          
+          <span class="text-2xs font-mono text-base-content/40">Software Engineering</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">Leadership</span>
+          
+        </div>
+        
+      </a>
+      
+    </div>
+  </div>
+</aside>
+
+
       </main>
 
-      <footer class="border-t border-base-300 py-6 text-center text-sm text-base-content opacity-60">
-        Kasper Dissing Bargsteen &copy; 2026
+      <footer class="border-t border-base-300 py-10">
+        <div class="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-base-content/40 font-mono">
+            Kasper Dissing Bargsteen &copy; 2026
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/bargsteen" class="text-base-content/30 hover:text-primary transition-colors duration-200" aria-label="GitHub">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/bargsteen" class="text-base-content/30 hover:text-primary transition-colors duration-200" aria-label="LinkedIn">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <span class="flex gap-1.5 ml-2">
+              <span class="w-2 h-2 rounded-full bg-primary/40"></span>
+              <span class="w-2 h-2 rounded-full bg-accent/40"></span>
+              <span class="w-2 h-2 rounded-full bg-secondary/40"></span>
+            </span>
+          </div>
+        </div>
       </footer>
 
     </div>

@@ -1,21 +1,20 @@
 /**
- * Nord Theme Originally by Arctic Ice Studio
- * https://nordtheme.com
- *
- * Ported for PrismJS by Zane Hitchcoxc (@zwhitchcox) and Gabriel Ramos (@gabrieluizramos)
+ * Warm Craft Theme for PrismJS
+ * A warm-toned syntax theme matching the bargsteen.com palette
  */
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #f8f8f2;
+	color: #e0d8ce;
 	background: none;
-	font-family: "Fira Code", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-family: "JetBrains Mono", Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
 	word-wrap: normal;
-	line-height: 1.5;
+	line-height: 1.6;
+	font-size: 0.9em;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
 	tab-size: 4;
@@ -27,87 +26,97 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 1em;
+	padding: 1.25em 1.5em;
 	margin: .5em 0;
 	overflow: auto;
-	border-radius: 0.3em;
+	border-radius: 0.75em;
+	border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #2E3440;
+	background: #262019;
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-	padding: .1em;
+	padding: .1em .3em;
 	border-radius: .3em;
 	white-space: normal;
 }
 
+/* Comments - warm muted */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #636f88;
+	color: #7a6e60;
+	font-style: italic;
 }
 
 .token.punctuation {
-	color: #81A1C1;
+	color: #a89a8a;
 }
 
 .namespace {
 	opacity: .7;
 }
 
+/* Tags, properties - teal */
 .token.property,
 .token.tag,
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #81A1C1;
+	color: #6bbaa8;
 }
 
+/* Numbers - rose/dusty pink */
 .token.number {
-	color: #B48EAD;
+	color: #d4918b;
 }
 
 .token.boolean {
-	color: #81A1C1;
+	color: #e0a366;
 }
 
+/* Strings - sage green */
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #A3BE8C;
+	color: #a8c78a;
 }
 
+/* Operators, URLs - warm sand */
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-	color: #81A1C1;
+	color: #c9b98a;
 }
 
+/* Functions, class names - amber/gold */
 .token.atrule,
 .token.attr-value,
 .token.function,
 .token.class-name {
-	color: #88C0D0;
+	color: #e8b84d;
 }
 
+/* Keywords - terracotta */
 .token.keyword {
-	color: #81A1C1;
+	color: #e07a52;
 }
 
+/* Regex, important - bright amber */
 .token.regex,
 .token.important {
-	color: #EBCB8B;
+	color: #e8b84d;
 }
 
 .token.important,
@@ -121,4 +130,10 @@ pre[class*="language-"] {
 
 .token.entity {
 	cursor: help;
+}
+
+/* Line highlighting */
+.line-highlight {
+	background: rgba(224, 122, 82, 0.08);
+	border-left: 3px solid #e07a52;
 }
