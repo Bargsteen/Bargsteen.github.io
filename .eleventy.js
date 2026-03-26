@@ -97,10 +97,13 @@ module.exports = function (eleventyConfig) {
     return scored.slice(0, 3).map(s => s.post);
   });
 
-  // Collect all unique content tags across posts
+  // Collect all unique content tags across published posts
   eleventyConfig.addCollection("tagList", function(collectionApi) {
+    const includeDrafts = true;
+    const isDevelopment = !process.env.ELEVENTY_PRODUCTION;
+    const showPost = (post) => isDevelopment && includeDrafts || !post.data.draft;
     const tagSet = new Set();
-    collectionApi.getFilteredByGlob("posts/*.md").forEach(post => {
+    collectionApi.getFilteredByGlob("posts/*.md").filter(showPost).forEach(post => {
       (post.data.tags || []).forEach(tag => {
         if (!structuralTags.has(tag)) {
           tagSet.add(tag);
