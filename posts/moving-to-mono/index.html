@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stop looking at the code? | Bargsteen</title>
+    <title>Moving to a mono repo | Bargsteen</title>
     <meta name="description" content="I write about stuff.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,85 +70,51 @@
         <article class="max-w-3xl mx-auto px-4 pt-12 pb-12">
   <header class="mb-8">
     
-    <time class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
-      2026, Mar 13
+    <time class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40" datetime="Thu Mar 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      2026, Mar 26
     </time>
     
-    <h1 class="text-3xl sm:text-4xl font-display font-bold leading-tight mt-2 mb-4">Stop looking at the code?</h1>
+    <h1 class="text-3xl sm:text-4xl font-display font-bold leading-tight mt-2 mb-4">Moving to a mono repo</h1>
     
     
     <div class="flex flex-wrap gap-2">
       
-      <a href="/posts/?tag=ai" class="tag-pill">AI</a>
-      
       <a href="/posts/?tag=software-engineering" class="tag-pill">Software Engineering</a>
+      
+      <a href="/posts/?tag=ai" class="tag-pill">AI</a>
       
     </div>
     
   </header>
   <div class="markdown">
-    <p>&quot;Code doesn't matter anymore. Just ship.&quot;
-I keep hearing this from tech leads and CTOs.
-I think they are wrong in most cases. Here are several arguments you can use, especially if it is your boss telling you to look away!</p>
-<p><strong>High quality code is cheaper than ever!</strong></p>
-<p>Code that works is ideal context for an agent to come up with a better and cleaner design.
-Why is your production code not as elegant and clean as you would like?
-My guess is that you didn't have the time to refactor it once it worked.
-But now you do!
-If you know what high quality code looks like, or can ask your agent about it, you can get the agent to refactor it.
-So spend the extra couple of dollars on tokens and get the code of your dreams!</p>
-<p><strong>High code quality means testability</strong></p>
-<p>And that clean code pays for itself. High quality code isn't just about style.
-It's very much about structure.
-If the structure is good, you can easily test your code.
-With more and better tests you go faster as a company because things don't break under your feet.
-For example, put your own interfaces in front of external dependencies.
-That gives you full control and lets you mock them.
-You can then turn most of your slow integration tests into fast unit tests, at least for your business code.</p>
-<p><strong>Good code is easy to understand and change</strong></p>
-<p>Testability is just the start. Sloppy code is hard to understand and change.
-For both agents and humans.
-Imagine this: it's 3 AM, your phone buzzes, and a critical system is down.
-You open your laptop, fire up your agent, and start digging through the code.
-But nothing makes sense. Functions do five things at once. Names are meaningless. There are no tests to guide you.
-Your agent hallucinates a fix that makes it worse.
-You don't want to be in that situation.</p>
-<p><strong>Agents follow established patterns in the codebase</strong></p>
-<p>Here's what makes this even more important in the age of AI. Unless you are very explicit about it, agents will often try to follow the structural patterns already established in the codebase.
-They will do that much faster than your human interns or junior engineers could in the past.
-It is therefore crucial that you establish good patterns from the start.
-Then you can really fly fast with agents.</p>
-<p><strong>Business requirements should live in code</strong></p>
-<p>Beyond structure, there's another reason to care about code. Business requirements can be complex and they have to be precise.
-English is rarely precise enough.
-It has built-in ambiguity.
-Code on the other hand, is designed to represent even the most complex domains.
-If you use languages with a low degree of syntactical noise, such as F#, your domain experts can even read the code.
-At Aleta, we were building a benchmark system for our clients' assets.
-We defined records, discriminated unions, and function signatures for all the core business logic.
-Then we had our colleague with a finance background review and correct it directly in the code.
-That would not have been possible if we had stopped caring about code quality.</p>
-<p><strong>Code is sometimes the only way to verify correctness</strong></p>
-<p>If you vibe-code an app with a GUI it is often quite easy to verify that clicking the button does what you expect.
-But how does a change to the core business logic affect your financial software system with 50+ microservices that unfortunately aren't cleanly separated and all communicate with a mix of HTTP and message queues?
-In those situations, the code is often the best place to look when verifying the correctness.
-Of course you can try to add more integration tests or add more interfaces to improve testability, but even so, you will likely want to look at the code.</p>
-<p><strong>But not all code is equal</strong></p>
-<p>Now, to be fair. Notice the &quot;sometimes&quot; in the reason above.
-It indicates that <em>sometimes</em> there <em>are</em> other ways to verify the correctness.
-Most companies have a mixture of domain-heavy services but also lighter frontends that use these services.
-They also have boilerplate code dealing with database queries, HTTP calls etc.
-So not all code must be of equal quality.
-Code that lives in a leaf, i.e. where no other code depends on it, can often be of lower quality.
-But establishing good patterns in those areas still pays off, I believe.
-Once the patterns are in place, though, perhaps it is sufficient to have other agents review it.</p>
-<p><strong>Not all pull requests are equal</strong></p>
-<p>A direct consequence of the above is that not all PRs are equal.
-If you make changes to code that is not at the core of your business and you have a good structure, tests, and observability in place, then perhaps you don't need another person to review it.
-Just get it into production and verify it yourself.
-Can you set up specific rules about what code needs human eyes and how thorough a review it must be?</p>
-<p>Do you agree or disagree?
-Next time someone tells you to stop reading the code, send them this post.</p>
+    <p>We are moving to a mono repo at work. One git repository with our full codebase instead of 30+ separate ones.
+Why? Because of AI. And because we should have done it even before AI turned everything upside down in software.</p>
+<h2>People are lazy (including me)</h2>
+<p>We are all a bit lazy.
+If I'm working on a feature in repo A and need a helper function that really fits into repo B, I'm forced to make two pull requests and get them both through review.
+That is much more work than simply adding the helper function inside repo A, knowing that people might do the same in repo C. Code duplication grows. Technical debt piles up.</p>
+<h2>Verifying end-to-end changes is hard</h2>
+<p>You break the API for an internal service in one repo, then make four other pull requests for the consuming services in their respective repositories.
+Were there really five consuming services?
+Do the changes match up exactly?
+You jump back and forth between the pull request with the breaking changes and the pull requests of the consumers. Taxing and error-prone. AI reviewers suffer from the same split context problem. They can't see the breaking change when reviewing the consumer.</p>
+<h2>Shared knowledge</h2>
+<p>With a mono repo, we keep all the relevant information and reusable components in one place with very little overhead.
+Reusable Bicep files for our infrastructure, AI skills and rules, architectural decision records.
+All of this context adds up and aids both humans and agents.</p>
+<h2>The tradeoffs</h2>
+<p>With ten engineers and their agents, we will have a lot of pull requests landing in the same repository. That can be hard to keep track of.
+There will be more merge conflicts.
+And if someone breaks a central flow or file without our CI checks catching it, it can affect our ability to deploy not just one service, but all of them.</p>
+<p>Still worth it.</p>
+<h2>How we are doing it</h2>
+<p>We want to keep our git history, so we use <a href="https://tomono.0brg.net/">ToMono</a> to merge in the repositories.</p>
+<p>Then we set up <a href="https://nx.dev/">nx</a> to ensure that we only compile and run tests for the relevant projects in the CI.
+A tiny change in frontend should not run all of our thousands of unit and integration tests in the backend services.
+Nx builds a dependency graph between your projects and uses it to infer what to build and test.
+Change project A, which project B depends on but project C does not? CI runs jobs for A and B. Nothing else.</p>
+<p>We are also setting up GitHub <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners">CodeOwners</a> and pull request rules so only the owners of a service are requested to review changes in it.</p>
+<p>I'll write an update once the transition is complete and we know more of the ins and outs.</p>
 
   </div>
 </article>
@@ -160,20 +126,20 @@ Next time someone tells you to stop reading the code, send them this post.</p>
     <h2 class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40 mb-8">Continue Reading</h2>
     <div class="grid gap-6 sm:grid-cols-3">
       
-      <a href="/posts/moving-to-mono/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
-        <time class="text-2xs font-mono text-base-content/40" datetime="Thu Mar 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
-          2026, Mar 26
+      <a href="/posts/stop-looking-at-the-code/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+          2026, Mar 13
         </time>
         <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
-          Moving to a mono repo
+          Stop looking at the code?
         </h3>
         
         
         <div class="flex flex-wrap gap-1.5">
           
-          <span class="text-2xs font-mono text-base-content/40">Software Engineering</span>
-          
           <span class="text-2xs font-mono text-base-content/40">AI</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">Software Engineering</span>
           
         </div>
         
