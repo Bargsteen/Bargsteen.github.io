@@ -133,6 +133,17 @@ module.exports = function (eleventyConfig) {
     return figureWithCaption(img, caption, "table");
   });
 
+  eleventyConfig.addPairedShortcode("figrow", function (content, caption) {
+    return `<figure class="figure-styled max-w-4xl mx-auto mt-8 mb-8 table">
+              <div class="flex flex-row gap-4 justify-center items-start">${content}</div>
+              ${caption ? `<figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">${caption}</figcaption>` : ""}
+            </figure>`;
+  });
+
+  eleventyConfig.addShortcode("img", function (src, alt) {
+    return `<img class="flex-1 min-w-0 max-w-[50%] h-auto" src="${src}" alt="${alt || ""}">`;
+  });
+
   eleventyConfig.addPassthroughCopy({"img": "img",
                                      "prims_css": "css",
                                      // Files related to my project with University of Southern Denmark.
