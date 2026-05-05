@@ -66,7 +66,15 @@
   <div class="flex flex-wrap gap-2 mb-10 animate-fade-in-up" style="animation-delay: 0.1s" id="archive-tag-filters">
     <button class="tag-filter-btn active" data-tag="all" onclick="filterArchivePosts('all', this)">All</button>
     
+    <button class="tag-filter-btn" data-tag="AI" onclick="filterArchivePosts('AI', this)">AI</button>
+    
+    <button class="tag-filter-btn" data-tag="UI" onclick="filterArchivePosts('UI', this)">UI</button>
+    
+    <button class="tag-filter-btn" data-tag="UX" onclick="filterArchivePosts('UX', this)">UX</button>
+    
     <button class="tag-filter-btn" data-tag="ai" onclick="filterArchivePosts('ai', this)">AI</button>
+    
+    <button class="tag-filter-btn" data-tag="design" onclick="filterArchivePosts('design', this)">design</button>
     
     <button class="tag-filter-btn" data-tag="dotnet" onclick="filterArchivePosts('dotnet', this)">.NET</button>
     
@@ -93,7 +101,32 @@
   <ul class="space-y-1">
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.12s" data-tags="software-engineering,ai">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.12s" data-tags="AI,design,UX,UI">
+      <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Tue May 05 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        2026, May 5
+      </time>
+      <div class="flex-grow min-w-0">
+        <a href="/posts/im-now-a-designer/" class="text-lg hover:text-primary transition-colors duration-150">
+          I am now a designer
+        </a>
+        
+        <span class="hidden sm:inline ml-2">
+          
+          <span class="text-xs font-mono text-base-content/30">AI &middot; </span>
+          
+          <span class="text-xs font-mono text-base-content/30">design &middot; </span>
+          
+          <span class="text-xs font-mono text-base-content/30">UX &middot; </span>
+          
+          <span class="text-xs font-mono text-base-content/30">UI</span>
+          
+        </span>
+        
+      </div>
+    </li>
+  
+    
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.15s" data-tags="software-engineering,ai">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Thu Mar 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 26
       </time>
@@ -114,7 +147,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.15s" data-tags="software-engineering,leadership">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.18s" data-tags="software-engineering,leadership">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Wed Mar 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 18
       </time>
@@ -135,7 +168,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.18s" data-tags="ai,software-engineering">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.21s" data-tags="ai,software-engineering">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 13
       </time>
@@ -156,7 +189,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.21s" data-tags="fsharp,dotnet">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.24s" data-tags="fsharp,dotnet">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Tue Mar 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 3
       </time>
@@ -177,7 +210,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.24s" data-tags="fsharp,dotnet,testing">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.27s" data-tags="fsharp,dotnet,testing">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Fri Feb 20 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Feb 20
       </time>
@@ -200,7 +233,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.27s" data-tags="ai,software-engineering">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.3s" data-tags="ai,software-engineering">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Wed Jan 28 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Jan 28
       </time>
@@ -221,7 +254,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.3s" data-tags="rust,gamedev">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.32999999999999996s" data-tags="rust,gamedev">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Sat Mar 05 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2022, Mar 5
       </time>
@@ -242,7 +275,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.32999999999999996s" data-tags="music">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.36s" data-tags="music">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Fri Feb 12 2021 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2021, Feb 12
       </time>
@@ -261,7 +294,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.36s" data-tags="web-dev">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.39s" data-tags="web-dev">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Fri May 29 2020 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2020, May 29
       </time>
@@ -280,7 +313,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.39s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.42s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Sun Feb 11 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2018, Feb 11
       </time>
@@ -299,7 +332,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.42s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.44999999999999996s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Sat Feb 10 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2018, Feb 10
       </time>
@@ -318,7 +351,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.44999999999999996s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.48s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Thu Feb 01 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2018, Feb 1
       </time>
@@ -337,7 +370,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.48s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.51s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Wed Jan 31 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2018, Jan 31
       </time>
@@ -356,7 +389,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.51s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.54s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Sat Nov 11 2017 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2017, Nov 11
       </time>
@@ -375,7 +408,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.54s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.57s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Mon Sep 18 2017 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2017, Sep 18
       </time>
@@ -394,7 +427,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.57s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.6s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Wed Aug 23 2017 11:00:00 GMT+0000 (Coordinated Universal Time)">
         2017, Aug 23
       </time>
@@ -413,7 +446,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.6s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.63s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Fri Aug 04 2017 14:07:57 GMT+0000 (Coordinated Universal Time)">
         2017, Aug 4
       </time>
@@ -432,7 +465,7 @@
     </li>
   
     
-    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.63s" data-tags="travel">
+    <li class="archive-post flex items-baseline gap-4 py-2.5 border-b border-base-200 last:border-0 animate-fade-in-up" style="animation-delay: 0.66s" data-tags="travel">
       <time class="flex-shrink-0 w-36 text-sm font-mono text-base-content/40" datetime="Thu Aug 03 2017 14:07:57 GMT+0000 (Coordinated Universal Time)">
         2017, Aug 3
       </time>

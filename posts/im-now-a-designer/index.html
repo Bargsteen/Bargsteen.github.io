@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am now a designer | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      (function() {
+        var isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+
+    <script defer src="https://analytics.bargsteen.com/script.js" data-website-id="440b200d-e117-434a-9f12-36bd74574a3d"></script>
+
+    <div class="flex flex-col min-h-screen min-h-screen-ios bg-base-100 text-base-content">
+
+      <div class="h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
+      <header class="border-b border-base-300">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="/" class="group font-display text-2xl font-bold tracking-tight hover:text-primary transition-colors duration-200">
+            <span class="inline-block group-hover:-rotate-1 transition-transform duration-200">Bargsteen</span>
+          </a>
+          <nav class="flex items-center gap-1">
+            <a href="/" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">Home</a>
+            <a href="/posts" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">Archive</a>
+            <a href="/about" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">About</a>
+            <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="ml-1 p-2 rounded-md hover:bg-base-200 transition-colors duration-150">
+              <span class="dark:hidden">
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </span>
+              <span class="hidden dark:inline">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow">
+        <article class="max-w-3xl mx-auto px-4 pt-12 pb-12">
+  <header class="mb-8">
+    
+    <time class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40" datetime="Tue May 05 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      2026, May 5
+    </time>
+    
+    <h1 class="text-3xl sm:text-4xl font-display font-bold leading-tight mt-2 mb-4">I am now a designer</h1>
+    
+    
+    <div class="flex flex-wrap gap-2">
+      
+      <a href="/posts/?tag=AI" class="tag-pill">AI</a>
+      
+      <a href="/posts/?tag=design" class="tag-pill">design</a>
+      
+      <a href="/posts/?tag=UX" class="tag-pill">UX</a>
+      
+      <a href="/posts/?tag=UI" class="tag-pill">UI</a>
+      
+    </div>
+    
+  </header>
+  <div class="markdown">
+    <p>I thoroughly enjoy well-designed software that is easy to use and pleasant to look at.
+But in my attempts to make beautiful UI in the past, I've always come up short.
+I can see when something is right, but I don't always know what I need to get there.
+Is it the spacing, the font, some subtle shadow that is needed?
+Good design also requires a lot of iteration, at least for me, and that is something I rarely have the time for on my side projects where this is relevant (at work we have an external designer).
+Same goes for the user experience, where you need to try out several options in practice before you realize what works best.</p>
+<p>But these obstacles are now gone due to AI agents.</p>
+<h2>Bargsteen.com</h2>
+<p>A natural starting point for me, was to redesign this blog.</p>
+<p>Here is the design that I created by hand several years ago:</p>
+<figure class="figure-styled max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/i-am-now-a-designer/blog-design-iteration-1.png" alt="My manually created design from years ago">
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">My manually created design from years ago</figcaption>
+            </figure>
+<p>It works but is quite boring and I wanted something more interesting.</p>
+<p>So I asked Claude to improve the design and make it more modern.
+Here is what it came up with.
+It is an improvement, but I don't think it really stands out.</p>
+<figure class="figure-styled max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/i-am-now-a-designer/blog-design-iteration-2.png" alt="Claude's first attempt at modernizing the design">
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">Claude's first attempt at modernizing the design</figcaption>
+            </figure>
+<p>But fair enough, I didn't give it much direction and I also wondered whether there were any good design agent skills that I could use.
+I found the <a href="https://github.com/anthropics/claude-code/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md">frontend design skill</a> from Anthropic, gave two reference blogs and got to something much more interesting.
+I iterated quickly with Claude by giving it screenshots of things I wanted to change and asked for it to try several variations.
+It was amazing to see how quickly we could whip up something that suits my taste and looks quite professional.</p>
+<figure class="figure-styled max-w-4xl mx-auto center mt-8 mb-8 table">
+              <img class="mx-auto" src="/img/i-am-now-a-designer/blog-design-iteration-3.png" alt="The final design after iterating with the frontend design skill">
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">The final design after iterating with the frontend design skill</figcaption>
+            </figure>
+<h2>Skaffa - grocery list side project</h2>
+<p>Thrilled by the possibility of designing beautiful apps, I threw myself into building a better grocery list for our household.
+When iterating on the design I gave a handful of keywords for the design direction and quickly went through several iterations for each of the pages.</p>
+<p>This is the current state of the <a href="https://skaffa.bargsteen.com/">Skaffa</a> app, which is in production and free to use!</p>
+<figure class="figure-styled max-w-4xl mx-auto mt-8 mb-8 table">
+              <div class="flex flex-row gap-4 justify-center items-start">
+  <img class="flex-1 min-w-0 max-w-[50%] h-auto" src="/img/i-am-now-a-designer/skaffa-land.png" alt="Skaffa landing page">
+  <img class="flex-1 min-w-0 max-w-[50%] h-auto" src="/img/i-am-now-a-designer/skaffa-login.png" alt="Skaffa login page with magic email link">
+</div>
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">Landing page and login with magic email link</figcaption>
+            </figure>
+<figure class="figure-styled max-w-4xl mx-auto mt-8 mb-8 table">
+              <div class="flex flex-row gap-4 justify-center items-start">
+  <img class="flex-1 min-w-0 max-w-[50%] h-auto" src="/img/i-am-now-a-designer/skaffa-lists.png" alt="Skaffa lists overview">
+  <img class="flex-1 min-w-0 max-w-[50%] h-auto" src="/img/i-am-now-a-designer/skaffa-items.png" alt="Skaffa items in a list">
+</div>
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">Lists overview and items in a list</figcaption>
+            </figure>
+<figure class="figure-styled max-w-4xl mx-auto mt-8 mb-8 table">
+              <div class="flex flex-row gap-4 justify-center items-start">
+  <img class="flex-1 min-w-0 max-w-[50%] h-auto" src="/img/i-am-now-a-designer/skaffa-settings.png" alt="Skaffa settings view">
+  <img class="flex-1 min-w-0 max-w-[50%] h-auto" src="/img/i-am-now-a-designer/skaffa-mcp.png" alt="Skaffa MCP settings view">
+</div>
+              <figcaption class="mx-auto text-center text-sm italic text-base-content/50 pt-3 mt-0">General and MCP settings</figcaption>
+            </figure>
+<p>While I am not claiming this app has superior design, it is certainly not bad either.
+It feels warm and friendly with good spacing, colors and fonts.
+Not bad for an hour of prompting.</p>
+<h2>Give me options and think like Steve</h2>
+<p>One general tip I've found is to get Claude to give me options on both the user experience and design and then ask it to implement several of them including toggles to switch between them.
+I also found that referring to Steve Krug's great book <a href="https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited">Don't Make Me Think</a> helps Claude when in doubt about the user experience.</p>
+<p>The world is full of software with horrible design and user experience due to a lack of time and skill.
+Now it no longer has to be like that.
+We can all be designers.
+I am now a designer.
+Go out and build great software!</p>
+
+  </div>
+</article>
+
+
+
+
+      </main>
+
+      <footer class="border-t border-base-300 py-10">
+        <div class="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-base-content/40 font-mono">
+            Kasper Dissing Bargsteen &copy; 2026
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/bargsteen" class="text-base-content/30 hover:text-primary transition-colors duration-200" aria-label="GitHub">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/bargsteen" class="text-base-content/30 hover:text-primary transition-colors duration-200" aria-label="LinkedIn">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <span class="flex gap-1.5 ml-2">
+              <span class="w-2 h-2 rounded-full bg-primary/40"></span>
+              <span class="w-2 h-2 rounded-full bg-accent/40"></span>
+              <span class="w-2 h-2 rounded-full bg-secondary/40"></span>
+            </span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      var isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (isDark) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+  </script>
+</html>
