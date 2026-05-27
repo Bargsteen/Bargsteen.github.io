@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giving Claude Eyes | Bargsteen</title>
+    <meta name="description" content="I write about stuff.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/prism-nord.css" rel="stylesheet">
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Bargsteen">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Bargsteen">
+    <script>
+      (function() {
+        var isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+
+    <script defer src="https://analytics.bargsteen.com/script.js" data-website-id="440b200d-e117-434a-9f12-36bd74574a3d"></script>
+
+    <div class="flex flex-col min-h-screen min-h-screen-ios bg-base-100 text-base-content">
+
+      <div class="h-1 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+
+      <header class="border-b border-base-300">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="/" class="group font-display text-2xl font-bold tracking-tight hover:text-primary transition-colors duration-200">
+            <span class="inline-block group-hover:-rotate-1 transition-transform duration-200">Bargsteen</span>
+          </a>
+          <nav class="flex items-center gap-1">
+            <a href="/" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">Home</a>
+            <a href="/posts" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">Archive</a>
+            <a href="/about" class="nav-link text-base font-medium px-3 py-1.5 rounded-md transition-colors duration-150">About</a>
+            <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" class="ml-1 p-2 rounded-md hover:bg-base-200 transition-colors duration-150">
+              <span class="dark:hidden">
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                </svg>
+              </span>
+              <span class="hidden dark:inline">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main class="flex-grow">
+        <article class="max-w-3xl mx-auto px-4 pt-12 pb-12">
+  <header class="mb-8">
+    
+    <time class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40" datetime="Wed May 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+      2026, May 27
+    </time>
+    
+    <h1 class="text-3xl sm:text-4xl font-display font-bold leading-tight mt-2 mb-4">Giving Claude Eyes</h1>
+    
+    
+    <div class="flex flex-wrap gap-2">
+      
+      <a href="/posts/?tag=AI" class="tag-pill">AI</a>
+      
+      <a href="/posts/?tag=software-engineering" class="tag-pill">Software Engineering</a>
+      
+      <a href="/posts/?tag=testing" class="tag-pill">Testing</a>
+      
+    </div>
+    
+  </header>
+  <div class="markdown">
+    <p>Claude kept saying &quot;all done&quot; on broken code.
+Screenshots from end-to-end tests fixed it.</p>
+<p>I'm building <a href="https://skaffa.bargsteen.com/">Skaffa</a>, a grocery-list app, mostly hands-off with Claude Code.
+It's a side project, so Claude has to get far without my supervision.</p>
+<p>I started with <a href="https://dioxus.com/">Dioxus</a> and a <a href="https://www.howtocodeit.com/guides/master-hexagonal-architecture-in-rust">hexagonal architecture</a>.
+Hexagonal is overkill for a todo list.
+I wanted to learn it, and the strict layering gives Claude guardrails: the ports are traits, and a missing match arm on a domain event is a compile error before it's a runtime bug.
+Rust's type system already does more of that work than TypeScript or JavaScript would.
+The project had unit tests and integration tests against a real Postgres.
+I thought it was solid.
+Claude kept declaring victory on features that didn't work, or had broken something else.</p>
+<p>The problem: <strong>Claude couldn't verify its work end-to-end</strong>.
+As developers, we don't just write code, run the tests, and ship.
+We poke at the app, see if it works, and iterate.
+Claude couldn't, and I didn't want to be its QA.</p>
+<p>I tried <code>--chrome</code>, but it was slow, buggy at the time, and burned through tokens.
+It didn't guard against regressions either.
+I didn't trust Claude to remember to re-test every pre-existing flow.</p>
+<h2>End-to-end tests with playwright-rs</h2>
+<p>I added <a href="https://playwright.dev/">Playwright</a> tests that exercise every flow and <em>take screenshots of each view</em>, so Claude could see.
+The false &quot;all done&quot;s stopped.
+The UI got better too, because Claude could iterate on what it saw.</p>
+<p>I started in Python, but every data-model change meant updating mirrored Python types, and Claude kept forgetting.
+No guardrails.
+Someone was building <a href="https://crates.io/crates/playwright-rs">playwright-rs</a> fast: new releases every few days, feature parity one version out.
+It drives the real Playwright server through a Rust client.
+I migrated, and tests now look like this:</p>
+<pre class="language-rust"><code class="language-rust"><span class="token attribute attr-name">#[tokio::test]</span><br><span class="token keyword">async</span> <span class="token keyword">fn</span> <span class="token function-definition function">test_owner_sees_and_cancels_pending_invite</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">let</span> env <span class="token operator">=</span> <span class="token namespace">helpers<span class="token punctuation">::</span></span><span class="token function">new_env</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> seed <span class="token operator">=</span> env<span class="token punctuation">.</span><span class="token function">fresh_seed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token keyword">let</span> invitee <span class="token operator">=</span> env<span class="token punctuation">.</span><span class="token function">disposable_email</span><span class="token punctuation">(</span><span class="token string">"pending-cancel"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><br>    <span class="token keyword">let</span> page <span class="token operator">=</span> env<span class="token punctuation">.</span><span class="token function">user1_page</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">page_objects<span class="token punctuation">::</span></span><span class="token function">navigate_to_list</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token operator">&amp;</span>seed<span class="token punctuation">.</span><span class="token function">groceries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">page_objects<span class="token punctuation">::</span></span><span class="token function">open_share_modal</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token string">"invite-email-input"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>invitee<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">click</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token string">"invite-button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">wait_for</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token string">"[data-testid='badge-pending']"</span><span class="token punctuation">,</span> <span class="token constant">DEFAULT_TIMEOUT</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">screenshot</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token string">"owner_sees_invite"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">click</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token string">"cancel-invite-button"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">wait_for_text_gone</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token operator">&amp;</span>invitee<span class="token punctuation">,</span> <span class="token constant">DEFAULT_TIMEOUT</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br>    <span class="token namespace">browser<span class="token punctuation">::</span></span><span class="token function">screenshot</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>page<span class="token punctuation">,</span> <span class="token string">"owner_cancelled"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">await</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>It exercises one slice of sharing: a pending invite shown to the owner, then cancelled.</p>
+<p>The interesting part is the test environment.
+I wanted to run end-to-end tests concurrently from multiple branches without conflicts.</p>
+<p>I use worktrees (or <em>workspaces</em>, in <a href="https://docs.jj-vcs.dev/latest/">Jujutsu</a> terms) one per branch, e.g. <code>skaffa/.jj-workspaces/pending-invites</code>.
+Each workspace gets its own dev server on its own port and its own Postgres database.
+A small <code>workspace_env</code> module hashes the workspace path into the port and DB name (<code>skaffa_test_&lt;slug&gt;</code>).
+Each <code>TestEnv</code> carries a browser, a device profile (e.g. iPhone 14), and a seed scope derived from the workspace folder path.
+Postgres runs as a shared singleton on the host; isolation comes from those per-workspace scopes, not from spinning up containers per branch.</p>
+<p>It took a few iterations to land.
+Now it's the single biggest productivity multiplier in the project.</p>
+<h2>Mailpit</h2>
+<p>One gap remained: anything touching email, like magic-link auth or the share-a-list invite, kept breaking under Claude.
+<a href="https://mailpit.axllent.org/">Mailpit</a> fixed it.
+It's a fake SMTP server that runs in Docker, catches every outbound email, and exposes an HTTP API for reading them back.
+Tests fetch the invite from the inbox, pull the magic link out of the body, and click through, all from Playwright.</p>
+<p>Zero false &quot;all done&quot;s on email flows.</p>
+<h2>Where the eyes stop working</h2>
+<p>You feel the leverage most where it's missing.</p>
+<p>Making Skaffa installable as a PWA looked easy: manifest, service worker, Add to Home Screen.
+Claude wrote it.
+Playwright confirmed the manifest was served, the service worker registered, and the install criteria were met.
+&quot;All done.&quot;</p>
+<p>Then I installed it on my iPhone and the app was unusable.
+The notch clipped the navbar's back button.
+The home indicator sat on top of the add-item button.
+<code>100vh</code> overran iOS Safari as the toolbar grew and shrank (the fix is <code>100dvh</code>, but Claude couldn't tell that from the headless screenshots).</p>
+<p>The eyes only see what they can render.
+Headless Chromium can't reproduce iOS standalone mode.
+The entire failure surface was invisible, and Claude declared victory anyway.</p>
+<p>There's no real fix here.
+Claude still can't see iOS standalone.
+What I did was tighten the <em>human</em> loop: I added a <code>--tunnel</code> flag to the dev command that exposes the local server over the network and prints a QR code in the terminal.
+I point my phone at it, reload after each change, and tell Claude what's wrong.
+It doesn't replace the missing eyes, but it shortens the iteration enough to make PWA work bearable.</p>
+<h2>Takeaway</h2>
+<p>If you want more out of your agents, and you're tired of half-baked &quot;all done&quot;s, give them a way to verify their work.
+The system has to be runnable by the agent, so it can poke at it like you would.</p>
+<p>Agents do 95% of the work.
+They just can't tell if it's right.</p>
+
+  </div>
+</article>
+
+
+
+<aside class="border-t border-base-300 bg-base-200/50">
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-xs font-mono tracking-wide-plus uppercase text-base-content/40 mb-8">Continue Reading</h2>
+    <div class="grid gap-6 sm:grid-cols-3">
+      
+      <a href="/posts/im-now-a-designer/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="Tue May 05 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+          2026, May 5
+        </time>
+        <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
+          I am now a designer
+        </h3>
+        
+        
+        <div class="flex flex-wrap gap-1.5">
+          
+          <span class="text-2xs font-mono text-base-content/40">AI</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">design</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">UX</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">UI</span>
+          
+        </div>
+        
+      </a>
+      
+      <a href="/posts/moving-to-mono/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="Thu Mar 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+          2026, Mar 26
+        </time>
+        <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
+          Moving to a mono repo
+        </h3>
+        
+        
+        <div class="flex flex-wrap gap-1.5">
+          
+          <span class="text-2xs font-mono text-base-content/40">Software Engineering</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">AI</span>
+          
+        </div>
+        
+      </a>
+      
+      <a href="/posts/representing-uncertainty-in-planning-tools/" class="group block p-5 rounded-lg border border-base-300 bg-base-100 hover:border-primary/40 transition-all duration-200">
+        <time class="text-2xs font-mono text-base-content/40" datetime="Wed Mar 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+          2026, Mar 18
+        </time>
+        <h3 class="font-display font-bold mt-1.5 mb-2 group-hover:text-primary transition-colors duration-150">
+          The lie of the progress bar
+        </h3>
+        
+        
+        <div class="flex flex-wrap gap-1.5">
+          
+          <span class="text-2xs font-mono text-base-content/40">Software Engineering</span>
+          
+          <span class="text-2xs font-mono text-base-content/40">Leadership</span>
+          
+        </div>
+        
+      </a>
+      
+    </div>
+  </div>
+</aside>
+
+
+      </main>
+
+      <footer class="border-t border-base-300 py-10">
+        <div class="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-base-content/40 font-mono">
+            Kasper Dissing Bargsteen &copy; 2026
+          </p>
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/bargsteen" class="text-base-content/30 hover:text-primary transition-colors duration-200" aria-label="GitHub">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/bargsteen" class="text-base-content/30 hover:text-primary transition-colors duration-200" aria-label="LinkedIn">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <span class="flex gap-1.5 ml-2">
+              <span class="w-2 h-2 rounded-full bg-primary/40"></span>
+              <span class="w-2 h-2 rounded-full bg-accent/40"></span>
+              <span class="w-2 h-2 rounded-full bg-secondary/40"></span>
+            </span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+  </body>
+  <script>
+    function toggleDarkMode() {
+      var isDark = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+      if (isDark) {
+        localStorage.theme = 'light';
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        localStorage.theme = 'dark';
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    }
+  </script>
+</html>
