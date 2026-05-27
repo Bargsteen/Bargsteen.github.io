@@ -90,44 +90,44 @@
   </div>
 
   <div class="flex flex-wrap gap-2 mb-8" id="index-tag-filters">
-    <button class="tag-filter-btn active" data-tag="all" onclick="filterIndexPosts('all', this)">All</button>
+    <button type="button" class="tag-filter-btn active" data-tag="all">All</button>
     
-    <button class="tag-filter-btn" data-tag="AI" onclick="filterIndexPosts('AI', this)">AI</button>
+    <button type="button" class="tag-filter-btn" data-tag="AI">AI</button>
     
-    <button class="tag-filter-btn" data-tag="UI" onclick="filterIndexPosts('UI', this)">UI</button>
+    <button type="button" class="tag-filter-btn" data-tag="UI">UI</button>
     
-    <button class="tag-filter-btn" data-tag="UX" onclick="filterIndexPosts('UX', this)">UX</button>
+    <button type="button" class="tag-filter-btn" data-tag="UX">UX</button>
     
-    <button class="tag-filter-btn" data-tag="ai" onclick="filterIndexPosts('ai', this)">AI</button>
+    <button type="button" class="tag-filter-btn" data-tag="ai">AI</button>
     
-    <button class="tag-filter-btn" data-tag="design" onclick="filterIndexPosts('design', this)">design</button>
+    <button type="button" class="tag-filter-btn" data-tag="design">design</button>
     
-    <button class="tag-filter-btn" data-tag="dotnet" onclick="filterIndexPosts('dotnet', this)">.NET</button>
+    <button type="button" class="tag-filter-btn" data-tag="dotnet">.NET</button>
     
-    <button class="tag-filter-btn" data-tag="fsharp" onclick="filterIndexPosts('fsharp', this)">F#</button>
+    <button type="button" class="tag-filter-btn" data-tag="fsharp">F#</button>
     
-    <button class="tag-filter-btn" data-tag="gamedev" onclick="filterIndexPosts('gamedev', this)">Game Dev</button>
+    <button type="button" class="tag-filter-btn" data-tag="gamedev">Game Dev</button>
     
-    <button class="tag-filter-btn" data-tag="leadership" onclick="filterIndexPosts('leadership', this)">Leadership</button>
+    <button type="button" class="tag-filter-btn" data-tag="leadership">Leadership</button>
     
-    <button class="tag-filter-btn" data-tag="music" onclick="filterIndexPosts('music', this)">Music</button>
+    <button type="button" class="tag-filter-btn" data-tag="music">Music</button>
     
-    <button class="tag-filter-btn" data-tag="rust" onclick="filterIndexPosts('rust', this)">Rust</button>
+    <button type="button" class="tag-filter-btn" data-tag="rust">Rust</button>
     
-    <button class="tag-filter-btn" data-tag="software-engineering" onclick="filterIndexPosts('software-engineering', this)">Software Engineering</button>
+    <button type="button" class="tag-filter-btn" data-tag="software-engineering">Software Engineering</button>
     
-    <button class="tag-filter-btn" data-tag="testing" onclick="filterIndexPosts('testing', this)">Testing</button>
+    <button type="button" class="tag-filter-btn" data-tag="testing">Testing</button>
     
-    <button class="tag-filter-btn" data-tag="travel" onclick="filterIndexPosts('travel', this)">Travel</button>
+    <button type="button" class="tag-filter-btn" data-tag="travel">Travel</button>
     
-    <button class="tag-filter-btn" data-tag="web-dev" onclick="filterIndexPosts('web-dev', this)">Web Dev</button>
+    <button type="button" class="tag-filter-btn" data-tag="web-dev">Web Dev</button>
     
   </div>
 
+  <div id="index-posts">
   
   
-  
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="AI,software-engineering,testing" style="animation-delay: 0s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="AI,software-engineering,testing" style="animation-delay: 0s;">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="Wed May 27 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, May 27
@@ -151,7 +151,7 @@
   </article>
   
   
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="AI,design,UX,UI" style="animation-delay: 0.06s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="AI,design,UX,UI" style="animation-delay: 0.06s;">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="Tue May 05 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, May 5
@@ -177,7 +177,7 @@
   </article>
   
   
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="software-engineering,ai" style="animation-delay: 0.12s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="software-engineering,ai" style="animation-delay: 0.12s;">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="Thu Mar 26 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 26
@@ -199,7 +199,7 @@
   </article>
   
   
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="software-engineering,leadership" style="animation-delay: 0.18s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="software-engineering,leadership" style="animation-delay: 0.18s;">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="Wed Mar 18 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 18
@@ -221,7 +221,7 @@
   </article>
   
   
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="ai,software-engineering" style="animation-delay: 0.24s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="ai,software-engineering" style="animation-delay: 0.24s;">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="Fri Mar 13 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 13
@@ -243,7 +243,7 @@
   </article>
   
   
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="fsharp,dotnet" style="animation-delay: 0.3s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="fsharp,dotnet" style="animation-delay: 0.3s;">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="Tue Mar 03 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
         2026, Mar 3
@@ -264,29 +264,309 @@
     </p>
   </article>
   
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="fsharp,dotnet,testing" style="animation-delay: 0.36s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Fri Feb 20 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        2026, Feb 20
+      </time>
+      
+      <span class="tag-pill text-2xs">F#</span>
+      
+      <span class="tag-pill text-2xs">.NET</span>
+      
+      <span class="tag-pill text-2xs">Testing</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/testing-private-functions-in-dotnet/" class="hover:text-primary transition-colors duration-150">
+        Testing private functions in .NET
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      At University we were told to always test our code but also to hide complexity using the private keyword. I found these two dogmas incongruent as it forced me to either make a function public just to…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="ai,software-engineering" style="animation-delay: 0.42s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Wed Jan 28 2026 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        2026, Jan 28
+      </time>
+      
+      <span class="tag-pill text-2xs">AI</span>
+      
+      <span class="tag-pill text-2xs">Software Engineering</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/ai-agents-and-system-complexity/" class="hover:text-primary transition-colors duration-150">
+        AI agents and battling system complexity
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      The biggest limiting factor to developing large software systems is the complexity of the system, as noted by John Ousterhout in A Philosophy of Software Design. This means that as developers, we must…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="rust,gamedev" style="animation-delay: 0.48s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Sat Mar 05 2022 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        2022, Mar 5
+      </time>
+      
+      <span class="tag-pill text-2xs">Rust</span>
+      
+      <span class="tag-pill text-2xs">Game Dev</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/nature-of-code-bevy-walker/" class="hover:text-primary transition-colors duration-150">
+        Nature of Code in Bevy: Random Walker
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      Today, I'll start reading and exploring the Nature of Code book and the Bevy Game Engine ! I've been interested in the book for a couple of years and I also completed some of the first chapters in bot…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="music" style="animation-delay: 0.54s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Fri Feb 12 2021 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        2021, Feb 12
+      </time>
+      
+      <span class="tag-pill text-2xs">Music</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/sporadic-contemplation/" class="hover:text-primary transition-colors duration-150">
+        Track release: Sporadic Contemplation
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      I released a new track called Sporadic Contemplation! And you can listen to right here: Sporadic Contemplation by Kadiba As something new, I experimented with using randomness for generating part of t…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="web-dev" style="animation-delay: 0.6s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Fri May 29 2020 00:00:00 GMT+0000 (Coordinated Universal Time)">
+        2020, May 29
+      </time>
+      
+      <span class="tag-pill text-2xs">Web Dev</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/eleventy-and-tailwind/" class="hover:text-primary transition-colors duration-150">
+        Rebuilding my blog with Eleventy and TailwindCSS
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      I've been wanting to get back into writing for some time now. But I was not satisfied with my existing blog built using Hugo and basic CSS. So I decided to rebuild my blog using Eleventy and TailwindC…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 0.6599999999999999s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Sun Feb 11 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2018, Feb 11
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-nine/" class="hover:text-primary transition-colors duration-150">
+        Misadventuring, hobo-style! // Bye Bye Dei
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      18/07-17 - Chapter Nine We looked up the rules for sleeping in parks in Nice. It was illegal. We did it anyway. Desperate times calls for tents in parks! A weird sound woke us up, sort of a 'clunk clu…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 0.72s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Sat Feb 10 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2018, Feb 10
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-eight/" class="hover:text-primary transition-colors duration-150">
+        It&#39;s Nice here
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      17/07-17 - Chapter Eight It was melting hot day to hitchhike in, and maybe that's why we failed. Wait what!? Yes, our semi-boiling brains gave in to the temptation of BlaBlaCar. Sorry to disappoint, b…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 0.78s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Thu Feb 01 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2018, Feb 1
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-seven/" class="hover:text-primary transition-colors duration-150">
+        Buffets and Beaches
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      16/07-17 - Chapter Seven Woke up in Irene's rather humid house ready for a peachy beach adventure. Plenty of videos to go along, so I'll keep my rambling ramblings short. Enjoy! Breakfast with our lov…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 0.84s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Wed Jan 31 2018 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2018, Jan 31
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-six/" class="hover:text-primary transition-colors duration-150">
+        Hold on, Marseille! We&#39;re coming over
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      15/07-17 - Chapter Six Sleeping with your friends by the lake, doesn't that just sound idyllic? Like something out of a fairy tale about two guys hitchhiking to France. I woke up with a mild hangover…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 0.8999999999999999s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Sat Nov 11 2017 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2017, Nov 11
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-five/" class="hover:text-primary transition-colors duration-150">
+        Our friends, the Strangers
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      14/07-17 - Chapter Five Hitchhiking doesn't always go as planned, but, hopefully, there is joy waiting for you in the unknown. This is the story of how a hot and unlucky (hitchhiking wise) start in Pa…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 0.96s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Mon Sep 18 2017 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2017, Sep 18
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-four/" class="hover:text-primary transition-colors duration-150">
+        I can has wine!?
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      13/07-17 - Chapter Four Slighty hungover, we managed to get out of our lovely private hotel room and down to one of the best-rated cafés for brunch. Plane tickets were bought (yes we are cheating on o…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 1.02s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Wed Aug 23 2017 11:00:00 GMT+0000 (Coordinated Universal Time)">
+        2017, Aug 23
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-three/" class="hover:text-primary transition-colors duration-150">
+        Paris, my Paris!
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      12/07-17 - Chapter Three Today was a wild day. We slept in a park, went to Paris, drank, ate, saw, and photographed! The videoes and photos explain it quite well, so I'll let them do most of the talki…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 1.08s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Fri Aug 04 2017 14:07:57 GMT+0000 (Coordinated Universal Time)">
+        2017, Aug 4
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-two/" class="hover:text-primary transition-colors duration-150">
+        Oh hey doggie!
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      11/07-17 - Chapter Two Boy, did we have an interesting night!? Dogs running into the side of the tent, drunk Germans, and bright and early runners. It had it all, to say the least, but we slept none t…
+    </p>
+  </article>
+  
+  
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="travel" style="animation-delay: 1.14s;display:none;">
+    <div class="flex items-center gap-3 mb-1.5">
+      <time class="text-xs font-mono text-base-content/40" datetime="Thu Aug 03 2017 14:07:57 GMT+0000 (Coordinated Universal Time)">
+        2017, Aug 3
+      </time>
+      
+      <span class="tag-pill text-2xs">Travel</span>
+      
+    </div>
+    <h3 class="text-xl sm:text-2xl font-display font-bold mb-1.5">
+      <a href="/posts/misadventures-one/" class="hover:text-primary transition-colors duration-150">
+        Aalborg to Hannover in One Ride!
+      </a>
+    </h3>
+    <p class="text-base text-base-content/60 leading-relaxed">
+      10/07-17 - Chapter One This is the story, or misadventure if you will, of two unlikely comrades and their travels from the cold and rainy land of Denmark to the far warmer and sunny land of France. Th…
+    </p>
+  </article>
+  
+  </div>
 
   <p class="text-sm font-mono text-base-content/40 mt-6">
     <a href="/posts" class="text-primary hover:underline">Browse the full archive &rarr;</a>
   </p>
 </section>
 
+<script src="/js/tag-filter.js"></script>
 <script>
-function filterIndexPosts(tag, btn) {
-  var posts = document.querySelectorAll('.index-post');
-  var buttons = document.querySelectorAll('#index-tag-filters .tag-filter-btn');
-
-  buttons.forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-
-  posts.forEach(function(post) {
-    if (tag === 'all') {
-      post.style.display = '';
-    } else {
-      var tags = post.getAttribute('data-tags').split(',');
-      post.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
-    }
+  TagFilter.install({
+    filterContainer: '#index-tag-filters',
+    postSelector: '.index-post',
+    maxVisible: 6,
+    staggerSeconds: 0.06
   });
-}
 </script>
 
       </main>
