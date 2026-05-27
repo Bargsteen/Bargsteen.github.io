@@ -33,16 +33,16 @@ layout: layouts/base.njk
   </div>
 
   <div class="flex flex-wrap gap-2 mb-8" id="index-tag-filters">
-    <button class="tag-filter-btn active" data-tag="all" onclick="filterIndexPosts('all', this)">All</button>
+    <button type="button" class="tag-filter-btn active" data-tag="all">All</button>
     {% for tag in collections.tagList %}
-    <button class="tag-filter-btn" data-tag="{{ tag }}" onclick="filterIndexPosts('{{ tag }}', this)">{{ tag | tagDisplay }}</button>
+    <button type="button" class="tag-filter-btn" data-tag="{{ tag }}">{{ tag | tagDisplay }}</button>
     {% endfor %}
   </div>
 
-  {% set postslist = collections.posts | take(-6) %}
-  {% for post in postslist | reverse %}
+  <div id="index-posts">
+  {% for post in collections.posts | reverse %}
   {% set postTags = post.data.tags | contentTags %}
-  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="{{ postTags | join(',') }}" style="animation-delay: {{ loop.index0 * 0.06 }}s">
+  <article class="index-post post-card mb-4 animate-fade-in-up" data-tags="{{ postTags | join(',') }}" style="animation-delay: {{ loop.index0 * 0.06 }}s;{% if loop.index0 >= 6 %}display:none;{% endif %}">
     <div class="flex items-center gap-3 mb-1.5">
       <time class="text-xs font-mono text-base-content/40" datetime="{{ post.date }}">
         {{ post.date.getFullYear() }}, {{ post.date.getMonth() | toThreeLetterMonth }} {{ post.date.getDate() }}
@@ -61,27 +61,19 @@ layout: layouts/base.njk
     </p>
   </article>
   {% endfor %}
+  </div>
 
   <p class="text-sm font-mono text-base-content/40 mt-6">
     <a href="{{ '/posts' | url }}" class="text-primary hover:underline">Browse the full archive &rarr;</a>
   </p>
 </section>
 
+<script src="{{ '/js/tag-filter.js' | url }}"></script>
 <script>
-function filterIndexPosts(tag, btn) {
-  var posts = document.querySelectorAll('.index-post');
-  var buttons = document.querySelectorAll('#index-tag-filters .tag-filter-btn');
-
-  buttons.forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-
-  posts.forEach(function(post) {
-    if (tag === 'all') {
-      post.style.display = '';
-    } else {
-      var tags = post.getAttribute('data-tags').split(',');
-      post.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
-    }
+  TagFilter.install({
+    filterContainer: '#index-tag-filters',
+    postSelector: '.index-post',
+    maxVisible: 6,
+    staggerSeconds: 0.06
   });
-}
 </script>

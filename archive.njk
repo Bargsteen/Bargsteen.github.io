@@ -8,9 +8,9 @@ permalink: /posts/
   <p class="text-base-content/50 text-base mb-10 animate-fade-in-up" style="animation-delay: 0.05s">All posts, newest first.</p>
 
   <div class="flex flex-wrap gap-2 mb-10 animate-fade-in-up" style="animation-delay: 0.1s" id="archive-tag-filters">
-    <button class="tag-filter-btn active" data-tag="all" onclick="filterArchivePosts('all', this)">All</button>
+    <button type="button" class="tag-filter-btn active" data-tag="all">All</button>
     {% for tag in collections.tagList %}
-    <button class="tag-filter-btn" data-tag="{{ tag }}" onclick="filterArchivePosts('{{ tag }}', this)">{{ tag | tagDisplay }}</button>
+    <button type="button" class="tag-filter-btn" data-tag="{{ tag }}">{{ tag | tagDisplay }}</button>
     {% endfor %}
   </div>
 
@@ -38,42 +38,12 @@ permalink: /posts/
   </ul>
 </div>
 
+<script src="{{ '/js/tag-filter.js' | url }}"></script>
 <script>
-(function() {
-  // Check for ?tag= query param and activate that filter
-  var params = new URLSearchParams(window.location.search);
-  var activeTag = params.get('tag');
-  if (activeTag) {
-    var btn = document.querySelector('#archive-tag-filters [data-tag="' + activeTag + '"]');
-    if (btn) {
-      filterArchivePosts(activeTag, btn);
-    }
-  }
-})();
-
-function filterArchivePosts(tag, btn) {
-  var posts = document.querySelectorAll('.archive-post');
-  var buttons = document.querySelectorAll('#archive-tag-filters .tag-filter-btn');
-
-  buttons.forEach(function(b) { b.classList.remove('active'); });
-  btn.classList.add('active');
-
-  posts.forEach(function(post) {
-    if (tag === 'all') {
-      post.style.display = '';
-    } else {
-      var tags = post.getAttribute('data-tags').split(',');
-      post.style.display = tags.indexOf(tag) !== -1 ? '' : 'none';
-    }
+  TagFilter.install({
+    filterContainer: '#archive-tag-filters',
+    postSelector: '.archive-post',
+    staggerSeconds: 0.03,
+    syncUrl: true
   });
-
-  // Update URL without reload
-  var url = new URL(window.location);
-  if (tag === 'all') {
-    url.searchParams.delete('tag');
-  } else {
-    url.searchParams.set('tag', tag);
-  }
-  history.replaceState({}, '', url);
-}
 </script>

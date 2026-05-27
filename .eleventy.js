@@ -146,6 +146,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy({"img": "img",
                                      "prims_css": "css",
+                                     "js": "js",
                                      // Files related to my project with University of Southern Denmark.
                                      "sdu": "sdu",
                                      // PostCSS outputs to generated_css.
