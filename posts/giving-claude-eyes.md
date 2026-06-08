@@ -13,11 +13,11 @@ It's a side project, so Claude has to get far without my supervision.
 
 I started with [Dioxus](https://dioxus.com/) and a [hexagonal architecture](https://www.howtocodeit.com/guides/master-hexagonal-architecture-in-rust).
 Hexagonal is overkill for a todo list.
-I wanted to learn it, and the strict layering gives Claude guardrails: the ports are traits, and a missing match arm on a domain event is a compile error before it's a runtime bug.
+I wanted to learn it anyway, and the strict layering gives Claude guardrails: the ports are traits, and a missing match arm on a domain event is a compile error before it's a runtime bug.
 Rust's type system already does more of that work than TypeScript or JavaScript would.
 The project had unit tests and integration tests against a real Postgres.
 I thought it was solid.
-Claude kept declaring victory on features that didn't work, or had broken something else.
+And yet Claude kept declaring victory on features that didn't work, or had broken something else.
 
 The problem: **Claude couldn't verify its work end-to-end**.
 As developers, we don't just write code, run the tests, and ship.
@@ -25,8 +25,7 @@ We poke at the app, see if it works, and iterate.
 Claude couldn't, and I didn't want to be its QA.
 
 I tried `--chrome`, but it was slow, buggy at the time, and burned through tokens.
-It didn't guard against regressions either.
-I didn't trust Claude to remember to re-test every pre-existing flow.
+It didn't guard against regressions either, since I didn't trust Claude to remember to re-test every pre-existing flow.
 
 ## End-to-end tests with playwright-rs
 
@@ -36,7 +35,7 @@ The UI got better too, because Claude could iterate on what it saw.
 
 I started in Python, but every data-model change meant updating mirrored Python types, and Claude kept forgetting.
 No guardrails.
-Someone was building [playwright-rs](https://crates.io/crates/playwright-rs) fast: new releases every few days, feature parity one version out.
+Meanwhile, someone was [playwright-rs](https://crates.io/crates/playwright-rs) at agentic speed: new releases every few days, reaching full feature parity with a few weeks.
 It drives the real Playwright server through a Rust client.
 I migrated, and tests now look like this:
 
@@ -64,17 +63,10 @@ async fn test_owner_sees_and_cancels_pending_invite() {
 
 It exercises one slice of sharing: a pending invite shown to the owner, then cancelled.
 
-The interesting part is the test environment.
-I wanted to run end-to-end tests concurrently from multiple branches without conflicts.
+It also had to be runnable in parallel, so Claude could iterate on one branch without tripping over a test running on another.
+Each worktree gets its own dev server, port, and Postgres database, with isolation coming from per-workspace scopes rather than a container per branch.
 
-I use worktrees (or *workspaces*, in [Jujutsu](https://docs.jj-vcs.dev/latest/) terms) one per branch, e.g. `skaffa/.jj-workspaces/pending-invites`.
-Each workspace gets its own dev server on its own port and its own Postgres database.
-A small `workspace_env` module hashes the workspace path into the port and DB name (`skaffa_test_<slug>`).
-Each `TestEnv` carries a browser, a device profile (e.g. iPhone 14), and a seed scope derived from the workspace folder path.
-Postgres runs as a shared singleton on the host; isolation comes from those per-workspace scopes, not from spinning up containers per branch.
-
-It took a few iterations to land.
-Now it's the single biggest productivity multiplier in the project.
+It took a few iterations to land, but now it's the single biggest productivity multiplier in the project.
 
 ## Mailpit
 
@@ -114,5 +106,5 @@ It doesn't replace the missing eyes, but it shortens the iteration enough to mak
 If you want more out of your agents, and you're tired of half-baked "all done"s, give them a way to verify their work.
 The system has to be runnable by the agent, so it can poke at it like you would.
 
-Agents do 95% of the work.
-They just can't tell if it's right.
+An agent that can't verify its work isn't done, it's guessing.
+Give it eyes.
